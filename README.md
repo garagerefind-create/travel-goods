@@ -12,3 +12,10 @@ cp .env.example .env      # RAKUTEN_APP_ID と RAKUTEN_ACCESS_KEY を記入（.e
 python3 scripts/build.py
 open docs/index.html
 ```
+
+## 価格の定期更新
+毎週月曜9時に `scripts/weekly_update.sh` が動き、価格を再取得して `docs/` を更新・プッシュします（launchd: `~/Library/LaunchAgents/jp.travel-goods.weekly-update.plist`）。
+- ログ: `~/Library/Logs/travel-goods-update.log`
+- 手動実行: `bash scripts/weekly_update.sh`
+- 停止: `launchctl bootout gui/$(id -u)/jp.travel-goods.weekly-update`
+- リポジトリは Desktop などmacOSの保護フォルダに置かないでください（自動実行が拒否されます）。
