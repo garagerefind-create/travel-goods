@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""楽天商品検索APIで商品を取得し、site/index.html を生成する。
+"""楽天商品検索APIで商品を取得し、docs/index.html を生成する。
 
 使い方:
     export RAKUTEN_APP_ID=xxxx RAKUTEN_ACCESS_KEY=xxxx   # もしくは .env に書く
@@ -122,7 +122,7 @@ def main() -> None:
     items = [normalize(i) for i in fetch_items(app_id, access_key)]
     if not items:
         sys.exit("商品が取得できませんでした")
-    out = ROOT / "site" / "index.html"
+    out = ROOT / "docs" / "index.html"
     out.write_text(render(items), encoding="utf-8")
     print(f"{len(items)}件を書き出しました: {out}")
 

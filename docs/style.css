@@ -16,3 +16,12 @@ header p { color:var(--muted); margin:0; }
 .card a.btn { text-align:center; background:var(--accent); color:#fff; text-decoration:none; padding:8px; border-radius:8px; }
 @media (prefers-color-scheme: dark) { .card a.btn { color:#000; } }
 footer { color:var(--muted); font-size:.8rem; }
+header nav { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 8px; }
+header nav a { padding:4px 12px; border:1px solid var(--line); border-radius:999px; color:var(--fg); text-decoration:none; font-size:.85rem; background:var(--card); }
+.ad { font-size:.8rem; }
+section { margin:32px 0; scroll-margin-top:12px; }
+section h2 { border-left:4px solid var(--accent); padding-left:10px; margin:0 0 4px; }
+.lead { color:var(--muted); margin:0 0 12px; font-size:.9rem; }
+.card h3 { font-size:.9rem; margin:0; font-weight:500; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.meta, .shop { margin:0; font-size:.8rem; color:var(--muted); }
+footer a { color:var(--muted); }
