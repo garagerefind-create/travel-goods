@@ -52,10 +52,17 @@ def main() -> None:
     body = []
     for sec in picks:
         sid, title, lead = sec["id"], sec["title"], sec["lead"]
+        tips = "\n".join(f"          <li>{html.escape(t)}</li>" for t in sec.get("tips", []))
         cards_data = [(items[i["itemCode"]], i["name"], i.get("desc", "")) for i in sec["items"]]
         body.append(f"""    <section id="{sid}">
       <h2>{title}</h2>
       <p class="lead">{lead}</p>
+      <div class="tips">
+        <h3>選び方のポイント</h3>
+        <ul>
+{tips}
+        </ul>
+      </div>
       <ul class="grid">
 {chr(10).join(card(i, n, d) for i, n, d in cards_data)}
       </ul>
@@ -77,6 +84,12 @@ def main() -> None:
     <nav>{nav}</nav>
   </header>
   <main>
+    <section class="intro">
+      <h2>このサイトについて</h2>
+      <p>旅の準備で迷いやすいグッズを、楽天市場の商品からまとめて紹介しています。荷物を入れるバッグから、荷造り、電源、移動中の快適グッズまで、7つのカテゴリに分けました。</p>
+      <p><strong>商品の選び方：</strong>楽天市場の在庫があり、レビュー評価が4.0以上で、レビューが30件以上ある商品を候補にしています。そこから、価格帯やタイプが偏らないように選びました。</p>
+      <p>掲載している商品は、私たちが実際に使って確かめたものではありません。商品ページの情報とレビューをもとに紹介しています。仕様や在庫は、購入前にリンク先でご確認ください。</p>
+    </section>
 {chr(10).join(body)}
   </main>
   <footer>
