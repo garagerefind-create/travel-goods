@@ -25,3 +25,4 @@ section h2 { border-left:4px solid var(--accent); padding-left:10px; margin:0 0 
 .card h3 { font-size:.9rem; margin:0; font-weight:500; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .meta, .shop { margin:0; font-size:.8rem; color:var(--muted); }
 footer a { color:var(--muted); }
+.desc { font-size:.82rem; color:var(--muted); margin:0; }

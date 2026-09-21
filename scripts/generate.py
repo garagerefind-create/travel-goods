@@ -27,13 +27,14 @@ def image_of(it: dict) -> str:
     return img.split("?")[0] + "?_ex=400x400" if img else ""
 
 
-def card(it: dict, name: str) -> str:
+def card(it: dict, name: str, desc: str = "") -> str:
     url = html.escape(it.get("affiliateUrl") or it["itemUrl"])
     name = html.escape(name)
     return f"""        <li class="card">
           <a href="{url}" target="_blank" rel="noopener sponsored nofollow"><img src="{html.escape(image_of(it))}" alt="{name}" loading="lazy"></a>
           <div class="body">
             <h3>{name}</h3>
+            <p class="desc">{html.escape(desc)}</p>
             <p class="meta">★{it['reviewAverage']}（レビュー{int(it['reviewCount']):,}件）</p>
             <p class="shop">{html.escape(it['shopName'])}</p>
             <p class="price">¥{int(it['itemPrice']):,}</p>
@@ -51,12 +52,12 @@ def main() -> None:
     body = []
     for sec in picks:
         sid, title, lead = sec["id"], sec["title"], sec["lead"]
-        cards_data = [(items[i["itemCode"]], i["name"]) for i in sec["items"]]
+        cards_data = [(items[i["itemCode"]], i["name"], i.get("desc", "")) for i in sec["items"]]
         body.append(f"""    <section id="{sid}">
       <h2>{title}</h2>
       <p class="lead">{lead}</p>
       <ul class="grid">
-{chr(10).join(card(i, n) for i, n in cards_data)}
+{chr(10).join(card(i, n, d) for i, n, d in cards_data)}
       </ul>
     </section>""")
     page = f"""<!doctype html>
