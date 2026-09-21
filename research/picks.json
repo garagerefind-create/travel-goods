@@ -1,0 +1,155 @@
+[
+ {
+  "id": "backpack",
+  "title": "バックパック",
+  "lead": "旅行向けのバックパック。容量や拡張機能をチェックして選びましょう。",
+  "items": [
+   {
+    "itemCode": "tomtoc:10000003",
+    "name": "tomtoc T66 トラベルバックパック"
+   },
+   {
+    "itemCode": "roseall:10008295",
+    "name": "トラベルリュック 大容量・多機能"
+   },
+   {
+    "itemCode": "sanwadirect:10098739",
+    "name": "2WAY キャリーリュック 機内持ち込みサイズ"
+   },
+   {
+    "itemCode": "evoon:10000014",
+    "name": "Evoon トラベルバックパック 37L 拡張機能"
+   }
+  ]
+ },
+ {
+  "id": "suitcase",
+  "title": "スーツケース",
+  "lead": "機内持ち込みサイズを中心に、価格帯の違うものを集めました。",
+  "items": [
+   {
+    "itemCode": "busyman:10000122",
+    "name": "機内持込 軽量スーツケース TSAロック・USBポート付き"
+   },
+   {
+    "itemCode": "fkikaku:10000776",
+    "name": "グリフィンランド 超軽量スーツケース Sサイズ"
+   },
+   {
+    "itemCode": "b4u-shop:10002773",
+    "name": "B4U キャリーケース 機内持ち込み TSAロック"
+   },
+   {
+    "itemCode": "travelworld:10000283",
+    "name": "LEGEND WALKER スーツケース 機内持込サイズ"
+   }
+  ]
+ },
+ {
+  "id": "compression",
+  "title": "圧縮袋・トラベルポーチ",
+  "lead": "衣類をコンパクトにまとめて、荷造りをスッキリ。",
+  "items": [
+   {
+    "itemCode": "value-create:10000010",
+    "name": "YKKファスナー 圧縮トラベルポーチ"
+   },
+   {
+    "itemCode": "auc-risecreation:10003265",
+    "name": "圧縮トラベルポーチ 内ポケット付き"
+   },
+   {
+    "itemCode": "ichifujiec:10000075",
+    "name": "旅行用圧縮袋 トラベルポーチ 2点セット"
+   },
+   {
+    "itemCode": "arcraiz:10000087",
+    "name": "衣類圧縮袋 掃除機・吸引機対応"
+   }
+  ]
+ },
+ {
+  "id": "battery",
+  "title": "モバイルバッテリー",
+  "lead": "旅先の充電切れ対策に。大容量から軽量タイプまで。",
+  "items": [
+   {
+    "itemCode": "case-by-case:10002035",
+    "name": "モバイルバッテリー 超マット加工 PSE認証"
+   },
+   {
+    "itemCode": "yumenomori:10000194",
+    "name": "モバイルバッテリー 軽量・小型 22800mAh"
+   },
+   {
+    "itemCode": "hitidear:10000115",
+    "name": "半固体電池 モバイルバッテリー 20800mAh"
+   },
+   {
+    "itemCode": "corsage:10001821",
+    "name": "オシャモバ モバイルバッテリー 5000mAh 軽量・小型"
+   }
+  ]
+ },
+ {
+  "id": "plug",
+  "title": "変換プラグ",
+  "lead": "海外旅行の必需品。対応する国・地域は商品ページでご確認ください。",
+  "items": [
+   {
+    "itemCode": "next-online:10000139",
+    "name": "マルチ変換プラグ 世界200カ国以上対応 USB2ポート"
+   },
+   {
+    "itemCode": "life-mart:10000691",
+    "name": "変換プラグ USB-C搭載 5台同時充電"
+   },
+   {
+    "itemCode": "griptone:10007291",
+    "name": "カシムラ マルチプラグ サスケ 全世界対応"
+   }
+  ]
+ },
+ {
+  "id": "neckpillow",
+  "title": "ネックピロー",
+  "lead": "飛行機や新幹線での移動を快適に。タイプの違うものを選びました。",
+  "items": [
+   {
+    "itemCode": "inamical:10000000",
+    "name": "ポンプ式 エアーネックピロー コンパクト"
+   },
+   {
+    "itemCode": "guapo:10000000",
+    "name": "曲げられる低反発ネックピロー 綿100%カバー"
+   },
+   {
+    "itemCode": "tabine:10000000",
+    "name": "Tabine ネックピロー 150g 折りたたみ"
+   },
+   {
+    "itemCode": "shopmarna:10006596",
+    "name": "マーナ ONE-BREATH ネックピロー 140g 洗える"
+   }
+  ]
+ },
+ {
+  "id": "eyemask",
+  "title": "アイマスク",
+  "lead": "移動中も宿でも、しっかり眠るための遮光アイテム。",
+  "items": [
+   {
+    "itemCode": "gift-bmcjapan:10000150",
+    "name": "3D立体 アイマスク 遮光タイプ"
+   },
+   {
+    "itemCode": "mygear:10000299",
+    "name": "サエギリ アイマスク 6層 洗える"
+   },
+   {
+    "itemCode": "life-mart:10000579",
+    "name": "3D立体 アイマスク 鼻クッション付き"
+   }
+  ]
+ }
+]
