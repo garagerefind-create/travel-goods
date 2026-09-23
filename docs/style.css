@@ -76,3 +76,15 @@ header nav a.active { background:var(--accent); color:var(--on-accent); border-c
 /* フッターの案内リンク */
 .footer-links { display:flex; flex-wrap:wrap; gap:4px 16px; margin:12px 0; }
 .footer-links a { color:var(--muted); text-decoration:underline; }
+
+/* 目的から探す */
+.purpose-finder { margin:24px 0 32px; }
+.purpose-grid { list-style:none; padding:0; margin:12px 0 0; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+@media (max-width:600px) { .purpose-grid { grid-template-columns:repeat(2,1fr); } }
+.purpose-grid a { display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 8px; text-decoration:none; color:var(--fg); font-size:.85rem; font-weight:600; box-shadow:var(--shadow); transition:box-shadow .18s ease, transform .18s ease; }
+.purpose-grid a:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
+.purpose-icon { font-size:1.6rem; line-height:1; }
+
+/* 商品カード: 向いている人 / 使用済みバッジ */
+.for-whom { font-size:.8rem; color:var(--accent-dark); font-weight:600; margin:0; }
+.used-badge { display:inline-block; align-self:flex-start; background:var(--accent2); color:#fff; font-size:.72rem; font-weight:600; border-radius:999px; padding:3px 10px; margin:0; }

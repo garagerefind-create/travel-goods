@@ -1,5 +1,6 @@
 [
   { "id": "domestic", "label": "国内旅行" },
+  { "id": "day-trip", "label": "日帰り旅行" },
   { "id": "overseas", "label": "海外旅行" },
   { "id": "flight", "label": "飛行機" },
   { "id": "shinkansen", "label": "新幹線" },

@@ -8,8 +8,13 @@
     "itemCode": "tomtoc:10000003",
     "name": "tomtoc T66 トラベルバックパック",
     "desc": "28Lの軽量設計で、3〜5日ほどの短期旅行向け。商品ページによると、機内持ち込みサイズに対応し、ノートPC用の収納やYKKファスナーを備えています。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight",
+     "short-trip"
+    ],
+    "for_whom": "3〜5日程度の旅行で、身軽に機内持ち込みしたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -23,8 +28,12 @@
     "itemCode": "roseall:10008295",
     "name": "トラベルリュック 大容量・多機能",
     "desc": "男女兼用のトラベルリュック。大容量・多機能・撥水をうたい、A4やPCの収納にも対応。カラー展開が豊富なので、好みの色を選べます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight"
+    ],
+    "for_whom": "通勤・通学にも使える、大容量リュックを探している人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -38,8 +47,12 @@
     "itemCode": "sanwadirect:10098739",
     "name": "2WAY キャリーリュック 機内持ち込みサイズ",
     "desc": "リュックとしても、キャスター付きのキャリーバッグとしても使える2WAYタイプ。2泊3日向けで、マチ拡張機能つき。荷物が増える帰省や出張に。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "short-trip",
+     "car"
+    ],
+    "for_whom": "荷物が増えやすい帰省や出張で、両手を空けたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -53,8 +66,13 @@
     "itemCode": "evoon:10000014",
     "name": "Evoon トラベルバックパック 37L 拡張機能",
     "desc": "37Lで拡張機能つき。全16の機能を備えると紹介され、防犯機能・撥水加工・USBポート・17.3インチPC収納に対応。サイズは49×31.5×16cm、重さ1.4kg。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight",
+     "long-trip"
+    ],
+    "for_whom": "PCを持ち歩く出張・海外渡航が多く、防犯機能も重視したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -81,8 +99,12 @@
     "itemCode": "busyman:10000122",
     "name": "機内持込 軽量スーツケース TSAロック・USBポート付き",
     "desc": "SSからLまでサイズ展開があるスーツケース。TSAロック、USBポート、ドリンクホルダーつき。サイズや色で価格が変わるため、商品ページで確認を。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight"
+    ],
+    "for_whom": "サイズを日数に合わせて選びたい、幅広い用途の人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -96,8 +118,12 @@
     "itemCode": "fkikaku:10000776",
     "name": "グリフィンランド 超軽量スーツケース Sサイズ",
     "desc": "Sサイズ（30L、マチアップで38L）の超軽量ハードケース。機内持ち込みサイズの表記があり、TSAロックとマチアップ機能つき。1泊2日向け。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "short-trip",
+     "flight"
+    ],
+    "for_whom": "1泊2日程度の、身軽な旅行をしたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -111,8 +137,12 @@
     "itemCode": "b4u-shop:10002773",
     "name": "B4U キャリーケース 機内持ち込み TSAロック",
     "desc": "前開きで、立てたまま荷造りしやすいタイプ。TSAロック、USB充電、カップホルダー、RFID情報保護をうたいます。SとMサイズがあります。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight"
+    ],
+    "for_whom": "立てたまま荷造りしたい、スーツケース初心者にも扱いやすいものを探している人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -126,8 +156,12 @@
     "itemCode": "travelworld:10000283",
     "name": "LEGEND WALKER スーツケース 機内持込サイズ",
     "desc": "国内線の機内持ち込み（100席以上）に対応するSSサイズで、約2.5kgとシリーズ最軽量。容量拡張機能はなく、1年修理保証つき。1〜3日の旅向け。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "flight",
+     "short-trip"
+    ],
+    "for_whom": "とにかく軽いスーツケースを、国内線の機内持ち込みで使いたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -154,8 +188,12 @@
     "itemCode": "value-create:10000010",
     "name": "YKKファスナー 圧縮トラベルポーチ",
     "desc": "YKKファスナーの圧縮トラベルポーチ。撥水加工で、サイズと色を組み合わせて選べます。ファスナーで閉じて、かさばる衣類をコンパクトにまとめます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "long-trip"
+    ],
+    "for_whom": "衣類をコンパクトにまとめて、荷物を減らしたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -169,8 +207,11 @@
     "itemCode": "auc-risecreation:10003265",
     "name": "圧縮トラベルポーチ 内ポケット付き",
     "desc": "ファスナーで閉じるだけの圧縮ポーチ。便利な内ポケットつきで、水洗いもできます。旅行用の収納ポーチとして使えます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas"
+    ],
+    "for_whom": "衣類をサッと圧縮収納したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -184,8 +225,12 @@
     "itemCode": "ichifujiec:10000075",
     "name": "旅行用圧縮袋 トラベルポーチ 2点セット",
     "desc": "ファスナーで圧縮し、衣類のスペースを約50％節約できると紹介される2点セット。4サイズ（SS〜L）から選べ、旅行や出張の仕分けに。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "long-trip"
+    ],
+    "for_whom": "衣類を仕分けながら、荷物のスペースを節約したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -199,8 +244,11 @@
     "itemCode": "arcraiz:10000087",
     "name": "衣類圧縮袋 掃除機・吸引機対応",
     "desc": "掃除機や吸引機で空気を抜くタイプの衣類圧縮袋。防湿・防塵などをうたい、布団の収納や引っ越しにも使えます。サイズはSからXXLまで。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "long-trip",
+     "overseas"
+    ],
+    "for_whom": "厚手の衣類やかさばる荷物を、しっかり圧縮したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -227,8 +275,13 @@
     "itemCode": "case-by-case:10002035",
     "name": "モバイルバッテリー 超マット加工 PSE認証",
     "desc": "5000mAhまたは10000mAhから選べる小型モバイルバッテリー。ケーブル内蔵で、Type-CとLightningに対応。PSE認証をうたっています。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight",
+     "day-trip"
+    ],
+    "for_whom": "コンパクトなモバイルバッテリーを、荷物を増やさず持ちたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -242,8 +295,13 @@
     "itemCode": "yumenomori:10000194",
     "name": "モバイルバッテリー 軽量・小型 22800mAh",
     "desc": "22800mAhの大容量で、5台同時に充電できると紹介される軽量・小型タイプ。ケーブル内蔵、PSE認証、LEDライトつき。旅行や防災にも。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "flight",
+     "day-trip"
+    ],
+    "for_whom": "1日中出歩いて、複数の機器を充電したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -257,8 +315,12 @@
     "itemCode": "hitidear:10000115",
     "name": "半固体電池 モバイルバッテリー 20800mAh",
     "desc": "20800mAhで、半固体電池を採用したモデル。ケーブル4本内蔵で、ワイヤレス充電にも対応し、最大6台まで同時に充電できます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "long-trip"
+    ],
+    "for_whom": "ワイヤレス充電にも対応した、多機能なバッテリーを探している人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -272,8 +334,12 @@
     "itemCode": "corsage:10001821",
     "name": "オシャモバ モバイルバッテリー 5000mAh 軽量・小型",
     "desc": "5000mAhのミニサイズ。ケーブル不要でコネクタ内蔵。パステルやくすみカラーが選べ、スリムやデジタル表示など、タイプも複数あります。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "day-trip",
+     "short-trip"
+    ],
+    "for_whom": "最小限の充電量で十分な、身軽な旅行をしたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -300,8 +366,10 @@
     "itemCode": "next-online:10000139",
     "name": "マルチ変換プラグ 世界200カ国以上対応 USB2ポート",
     "desc": "世界200カ国以上に対応するマルチ変換プラグ。USB2ポートで、スマホ2台を同時に充電可能。専用ケースつきで、1年保証があります。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "行き先が決まっていない、複数国を旅する人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -315,8 +383,10 @@
     "itemCode": "life-mart:10000691",
     "name": "変換プラグ USB-C搭載 5台同時充電",
     "desc": "USB-Cを搭載し、最大5台を同時に充電できます。3.4Aの急速充電に対応し、専用ケースと忘れ物防止リストつき。1年保証。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "スマホ以外にもUSB-C機器を多く持って行く人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -330,8 +400,10 @@
     "itemCode": "griptone:10007291",
     "name": "カシムラ マルチプラグ サスケ 全世界対応",
     "desc": "国内メーカーのカシムラ製マルチプラグ。B・C・O・SE・BFなど、各国のプラグ形状に対応します。国内では使えないので注意。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "信頼できる国内メーカー製を選びたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -358,8 +430,12 @@
     "itemCode": "inamical:10000000",
     "name": "ポンプ式 エアーネックピロー コンパクト",
     "desc": "ポンプ式で膨らませるエアータイプ。折りたたんで収納袋に入れて持ち運べ、洗えます。飛行機、新幹線、夜行バスでの移動に。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "shinkansen",
+     "long-trip"
+    ],
+    "for_whom": "荷物をかさばらせたくない、飛行機・新幹線移動の人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -373,8 +449,12 @@
     "itemCode": "guapo:10000000",
     "name": "曲げられる低反発ネックピロー 綿100%カバー",
     "desc": "空気を入れず、好きな形に曲げられる低反発タイプ。綿100%カバーで、2021年グッドデザイン賞を受賞したと紹介されています。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "car",
+     "long-trip"
+    ],
+    "for_whom": "しっかりした支えで、長時間じっくり眠りたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -388,8 +468,12 @@
     "itemCode": "tabine:10000000",
     "name": "Tabine ネックピロー 150g 折りたたみ",
     "desc": "重さ約150gで、ケースつき。ポンプ式で膨らませ、折りたたんで持ち運べます。洗えるので、旅行の仮眠用に。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "shinkansen",
+     "short-trip"
+    ],
+    "for_whom": "軽さと持ち運びやすさを重視したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -403,8 +487,12 @@
     "itemCode": "shopmarna:10006596",
     "name": "マーナ ONE-BREATH ネックピロー 140g 洗える",
     "desc": "マーナ公式の、息を吹き込んで膨らませるタイプ。重さ約140gで洗えます。口をつけずに膨らませられ、すぐに小さくたためます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "shinkansen",
+     "car"
+    ],
+    "for_whom": "清潔に保ちたい、こまめに洗って使いたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -431,8 +519,12 @@
     "itemCode": "gift-bmcjapan:10000150",
     "name": "3D立体 アイマスク 遮光タイプ",
     "desc": "遮光率99.99％をうたう3D立体タイプ。アジャスターとマジックテープで調整でき、手洗いを推奨。旅行や仮眠に。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "hotel",
+     "onsen"
+    ],
+    "for_whom": "まつ毛に触れにくい立体構造で、しっかり眠りたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -446,8 +538,12 @@
     "itemCode": "mygear:10000299",
     "name": "サエギリ アイマスク 6層 洗える",
     "desc": "6層構造で、遮光率99.99％をうたうアイマスク。洗えて、サイズ調整もできます。ケースと日本語の説明書つきで、重さは約40g。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "hotel",
+     "long-trip"
+    ],
+    "for_whom": "肌ざわりや清潔さを重視したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -461,8 +557,11 @@
     "itemCode": "life-mart:10000579",
     "name": "3D立体 アイマスク 鼻クッション付き",
     "desc": "鼻まわりの光漏れに配慮した、鼻クッションつきの3D構造。まつ毛に触れにくく、サイズ調整ができます。30日保証つきで、洗えます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "flight",
+     "hotel"
+    ],
+    "for_whom": "光漏れが気になる、こだわって選びたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -495,8 +594,10 @@
     "itemCode": "liberflyer-japan:10000000",
     "name": "セキュリポ 海外旅行防犯 セキュリティポーチ",
     "desc": "地球の歩き方にも掲載された、ウエスト・斜め掛けで使えるスキミング防止ポーチ。パスポートやカードをまとめて収納できます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "パスポートやカードをまとめて、スキミング対策したい海外旅行者向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -510,8 +611,10 @@
     "itemCode": "griptone:10007127",
     "name": "シークレットベルト EL 貴重品入れ",
     "desc": "服の下に着けられる、腹巻きタイプのセキュリティポーチ。外から見えにくく、目立たず貴重品を持ち歩けます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "貴重品を目立たせず持ち歩きたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -525,8 +628,10 @@
     "itemCode": "fabomi:10000150",
     "name": "セキュリティポーチ 薄型パスポートケース",
     "desc": "スキミング防止機能つきの薄型タイプ。パスポートケースとして、コンパクトに持ち歩きたい人向けです。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "コンパクトに、パスポートだけ安全に持ちたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -540,8 +645,10 @@
     "itemCode": "aqshop:10000078",
     "name": "全面スキミング防止 トラベルポーチ",
     "desc": "全面にスキミング防止機能を備えたトラベルポーチ。パスポート・貴重品をまとめて収納できます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "overseas"
+    ],
+    "for_whom": "パスポートと貴重品をまとめて収納したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -568,8 +675,11 @@
     "itemCode": "hitsumi:10000168",
     "name": "キャリーオンバッグ 折りたたみ旅行バッグ",
     "desc": "折りたたんでコンパクトに収納できる、旅行向けのサブバッグ。大容量で、お土産が増えたときにも使えます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas"
+    ],
+    "for_whom": "お土産が増えても対応できる、サブバッグが欲しい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -583,8 +693,12 @@
     "itemCode": "shopmarna:10006620",
     "name": "Shupatto パッカブルバッグ 27L（マーナ公式）",
     "desc": "サッとたためる人気ブランド「Shupatto」の大容量タイプ。撥水・ファスナー付きで、旅行のサブバッグにも向いています。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "long-trip"
+    ],
+    "for_whom": "信頼できるブランドの折りたたみバッグを選びたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -598,8 +712,11 @@
     "itemCode": "btstoreosk:10000086",
     "name": "エコバッグ 折りたたみ チャック付き（収納力No.1受賞）",
     "desc": "mybestの収納力ランキングで1位を受賞した、撥水タイプの折りたたみバッグ。しっかり収納したい人向けです。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "short-trip"
+    ],
+    "for_whom": "とにかく収納力を重視したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -613,8 +730,11 @@
     "itemCode": "beefine:10000142",
     "name": "折りたたみリュック 防災・旅行兼用",
     "desc": "リュックタイプで、両手が空くのが特徴。防災用としても使え、旅行のサブバッグと兼用できます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "day-trip"
+    ],
+    "for_whom": "両手を空けたい、防災用としても兼用したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -641,8 +761,12 @@
     "itemCode": "hphvnmkt:10000501",
     "name": "ピンチハンガー トラベル 携帯用 2個セット",
     "desc": "折りたたんでコンパクトになる、携帯用のピンチハンガー。旅先での洗濯物干しに便利です。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "hotel",
+     "onsen",
+     "long-trip"
+    ],
+    "for_whom": "ホテルで洗濯物を干すスペースが限られている人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -656,8 +780,11 @@
     "itemCode": "shinbido:10003193",
     "name": "携帯用折りたたみハンガー6個＆ロープセット",
     "desc": "ハンガー6個とロープがセットになっていて、物干し場所を作りにくい部屋でも干しやすくなります。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "hotel",
+     "long-trip"
+    ],
+    "for_whom": "長期滞在で、洗濯を繰り返したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -671,8 +798,11 @@
     "itemCode": "kotakasi0217:10000514",
     "name": "折りたたみハンガー 多機能クリップ付き",
     "desc": "クリップも付いた多機能タイプ。出張・旅行用に、コンパクトに持ち運べます。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "hotel",
+     "short-trip"
+    ],
+    "for_whom": "出張・旅行にコンパクトに持って行きたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -699,8 +829,12 @@
     "itemCode": "azusa:10000109",
     "name": "日傘 折りたたみ傘 完全遮光 形状記憶",
     "desc": "楽天で年間1位を獲得した、形状記憶タイプの完全遮光傘。レビュー数が多く、定番として選びやすい1本です。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "day-trip"
+    ],
+    "for_whom": "日差し対策を重視したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -714,8 +848,12 @@
     "itemCode": "askrtech:10000050",
     "name": "折りたたみ傘 メンズ 自動開閉 晴雨兼用",
     "desc": "自動開閉で開閉がラクな、晴雨兼用タイプ。大きめサイズで、しっかり雨風をしのぎたい人向けです。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "overseas",
+     "car"
+    ],
+    "for_whom": "荷物が多いときも片手で開閉したい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -729,8 +867,11 @@
     "itemCode": "freedom-shops:10000002",
     "name": "折りたたみ傘 メンズ 軽量 260g",
     "desc": "260gの超軽量タイプ。UV機能などを省いた、シンプルな雨傘として持ち歩きたい人向けです。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "day-trip"
+    ],
+    "for_whom": "とにかく軽い雨傘を1本持っておきたい人向け",
     "used": {
      "is_used": false,
      "trip": "",
@@ -744,8 +885,12 @@
     "itemCode": "natuse-shop:10000107",
     "name": "折りたたみ傘 大きいサイズ 16本/12本/8本骨",
     "desc": "骨の本数が多く、大きめサイズの折りたたみ傘。風に強く、2人でさせるくらいの大きさが欲しい人向けです。",
-    "scenes": [],
-    "for_whom": "",
+    "scenes": [
+     "domestic",
+     "car",
+     "long-trip"
+    ],
+    "for_whom": "風に強く、家族や2人で使える傘が欲しい人向け",
     "used": {
      "is_used": false,
      "trip": "",

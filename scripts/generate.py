@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """research/candidates.json から、選んだ商品で docs/index.html を生成する（API呼び出しなし）。"""
+from __future__ import annotations
+
 import html
 import json
 import re
@@ -47,20 +49,57 @@ def image_of(it: dict) -> str:
     return img.split("?")[0] + "?_ex=400x400" if img else ""
 
 
-def card(it: dict, name: str, desc: str = "") -> str:
+def card(it: dict, name: str, desc: str = "", for_whom: str = "", used: dict | None = None) -> str:
     url = html.escape(it.get("affiliateUrl") or it["itemUrl"])
     name = html.escape(name)
+    used = used or {}
+    badge = '<p class="used-badge">✓ 実際に使っています</p>' if used.get("is_used") else ""
+    for_whom_html = f'<p class="for-whom">🎯 {html.escape(for_whom)}</p>' if for_whom else ""
     return f"""        <li class="card">
           <a href="{url}" target="_blank" rel="noopener sponsored nofollow"><img src="{html.escape(image_of(it))}" alt="{name}" loading="lazy"></a>
           <div class="body">
+            {badge}
             <h3>{name}</h3>
             <p class="desc">{html.escape(desc)}</p>
+            {for_whom_html}
             <p class="meta">★{it['reviewAverage']}（レビュー{int(it['reviewCount']):,}件）</p>
             <p class="shop">{html.escape(it['shopName'])}</p>
             <p class="price">¥{int(it['itemPrice']):,}</p>
             <a class="btn" href="{url}" target="_blank" rel="noopener sponsored nofollow">楽天市場で見る</a>
           </div>
         </li>"""
+
+
+# 「目的から探す」の項目。(アイコン, ラベル, リンク先)
+# リンク先は、今あるページの中でいちばん近いものを選んでいる。
+# 旅行撮影・犬連れ旅行は、対応する記事・商品がまだないため、旅行記一覧
+# （近日公開のお知らせが出る）にリンクしている。該当コンテンツができ次第、
+# 専用ページに差し替える。
+PURPOSES = [
+    ("🗾", "国内旅行", "domestic-packing-list.html"),
+    ("✈️", "海外旅行", "packing-checklist.html"),
+    ("♨️", "ホテル・温泉旅行", "index.html#hanger-laundry"),
+    ("💺", "移動を快適にする", "index.html#neckpillow"),
+    ("🎒", "荷物を減らす", "index.html#compression"),
+    ("🔋", "スマホ・充電", "index.html#battery"),
+    ("📷", "旅行撮影", "blog.html"),
+    ("🐶", "犬連れ旅行", "blog.html"),
+]
+
+
+def purpose_finder_html(base: str = "") -> str:
+    """トップページ上部の「目的から探す」エリア。base はリンク先の先頭に付ける（記事ページ等からの利用は今のところ想定していない）。"""
+    items = "\n".join(
+        f'        <li><a href="{base}{href}"><span class="purpose-icon">{icon}</span>{label}</a></li>'
+        for icon, label, href in PURPOSES
+    )
+    return f"""    <section class="purpose-finder">
+      <h2>目的から探す</h2>
+      <p class="lead">旅のスタイルから、記事やおすすめグッズをまとめて見られます。</p>
+      <ul class="purpose-grid">
+{items}
+      </ul>
+    </section>"""
 
 
 def site_nav(base: str = "index.html", blog_active: bool = False) -> str:
@@ -166,8 +205,9 @@ def main() -> None:
     for sec in picks:
         sid, title, lead = sec["id"], sec["title"], sec["lead"]
         tips = "\n".join(f"          <li>{html.escape(t)}</li>" for t in sec.get("tips", []))
-        cards_data = [(items[i["itemCode"]], i["name"], i.get("desc", "")) for i in sec["items"]]
-        for it, n, _ in cards_data:
+        cards_data = [(items[i["itemCode"]], i["name"], i.get("desc", ""), i.get("for_whom", ""), i.get("used"))
+                      for i in sec["items"]]
+        for it, n, _, _, _ in cards_data:
             position += 1
             ld_items.append(product_ld(it, n, position))
         body.append(f"""    <section id="{sid}">
@@ -180,9 +220,13 @@ def main() -> None:
         </ul>
       </div>
       <ul class="grid">
-{chr(10).join(card(i, n, d) for i, n, d in cards_data)}
+{chr(10).join(card(i, n, d, fw, u) for i, n, d, fw, u in cards_data)}
       </ul>
     </section>""")
+    any_used = any(i.get("used", {}).get("is_used") for sec in picks for i in sec["items"])
+    used_note = ("一部の商品は、実際に旅行で使用したうえで紹介しています。商品カードの「実際に使っています」のバッジが目印です。"
+                 if any_used else
+                 "掲載している商品は、私たちが実際に使って確かめたものではありません。商品ページの情報とレビューをもとに紹介しています。")
     json_ld = json.dumps(
         {"@context": "https://schema.org", "@type": "ItemList", "name": f"{SITE_NAME} 掲載商品",
          "itemListElement": ld_items},
@@ -230,11 +274,12 @@ def main() -> None:
     <nav>{nav}</nav>
   </header>
   <main>
+{purpose_finder_html()}
     <section class="intro">
       <h2>このサイトについて</h2>
       <p>旅の準備で迷いやすいグッズを、楽天市場の商品からまとめて紹介しています。荷物を入れるバッグから、荷造り、電源、移動中の快適グッズまで、{len(picks)}個のカテゴリに分けました。</p>
       <p><strong>商品の選び方：</strong>楽天市場の在庫があり、レビュー評価が4.0以上で、レビューが30件以上ある商品を候補にしています。そこから、価格帯やタイプが偏らないように選びました。</p>
-      <p>掲載している商品は、私たちが実際に使って確かめたものではありません。商品ページの情報とレビューをもとに紹介しています。仕様や在庫は、購入前にリンク先でご確認ください。</p>
+      <p>{used_note} 仕様や在庫は、購入前にリンク先でご確認ください。</p>
       <p class="cta">
         <a href="packing-checklist.html">初めての海外旅行 持ち物リストを読む →</a>
         <a href="domestic-packing-list.html">国内旅行 持ち物リストを読む →</a>
