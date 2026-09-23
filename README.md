@@ -13,6 +13,7 @@ https://garagerefind-create.github.io/travel-goods/
   - `generate.py` トップページ（`docs/index.html`）を生成。共通のページテンプレート（`page_shell`）とナビ（`site_nav`）もここにある
   - `generate_article.py` 持ち物リストなどのガイド記事を生成（`research/articles.json` に登録）
   - `generate_blog.py` 旅行記を生成（`research/blog_posts.json` に登録。書き方は `content/blog/README.md`）
+  - `generate_pages.py` 運営者情報・プライバシーポリシー・アフィリエイトについてを生成（`research/site_pages.json` に登録。内容はスクリプト内に直書き）
   - `sitemap.py` 上記すべてのページから `docs/sitemap.xml` / `robots.txt` を生成
   - `weekly_update.sh` 上記をまとめて実行し、変更があればコミット・プッシュする（定期実行用）
 
@@ -22,6 +23,7 @@ cp .env.example .env      # RAKUTEN_APP_ID / RAKUTEN_ACCESS_KEY / RAKUTEN_AFFILI
 python3 scripts/generate.py
 python3 scripts/generate_article.py
 python3 scripts/generate_blog.py
+python3 scripts/generate_pages.py
 open docs/index.html
 ```
 
@@ -43,4 +45,4 @@ open docs/index.html
 ## 変更後に必ず確認すること
 - ページ内の件数（カテゴリ数など）が、実データ（`picks.json`など）から動的に算出されているか（固定文字列で書かない）
 - 新しく追加したページが、全ページのナビ・`sitemap.xml` に反映されているか
-- `python3 scripts/generate.py && python3 scripts/generate_article.py && python3 scripts/generate_blog.py` を実行し直し、`docs/` の内容を目視かgrepで確認してからコミットする
+- `python3 scripts/generate.py && python3 scripts/generate_article.py && python3 scripts/generate_blog.py && python3 scripts/generate_pages.py` を実行し直し、`docs/` の内容を目視かgrepで確認してからコミットする

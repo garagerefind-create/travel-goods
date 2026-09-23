@@ -28,6 +28,9 @@ GA_SNIPPET = """  <script async src="https://www.googletagmanager.com/gtag/js?id
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
 HERO_HTML = '  <div class="hero"><img src="hero.jpg" alt="" width="1600" height="460" loading="eager"></div>'
+FOOTER_LINKS_HTML = ('    <p class="footer-links"><a href="about.html">運営者情報</a> '
+                     '<a href="privacy.html">プライバシーポリシー</a> '
+                     '<a href="affiliate.html">アフィリエイトについて</a></p>')
 
 
 def clean_name(name: str, limit: int = 46) -> str:
@@ -117,6 +120,7 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
   </main>
   <footer>
     <p>記事の内容は{date.today():%Y年%m月%d日}時点の情報です。ルールや規定、商品の内容は変わることがあるため、必ず公式情報でご確認ください。</p>
+{FOOTER_LINKS_HTML}
     <p><a href="index.html">← {SITE_NAME} トップへ戻る</a></p>
   </footer>
 </body>
@@ -242,6 +246,7 @@ def main() -> None:
   <footer>
     <p>掲載の価格・評価・レビュー件数は{data_date:%Y年%m月%d日}時点の楽天市場の情報です。変動する場合があるため、購入前に必ずリンク先でご確認ください。</p>
     <p>機内持ち込みや電池容量の可否、変換プラグの対応地域は、商品・航空会社・渡航先によって異なります。ご利用の航空会社や渡航先の規定を確認してください。</p>
+{FOOTER_LINKS_HTML}
     <p><a href="https://developers.rakuten.com/" target="_blank" rel="noopener">Supported by Rakuten Developers</a></p>
   </footer>
 </body>

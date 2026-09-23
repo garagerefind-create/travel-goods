@@ -9,6 +9,7 @@ python3 scripts/refresh.py
 python3 scripts/generate.py
 python3 scripts/generate_article.py
 python3 scripts/generate_blog.py
+python3 scripts/generate_pages.py
 
 if git diff --quiet -- docs research; then
   echo "変更なし（コミットしません）"

@@ -4,7 +4,8 @@
 - トップページの更新日は research/meta.json から取る
 - 記事ページの一覧は research/articles.json（generate_article.py が書き込む）から取る
 - 旅行記の一覧は research/blog_posts.json / blog_meta.json（generate_blog.py が書き込む）から取る
-generate.py / generate_article.py / generate_blog.py のいずれからも、生成の最後に呼ばれる。
+- 運営者情報等の固定ページは research/site_pages.json から取る
+generate.py / generate_article.py / generate_blog.py / generate_pages.py のいずれからも、生成の最後に呼ばれる。
 """
 import json
 from datetime import date
@@ -31,6 +32,11 @@ def build() -> None:
         for p in json.loads(blog_posts_path.read_text(encoding="utf-8")):
             pages.append({"path": f"blog-{p['slug']}.html", "lastmod": p.get("updated", p["published"]),
                           "changefreq": "monthly"})
+
+    site_pages_path = ROOT / "research" / "site_pages.json"
+    if site_pages_path.exists():
+        for p in json.loads(site_pages_path.read_text(encoding="utf-8")):
+            pages.append({"path": p["path"], "lastmod": p["updated"], "changefreq": "yearly"})
 
     urls = "\n".join(
         f'  <url><loc>{SITE_URL}{p["path"]}</loc><lastmod>{p["lastmod"]}</lastmod>'

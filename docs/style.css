@@ -72,3 +72,7 @@ header nav a.active { background:var(--accent); color:var(--on-accent); border-c
 .post-card h2 { margin:4px 0; font-size:1.05rem; }
 .post-meta { font-size:.8rem; color:var(--muted); margin:8px 0 0; }
 .tag { display:inline-block; background:var(--accent2); color:#fff; border-radius:999px; padding:1px 10px; font-size:.75rem; margin-right:6px; }
+
+/* フッターの案内リンク */
+.footer-links { display:flex; flex-wrap:wrap; gap:4px 16px; margin:12px 0; }
+.footer-links a { color:var(--muted); text-decoration:underline; }
