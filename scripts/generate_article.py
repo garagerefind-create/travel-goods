@@ -142,6 +142,11 @@ def build_domestic_packing_list() -> str:
     return render_page(title, desc, body, "domestic-packing-list.html")
 
 
+def category_nav() -> str:
+    picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
+    return "".join(f'<a href="index.html#{p["id"]}">{p["title"]}</a>' for p in picks)
+
+
 def render_page(title: str, desc: str, body: str, path: str) -> str:
     full_title = f"{title} | {SITE_NAME}"
     page_url = f"{SITE_URL}{path}"
@@ -177,7 +182,7 @@ def render_page(title: str, desc: str, body: str, path: str) -> str:
   <header>
     <p class="site-name"><a href="index.html">{SITE_NAME}</a></p>
     <p class="ad">※ 当サイトは楽天アフィリエイトを利用した広告（PR）を含みます。</p>
-    <nav><a href="index.html#backpack">バックパック</a><a href="index.html#suitcase">スーツケース</a><a href="index.html#compression">圧縮袋・トラベルポーチ</a><a href="index.html#battery">モバイルバッテリー</a><a href="index.html#plug">変換プラグ</a><a href="index.html#neckpillow">ネックピロー</a><a href="index.html#eyemask">アイマスク</a></nav>
+    <nav>{category_nav()}</nav>
   </header>
   <main>
 {body}
