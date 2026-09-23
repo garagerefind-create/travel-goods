@@ -124,9 +124,13 @@ def main() -> None:
   <meta property="og:title" content="{full_title}">
   <meta property="og:description" content="{full_desc}">
   <meta property="og:url" content="{SITE_URL}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{SITE_URL}og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{full_title}">
   <meta name="twitter:description" content="{full_desc}">
+  <meta name="twitter:image" content="{SITE_URL}og-image.png">
 
   <script type="application/ld+json">{json_ld}</script>
 </head>
