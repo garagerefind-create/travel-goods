@@ -32,6 +32,28 @@ open docs/index.html
 2. `research/picks.json` にカテゴリと商品を追記し、`research/items.json` に商品データを追記
 3. `python3 scripts/generate.py` を実行（トップページのナビ・記事のナビ・サイトマップに自動で反映される）
 
+`picks.json` の商品1件は、次の形です。
+
+```json
+{
+  "itemCode": "楽天の商品コード",
+  "name": "表示する商品名（短く整えたもの）",
+  "desc": "紹介文",
+  "for_whom": "「〇〇な人向け」の一言（未記入なら空文字でよい）",
+  "scenes": ["国内旅行", "飛行機"],
+  "used": {
+    "is_used": false,
+    "trip": "",
+    "pros": "",
+    "cons": "",
+    "recommend_for": "",
+    "photos": []
+  }
+}
+```
+- `scenes` は `research/scenes.json` にある旅行シーンのタグから選ぶ（表記ゆれ防止のため、自由記述にしない）
+- `used.is_used` は、実際に旅行で使った商品だけ `true` にする。使っていない商品は、必ず `false` のままにする（感想の推測・捏造はしない）
+
 ## 旅行記（ブログ）を増やす
 `content/blog/README.md` を参照。
 

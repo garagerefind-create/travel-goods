@@ -1,0 +1,13 @@
+[
+  { "id": "domestic", "label": "国内旅行" },
+  { "id": "overseas", "label": "海外旅行" },
+  { "id": "flight", "label": "飛行機" },
+  { "id": "shinkansen", "label": "新幹線" },
+  { "id": "hotel", "label": "ホテル" },
+  { "id": "onsen", "label": "温泉旅行" },
+  { "id": "car", "label": "車旅行" },
+  { "id": "dog", "label": "犬連れ旅行" },
+  { "id": "photo", "label": "旅行撮影" },
+  { "id": "short-trip", "label": "1泊2日" },
+  { "id": "long-trip", "label": "長期旅行" }
+]
