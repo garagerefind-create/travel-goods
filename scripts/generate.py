@@ -15,6 +15,15 @@ SITE_NAME = "たびのおとも"
 TAGLINE = "旅行の荷物と準備を、ちょっとラクにするグッズ集"
 SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
 GOOGLE_SITE_VERIFICATION = "SzZWEITRdzKd3c99CG40kZVERlz_qep6-tLqyId-0cs"
+GA_MEASUREMENT_ID = "G-E5KN18EGMZ"
+
+GA_SNIPPET = """  <script async src="https://www.googletagmanager.com/gtag/js?id={id}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{ dataLayer.push(arguments); }}
+    gtag('js', new Date());
+    gtag('config', '{id}');
+  </script>"""
 
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
@@ -139,6 +148,8 @@ def main() -> None:
   <meta name="twitter:image" content="{SITE_URL}og-image.png">
 
   <script type="application/ld+json">{json_ld}</script>
+
+{GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
 <body>
   <header>

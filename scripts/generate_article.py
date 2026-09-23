@@ -11,7 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
-from generate import SITE_NAME, SITE_URL  # noqa: E402
+from generate import GA_MEASUREMENT_ID, GA_SNIPPET, SITE_NAME, SITE_URL  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -170,6 +170,8 @@ def render_page(title: str, desc: str, body: str, path: str) -> str:
   <meta name="twitter:title" content="{full_title}">
   <meta name="twitter:description" content="{desc}">
   <meta name="twitter:image" content="{SITE_URL}og-image.png">
+
+{GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
 <body>
   <header>
