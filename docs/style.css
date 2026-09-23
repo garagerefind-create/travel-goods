@@ -33,3 +33,17 @@ footer a { color:var(--muted); }
 .tips h3 { font-size:.95rem; margin:4px 0; }
 .tips ul { margin:4px 0 8px; padding-left:1.2em; font-size:.88rem; }
 .tips li { margin:4px 0; }
+
+/* 記事ページ */
+.site-name { font-size:1.3rem; font-weight:700; margin:16px 0 0; }
+.site-name a { color:var(--fg); text-decoration:none; }
+.article { max-width:760px; margin:0 auto; }
+.article h1 { font-size:1.5rem; line-height:1.4; margin:8px 0 12px; }
+.article h2 { border-left:4px solid var(--accent); padding-left:10px; margin:32px 0 8px; font-size:1.1rem; }
+.article > p.lead { color:var(--fg); font-size:.95rem; }
+.article p.note { font-size:.82rem; color:var(--muted); }
+.checklist { list-style:none; padding:0; margin:8px 0; }
+.checklist li { margin:6px 0; font-size:.92rem; }
+.checklist input { margin-right:6px; }
+.cta { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+.cta a { background:var(--card); border:1px solid var(--accent); color:var(--accent); text-decoration:none; padding:6px 14px; border-radius:999px; font-size:.88rem; }

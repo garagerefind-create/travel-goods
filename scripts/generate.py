@@ -3,8 +3,12 @@
 import html
 import json
 import re
+import sys
 from datetime import date
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import sitemap  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_NAME = "たびのおとも"
@@ -147,6 +151,7 @@ def main() -> None:
       <p>旅の準備で迷いやすいグッズを、楽天市場の商品からまとめて紹介しています。荷物を入れるバッグから、荷造り、電源、移動中の快適グッズまで、7つのカテゴリに分けました。</p>
       <p><strong>商品の選び方：</strong>楽天市場の在庫があり、レビュー評価が4.0以上で、レビューが30件以上ある商品を候補にしています。そこから、価格帯やタイプが偏らないように選びました。</p>
       <p>掲載している商品は、私たちが実際に使って確かめたものではありません。商品ページの情報とレビューをもとに紹介しています。仕様や在庫は、購入前にリンク先でご確認ください。</p>
+      <p class="cta"><a href="packing-checklist.html">初めての海外旅行 持ち物リスト（チェックリスト付き） を読む →</a></p>
     </section>
 {chr(10).join(body)}
   </main>
@@ -160,17 +165,7 @@ def main() -> None:
 """
     (ROOT / "docs" / "index.html").write_text(page, encoding="utf-8")
 
-    (ROOT / "docs" / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n", encoding="utf-8"
-    )
-    (ROOT / "docs" / "sitemap.xml").write_text(
-        f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>{SITE_URL}</loc><lastmod>{data_date.isoformat()}</lastmod><changefreq>weekly</changefreq></url>
-</urlset>
-""",
-        encoding="utf-8",
-    )
+    sitemap.build()
     favicon = ROOT / "docs" / "favicon.svg"
     if not favicon.exists():
         favicon.write_text(
