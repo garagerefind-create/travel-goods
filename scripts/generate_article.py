@@ -142,7 +142,10 @@ def build_domestic_packing_list() -> str:
 
 
 def render_page(title: str, desc: str, body: str, path: str) -> str:
-    return page_shell(title=title, desc=desc, body=body, path=path, og_type="article")
+    articles = json.loads((ROOT / "research" / "articles.json").read_text(encoding="utf-8"))
+    meta = next((a for a in articles if a["path"] == path), {})
+    return page_shell(title=title, desc=desc, body=body, path=path, og_type="article",
+                       published=meta.get("published"), updated=meta.get("updated"))
 
 
 ARTICLES = {

@@ -114,11 +114,36 @@ def site_nav(base: str = "index.html", blog_active: bool = False) -> str:
     return f'<a href="blog.html"{blog_cls}>旅行記</a>{cat_links}'
 
 
-def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "article", extra_head: str = "") -> str:
-    """記事・旅行記など、商品一覧を持たないページ共通のテンプレート。"""
+def article_json_ld(*, title: str, desc: str, page_url: str, published: str | None, updated: str | None) -> str:
+    """記事・旅行記ページ用の Article 構造化データ(JSON-LD)。published が無ければ出さない。"""
+    if not published:
+        return ""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": desc,
+        "image": f"{SITE_URL}og-image.jpg",
+        "author": {"@type": "Organization", "name": SITE_NAME},
+        "publisher": {"@type": "Organization", "name": SITE_NAME},
+        "datePublished": published,
+        "dateModified": updated or published,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": page_url},
+    }
+    return f'\n  <script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
+
+
+def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "article", extra_head: str = "",
+               published: str | None = None, updated: str | None = None) -> str:
+    """記事・旅行記など、商品一覧を持たないページ共通のテンプレート。
+
+    published/updated (YYYY-MM-DD) を渡すと、Article構造化データ(JSON-LD)を出力する。
+    """
     full_title = f"{title} | {SITE_NAME}"
     page_url = f"{SITE_URL}{path}"
     blog_active = path.startswith("blog")
+    json_ld_html = article_json_ld(title=full_title, desc=desc, page_url=page_url,
+                                    published=published, updated=updated) if og_type == "article" else ""
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -144,6 +169,7 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
   <meta name="twitter:title" content="{full_title}">
   <meta name="twitter:description" content="{desc}">
   <meta name="twitter:image" content="{SITE_URL}og-image.jpg">
+{json_ld_html}
 {extra_head}
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>

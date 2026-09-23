@@ -45,7 +45,8 @@ def build_post(post: dict) -> str:
       <p><a href="blog.html">← 旅行記の一覧へ戻る</a></p>
     </article>"""
     return page_shell(title=post["title"], desc=post.get("excerpt", ""), body=body,
-                       path=f"blog-{post['slug']}.html", og_type="article")
+                       path=f"blog-{post['slug']}.html", og_type="article",
+                       published=post.get("published"), updated=post.get("updated"))
 
 
 def build_index(posts: list[dict]) -> str:
