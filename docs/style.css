@@ -1,13 +1,14 @@
 :root {
-  --bg:#f4faff; --fg:#1b2733; --muted:#5c7185; --card:#ffffff;
-  --accent:#1f8fe0; --accent-dark:#0f6fb0; --line:#dcebf7;
-  --shadow:0 1px 3px rgba(20,70,120,.08); --shadow-hover:0 10px 24px rgba(20,70,120,.16);
+  --bg:#fdf6ec; --fg:#2e2118; --muted:#8a7660; --card:#fffaf2;
+  --accent:#d9622b; --accent-dark:#b84a1a; --accent2:#3e6c5f; --line:#ecdfc9;
+  --on-accent:#2b1608;
+  --shadow:0 1px 3px rgba(120,70,20,.1); --shadow-hover:0 10px 24px rgba(120,70,20,.2);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:#0a1420; --fg:#eaf2fb; --muted:#93aac2; --card:#101d2e;
-    --accent:#4fb0ff; --accent-dark:#7cc4ff; --line:#1e3148;
-    --shadow:0 1px 3px rgba(0,0,0,.3); --shadow-hover:0 10px 24px rgba(0,0,0,.45);
+    --bg:#1c140d; --fg:#f5ece0; --muted:#c2a98c; --card:#281e15;
+    --accent:#f0803f; --accent-dark:#ffab6b; --line:#3d2e20;
+    --shadow:0 1px 3px rgba(0,0,0,.35); --shadow-hover:0 10px 24px rgba(0,0,0,.55);
   }
 }
 * { box-sizing: border-box; }
@@ -25,8 +26,8 @@ header p { color:var(--muted); margin:0; }
 .card .body { padding:12px; display:flex; flex-direction:column; gap:8px; flex:1; }
 .card h2 { font-size:.9rem; margin:0; font-weight:500; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .price { font-weight:700; font-size:1.15rem; margin-top:auto; color:var(--accent-dark); }
-.card a.btn { text-align:center; background:var(--accent); color:#fff; text-decoration:none; padding:9px; border-radius:10px; font-weight:600; transition:background .15s ease; }
-.card a.btn:hover { background:var(--accent-dark); }
+.card a.btn { text-align:center; background:var(--accent); color:var(--on-accent); text-decoration:none; padding:9px; border-radius:10px; font-weight:600; transition:filter .15s ease, box-shadow .15s ease; }
+.card a.btn:hover { filter:brightness(1.08); box-shadow:0 4px 10px rgba(120,70,20,.25); }
 footer { color:var(--muted); font-size:.8rem; }
 header nav { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 8px; }
 header nav a { padding:5px 14px; border:1px solid var(--line); border-radius:999px; color:var(--fg); text-decoration:none; font-size:.85rem; background:var(--card); transition:border-color .15s ease, color .15s ease; }
@@ -60,16 +61,14 @@ footer a { color:var(--muted); }
 .checklist input { margin-right:6px; }
 .cta { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
 .cta a { background:var(--card); border:1px solid var(--accent); color:var(--accent-dark); text-decoration:none; padding:6px 14px; border-radius:999px; font-size:.88rem; transition:background .15s ease, color .15s ease; }
-.cta a:hover { background:var(--accent); color:#fff; }
+.cta a:hover { background:var(--accent); color:var(--on-accent); }
 
 /* 旅行記（ブログ） */
-header nav a.active { background:var(--accent); color:#fff; border-color:var(--accent); }
-@media (prefers-color-scheme: dark) { header nav a.active { color:#000; } }
+header nav a.active { background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
 .post-list { list-style:none; padding:0; display:grid; gap:16px; }
 .post-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:4px 16px 12px; box-shadow:var(--shadow); transition:box-shadow .18s ease, transform .18s ease; }
 .post-card:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
 .post-card a { text-decoration:none; color:inherit; display:block; }
 .post-card h2 { margin:4px 0; font-size:1.05rem; }
 .post-meta { font-size:.8rem; color:var(--muted); margin:8px 0 0; }
-.tag { display:inline-block; background:var(--accent); color:#fff; border-radius:999px; padding:1px 10px; font-size:.75rem; margin-right:6px; }
-@media (prefers-color-scheme: dark) { .tag { color:#000; } }
+.tag { display:inline-block; background:var(--accent2); color:#fff; border-radius:999px; padding:1px 10px; font-size:.75rem; margin-right:6px; }

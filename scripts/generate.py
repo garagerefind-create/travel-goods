@@ -95,13 +95,13 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
   <meta property="og:title" content="{full_title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="{page_url}">
-  <meta property="og:image" content="{SITE_URL}og-image.png">
+  <meta property="og:image" content="{SITE_URL}og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{full_title}">
   <meta name="twitter:description" content="{desc}">
-  <meta name="twitter:image" content="{SITE_URL}og-image.png">
+  <meta name="twitter:image" content="{SITE_URL}og-image.jpg">
 {extra_head}
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
@@ -205,13 +205,13 @@ def main() -> None:
   <meta property="og:title" content="{full_title}">
   <meta property="og:description" content="{full_desc}">
   <meta property="og:url" content="{SITE_URL}">
-  <meta property="og:image" content="{SITE_URL}og-image.png">
+  <meta property="og:image" content="{SITE_URL}og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{full_title}">
   <meta name="twitter:description" content="{full_desc}">
-  <meta name="twitter:image" content="{SITE_URL}og-image.png">
+  <meta name="twitter:image" content="{SITE_URL}og-image.jpg">
 
   <script type="application/ld+json">{json_ld}</script>
 
