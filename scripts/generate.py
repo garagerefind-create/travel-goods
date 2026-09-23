@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE_NAME = "たびのおとも"
 TAGLINE = "旅行の荷物と準備を、ちょっとラクにするグッズ集"
 SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
+GOOGLE_SITE_VERIFICATION = "SzZWEITRdzKd3c99CG40kZVERlz_qep6-tLqyId-0cs"
 
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
@@ -118,6 +119,7 @@ def main() -> None:
   <title>{full_title}</title>
   <meta name="description" content="{full_desc}">
   <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">
   <link rel="canonical" href="{SITE_URL}">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
