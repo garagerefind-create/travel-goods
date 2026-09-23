@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SITE_NAME = "たびのおとも"
 TAGLINE = "旅行の荷物と準備を、ちょっとラクにするグッズ集"
+SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
 
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
@@ -43,6 +44,32 @@ def card(it: dict, name: str, desc: str = "") -> str:
         </li>"""
 
 
+def product_ld(it: dict, name: str, position: int) -> dict:
+    url = it.get("affiliateUrl") or it["itemUrl"]
+    return {
+        "@type": "ListItem",
+        "position": position,
+        "item": {
+            "@type": "Product",
+            "name": name,
+            "image": image_of(it),
+            "url": url,
+            "offers": {
+                "@type": "Offer",
+                "price": int(it["itemPrice"]),
+                "priceCurrency": "JPY",
+                "availability": "https://schema.org/InStock",
+                "url": url,
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": it["reviewAverage"],
+                "reviewCount": int(it["reviewCount"]),
+            },
+        },
+    }
+
+
 def main() -> None:
     picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
     items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
@@ -50,10 +77,15 @@ def main() -> None:
     data_date = date.fromisoformat(meta["updated"])
     nav = "".join(f'<a href="#{i}">{t}</a>' for i, t in ((x["id"], x["title"]) for x in picks))
     body = []
+    ld_items = []
+    position = 0
     for sec in picks:
         sid, title, lead = sec["id"], sec["title"], sec["lead"]
         tips = "\n".join(f"          <li>{html.escape(t)}</li>" for t in sec.get("tips", []))
         cards_data = [(items[i["itemCode"]], i["name"], i.get("desc", "")) for i in sec["items"]]
+        for it, n, _ in cards_data:
+            position += 1
+            ld_items.append(product_ld(it, n, position))
         body.append(f"""    <section id="{sid}">
       <h2>{title}</h2>
       <p class="lead">{lead}</p>
@@ -67,14 +99,36 @@ def main() -> None:
 {chr(10).join(card(i, n, d) for i, n, d in cards_data)}
       </ul>
     </section>""")
+    json_ld = json.dumps(
+        {"@context": "https://schema.org", "@type": "ItemList", "name": f"{SITE_NAME} 掲載商品",
+         "itemListElement": ld_items},
+        ensure_ascii=False,
+    )
+    full_title = f"{SITE_NAME} | 旅行グッズ紹介"
+    full_desc = f"{TAGLINE}。バックパック、スーツケース、圧縮袋、モバイルバッテリーなど、楽天市場のレビューをもとに厳選して紹介します。"
     page = f"""<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{SITE_NAME} | 旅行グッズ紹介</title>
-  <meta name="description" content="{TAGLINE}。バックパック、スーツケース、圧縮袋、モバイルバッテリーなど。">
+  <title>{full_title}</title>
+  <meta name="description" content="{full_desc}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{SITE_URL}">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="{full_title}">
+  <meta property="og:description" content="{full_desc}">
+  <meta property="og:url" content="{SITE_URL}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{full_title}">
+  <meta name="twitter:description" content="{full_desc}">
+
+  <script type="application/ld+json">{json_ld}</script>
 </head>
 <body>
   <header>
@@ -101,7 +155,29 @@ def main() -> None:
 </html>
 """
     (ROOT / "docs" / "index.html").write_text(page, encoding="utf-8")
-    print("生成しました: docs/index.html")
+
+    (ROOT / "docs" / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n", encoding="utf-8"
+    )
+    (ROOT / "docs" / "sitemap.xml").write_text(
+        f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{SITE_URL}</loc><lastmod>{data_date.isoformat()}</lastmod><changefreq>weekly</changefreq></url>
+</urlset>
+""",
+        encoding="utf-8",
+    )
+    favicon = ROOT / "docs" / "favicon.svg"
+    if not favicon.exists():
+        favicon.write_text(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
+            '<rect width="64" height="64" rx="14" fill="#0b7285"/>'
+            '<rect x="20" y="16" width="24" height="34" rx="4" fill="#fff"/>'
+            '<rect x="27" y="10" width="10" height="8" rx="2" fill="#fff"/>'
+            "</svg>",
+            encoding="utf-8",
+        )
+    print("生成しました: docs/index.html, robots.txt, sitemap.xml, favicon.svg")
 
 
 if __name__ == "__main__":

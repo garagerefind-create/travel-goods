@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://garagerefind-create.github.io/travel-goods/sitemap.xml
