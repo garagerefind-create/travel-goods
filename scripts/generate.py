@@ -110,7 +110,7 @@ def site_nav(base: str = "index.html", blog_active: bool = False) -> str:
     """
     picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
     blog_cls = ' class="active"' if blog_active else ""
-    cat_links = "".join(f'<a href="{base}#{p["id"]}">{p["title"]}</a>' for p in picks)
+    cat_links = "".join(f'<a href="{base}#{p["id"]}">{p["title"]}</a>' for p in picks if not p.get("hidden_from_index"))
     return f'<a href="blog.html"{blog_cls}>旅行記</a>{cat_links}'
 
 
@@ -220,7 +220,9 @@ def product_ld(it: dict, name: str, position: int) -> dict:
 
 
 def main() -> None:
-    picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
+    picks_all = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
+    # hidden_from_index の付いたカテゴリ（例: 特定の記事だけで使う商品）は、トップページには出さない
+    picks = [s for s in picks_all if not s.get("hidden_from_index")]
     items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
     meta = json.loads((ROOT / "research" / "meta.json").read_text(encoding="utf-8"))
     data_date = date.fromisoformat(meta["updated"])

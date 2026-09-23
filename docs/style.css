@@ -88,3 +88,14 @@ header nav a.active { background:var(--accent); color:var(--on-accent); border-c
 /* 商品カード: 向いている人 / 使用済みバッジ */
 .for-whom { font-size:.8rem; color:var(--accent-dark); font-weight:600; margin:0; }
 .used-badge { display:inline-block; align-self:flex-start; background:var(--accent2); color:#fff; font-size:.72rem; font-weight:600; border-radius:999px; padding:3px 10px; margin:0; }
+
+/* 記事内の商品紹介ブロック（控えめ・本文より目立たせない） */
+.product-mentions { margin:16px 0; }
+.pm-heading { font-size:.8rem; color:var(--muted); margin:0 0 6px; font-weight:600; }
+.pm-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.product-mention a { display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 12px; text-decoration:none; color:var(--fg); }
+.product-mention img { width:48px; height:48px; object-fit:cover; border-radius:8px; flex-shrink:0; background:var(--line); }
+.pm-body { display:flex; flex-direction:column; gap:1px; min-width:0; }
+.pm-name { font-size:.82rem; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pm-price { font-size:.78rem; color:var(--accent-dark); }
+.pm-link { font-size:.75rem; color:var(--muted); }

@@ -901,5 +901,69 @@
     }
    }
   ]
+ },
+ {
+  "id": "dog-gear",
+  "title": "犬連れ旅行グッズ",
+  "lead": "犬連れ旅行で使われることが多いグッズです。",
+  "hidden_from_index": true,
+  "tips": [],
+  "items": [
+   {
+    "itemCode": "weimall:10016726",
+    "name": "ペットカート 3way 分離式（WEIMALL）",
+    "desc": "カート・キャリーバッグ・ドライブベッドの3wayタイプ。座面が取り外せて洗えます。",
+    "for_whom": "車移動で、観光施設によってはカート同伴が条件になることがある人向け",
+    "scenes": [
+     "dog",
+     "car"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "high-high:10000595",
+    "name": "マナーベルト 男女兼用（Hai Hai）",
+    "desc": "男女兼用で、XS〜XLの5サイズから選べるマナーベルト。手洗いできます。",
+    "for_whom": "ホテルの備え付けとは別に、普段使っているものを予備で持って行きたい人向け",
+    "scenes": [
+     "dog",
+     "hotel"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "cincshop:10002361",
+    "name": "折りたたみシリコンボウル カラビナ付き（CINC SHOP）",
+    "desc": "シリコン製で折りたためる、カラビナ付きの携帯用フードボウル。",
+    "for_whom": "普段使っているフードボウルとは別に、荷物を増やさず予備を持ちたい人向け",
+    "scenes": [
+     "dog",
+     "hotel",
+     "car"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   }
+  ]
  }
 ]

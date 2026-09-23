@@ -7,13 +7,14 @@
 """
 import html
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
-from generate import SITE_NAME, page_shell  # noqa: E402
+from generate import SITE_NAME, image_of, page_shell  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_PATH = ROOT / "research" / "blog_posts.json"
@@ -21,6 +22,68 @@ META_PATH = ROOT / "research" / "blog_meta.json"
 CONTENT_DIR = ROOT / "content" / "blog"
 
 TYPE_LABEL = {"diary": "体験記", "guide": "ガイド"}
+
+# マーカー名 -> (差し込む見出し文, 各商品のリンク文言)
+# リンク文言は「実際に使っています」等の実体験を示す表現を使わない
+# （記事で紹介する体験と、掲載商品が同一とは限らないため）。
+PRODUCT_BLOCK_LINK_TEXT = {
+    "cart": "同じように、キャリーとしても使える3wayタイプを楽天で探す",
+}
+PRODUCT_BLOCK_HEADING = {
+    "hotel": "旅行用として選ぶなら",
+}
+
+
+def _load_product_names() -> dict[str, str]:
+    picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
+    return {i["itemCode"]: i["name"] for sec in picks for i in sec["items"]}
+
+
+def product_mention_html(item_code: str, items: dict, names: dict, link_text: str) -> str:
+    it = items[item_code]
+    name = names.get(item_code, it["itemName"])
+    url = html.escape(it.get("affiliateUrl") or it["itemUrl"])
+    return f"""        <li class="product-mention">
+          <a href="{url}" target="_blank" rel="noopener sponsored nofollow">
+            <img src="{html.escape(image_of(it))}" alt="{html.escape(name)}" loading="lazy">
+            <span class="pm-body">
+              <span class="pm-name">{html.escape(name)}</span>
+              <span class="pm-price">¥{int(it['itemPrice']):,}</span>
+              <span class="pm-link">{html.escape(link_text)} →</span>
+            </span>
+          </a>
+        </li>"""
+
+
+def render_product_block(marker: str, codes: list[str], items: dict, names: dict) -> str:
+    default_link = "楽天市場で見る"
+    if marker in PRODUCT_BLOCK_LINK_TEXT:
+        mentions = "\n".join(product_mention_html(c, items, names, PRODUCT_BLOCK_LINK_TEXT[marker]) for c in codes)
+    else:
+        mentions = "\n".join(product_mention_html(c, items, names, default_link) for c in codes)
+    heading = PRODUCT_BLOCK_HEADING.get(marker)
+    heading_html = f'\n        <p class="pm-heading">{html.escape(heading)}</p>' if heading else ""
+    return f"""      <div class="product-mentions">{heading_html}
+        <ul class="pm-list">
+{mentions}
+        </ul>
+      </div>"""
+
+
+def fill_product_markers(frag: str, product_refs: dict) -> str:
+    if not product_refs:
+        return frag
+    items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
+    names = _load_product_names()
+
+    def repl(m: re.Match) -> str:
+        marker = m.group(1)
+        codes = product_refs.get(marker)
+        if not codes:
+            return ""
+        return render_product_block(marker, codes, items, names)
+
+    return re.sub(r"<!--\s*product:(\w[\w-]*)\s*-->", repl, frag)
 
 
 def load_posts() -> list[dict]:
@@ -36,6 +99,7 @@ def load_posts() -> list[dict]:
 
 def build_post(post: dict) -> str:
     frag = (CONTENT_DIR / f"{post['slug']}.html").read_text(encoding="utf-8")
+    frag = fill_product_markers(frag, post.get("product_refs", {}))
     label = TYPE_LABEL.get(post.get("type"), "")
     pub = date.fromisoformat(post["published"])
     body = f"""    <article class="article">
