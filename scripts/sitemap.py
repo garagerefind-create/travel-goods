@@ -3,7 +3,8 @@
 
 - トップページの更新日は research/meta.json から取る
 - 記事ページの一覧は research/articles.json（generate_article.py が書き込む）から取る
-generate.py / generate_article.py の両方から、生成の最後に呼ばれる。
+- 旅行記の一覧は research/blog_posts.json / blog_meta.json（generate_blog.py が書き込む）から取る
+generate.py / generate_article.py / generate_blog.py のいずれからも、生成の最後に呼ばれる。
 """
 import json
 from datetime import date
@@ -20,6 +21,16 @@ def build() -> None:
     if articles_path.exists():
         for a in json.loads(articles_path.read_text(encoding="utf-8")):
             pages.append({"path": a["path"], "lastmod": a.get("updated", a["published"]), "changefreq": "monthly"})
+
+    blog_meta_path = ROOT / "research" / "blog_meta.json"
+    blog_posts_path = ROOT / "research" / "blog_posts.json"
+    if blog_meta_path.exists():
+        blog_meta = json.loads(blog_meta_path.read_text(encoding="utf-8"))
+        pages.append({"path": "blog.html", "lastmod": blog_meta["updated"], "changefreq": "weekly"})
+    if blog_posts_path.exists():
+        for p in json.loads(blog_posts_path.read_text(encoding="utf-8")):
+            pages.append({"path": f"blog-{p['slug']}.html", "lastmod": p.get("updated", p["published"]),
+                          "changefreq": "monthly"})
 
     urls = "\n".join(
         f'  <url><loc>{SITE_URL}{p["path"]}</loc><lastmod>{p["lastmod"]}</lastmod>'

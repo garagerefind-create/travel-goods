@@ -6,12 +6,11 @@ docs/index.html の該当カテゴリへ内部リンクする（商品情報の�
 """
 import json
 import sys
-from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
-from generate import GA_MEASUREMENT_ID, GA_SNIPPET, SITE_NAME, SITE_URL  # noqa: E402
+from generate import page_shell  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -142,58 +141,8 @@ def build_domestic_packing_list() -> str:
     return render_page(title, desc, body, "domestic-packing-list.html")
 
 
-def category_nav() -> str:
-    picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
-    return "".join(f'<a href="index.html#{p["id"]}">{p["title"]}</a>' for p in picks)
-
-
 def render_page(title: str, desc: str, body: str, path: str) -> str:
-    full_title = f"{title} | {SITE_NAME}"
-    page_url = f"{SITE_URL}{path}"
-    return f"""<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{full_title}</title>
-  <meta name="description" content="{desc}">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{page_url}">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="{SITE_NAME}">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:title" content="{full_title}">
-  <meta property="og:description" content="{desc}">
-  <meta property="og:url" content="{page_url}">
-  <meta property="og:image" content="{SITE_URL}og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{full_title}">
-  <meta name="twitter:description" content="{desc}">
-  <meta name="twitter:image" content="{SITE_URL}og-image.png">
-
-{GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
-</head>
-<body>
-  <header>
-    <p class="site-name"><a href="index.html">{SITE_NAME}</a></p>
-    <p class="ad">※ 当サイトは楽天アフィリエイトを利用した広告（PR）を含みます。</p>
-    <nav>{category_nav()}</nav>
-  </header>
-  <main>
-{body}
-  </main>
-  <footer>
-    <p>記事の内容は{date.today():%Y年%m月%d日}時点の一般的な情報です。ルールや規定は変わることがあるため、必ず公式情報でご確認ください。</p>
-    <p><a href="index.html">← {SITE_NAME} トップへ戻る</a></p>
-  </footer>
-</body>
-</html>
-"""
+    return page_shell(title=title, desc=desc, body=body, path=path, og_type="article")
 
 
 ARTICLES = {

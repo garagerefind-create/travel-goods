@@ -58,6 +58,69 @@ def card(it: dict, name: str, desc: str = "") -> str:
         </li>"""
 
 
+def site_nav(base: str = "index.html", blog_active: bool = False) -> str:
+    """全ページ共通のヘッダーナビ（旅行記リンク＋カテゴリ一覧）を返す。
+
+    base="" のときは同ページ内アンカー（トップページ用）、
+    base="index.html" のときは他ページからトップの該当カテゴリへのリンクになる。
+    """
+    picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
+    blog_cls = ' class="active"' if blog_active else ""
+    cat_links = "".join(f'<a href="{base}#{p["id"]}">{p["title"]}</a>' for p in picks)
+    return f'<a href="blog.html"{blog_cls}>旅行記</a>{cat_links}'
+
+
+def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "article", extra_head: str = "") -> str:
+    """記事・旅行記など、商品一覧を持たないページ共通のテンプレート。"""
+    full_title = f"{title} | {SITE_NAME}"
+    page_url = f"{SITE_URL}{path}"
+    blog_active = path.startswith("blog")
+    return f"""<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{full_title}</title>
+  <meta name="description" content="{desc}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{page_url}">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+
+  <meta property="og:type" content="{og_type}">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="{full_title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:url" content="{page_url}">
+  <meta property="og:image" content="{SITE_URL}og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{full_title}">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="{SITE_URL}og-image.png">
+{extra_head}
+{GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
+</head>
+<body>
+  <header>
+    <p class="site-name"><a href="index.html">{SITE_NAME}</a></p>
+    <p class="ad">※ 当サイトは楽天アフィリエイトを利用した広告（PR）を含みます。</p>
+    <nav>{site_nav("index.html", blog_active)}</nav>
+  </header>
+  <main>
+{body}
+  </main>
+  <footer>
+    <p>記事の内容は{date.today():%Y年%m月%d日}時点の情報です。ルールや規定、商品の内容は変わることがあるため、必ず公式情報でご確認ください。</p>
+    <p><a href="index.html">← {SITE_NAME} トップへ戻る</a></p>
+  </footer>
+</body>
+</html>
+"""
+
+
 def product_ld(it: dict, name: str, position: int) -> dict:
     url = it.get("affiliateUrl") or it["itemUrl"]
     return {
@@ -89,7 +152,7 @@ def main() -> None:
     items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
     meta = json.loads((ROOT / "research" / "meta.json").read_text(encoding="utf-8"))
     data_date = date.fromisoformat(meta["updated"])
-    nav = "".join(f'<a href="#{i}">{t}</a>' for i, t in ((x["id"], x["title"]) for x in picks))
+    nav = site_nav("")
     body = []
     ld_items = []
     position = 0
@@ -167,6 +230,7 @@ def main() -> None:
       <p class="cta">
         <a href="packing-checklist.html">初めての海外旅行 持ち物リストを読む →</a>
         <a href="domestic-packing-list.html">国内旅行 持ち物リストを読む →</a>
+        <a href="blog.html">旅行記を読む →</a>
       </p>
     </section>
 {chr(10).join(body)}

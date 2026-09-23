@@ -7,6 +7,8 @@ echo "=== $(date '+%Y-%m-%d %H:%M:%S') 開始 ==="
 
 python3 scripts/refresh.py
 python3 scripts/generate.py
+python3 scripts/generate_article.py
+python3 scripts/generate_blog.py
 
 if git diff --quiet -- docs research; then
   echo "変更なし（コミットしません）"
