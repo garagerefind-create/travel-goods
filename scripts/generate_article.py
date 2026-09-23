@@ -79,14 +79,72 @@ def build_packing_checklist() -> str:
           "自宅の戸締まり・電気やガスの元栓を確認した",
       ])}
 
-      <p>このリストが、荷造りの参考になればうれしいです。カテゴリごとの商品は、<a href="index.html">トップページ</a>からご覧いただけます。</p>
+      <p>このリストが、荷造りの参考になればうれしいです。カテゴリごとの商品は、<a href="index.html">トップページ</a>からご覧いただけます。国内旅行の場合は、<a href="domestic-packing-list.html">国内旅行 持ち物リスト</a>もあわせてどうぞ。</p>
     </article>"""
-    return render_page(title, desc, body)
+    return render_page(title, desc, body, "packing-checklist.html")
 
 
-def render_page(title: str, desc: str, body: str) -> str:
+def build_domestic_packing_list() -> str:
+    title = "国内旅行 持ち物リスト｜1〜2泊で困らない準備ガイド"
+    desc = "国内旅行の持ち物チェックリスト。日帰り〜2泊3日で忘れがちなグッズと、荷物を軽くするコツをまとめました。旅行グッズの選び方も紹介します。"
+
+    body = f"""    <article class="article">
+      <h1>{title}</h1>
+      <p class="lead">国内旅行は、海外ほど準備が要らない分、逆に「これくらい平気だろう」と油断して忘れ物をしがちです。ここでは、日数別の荷物の目安と、忘れやすい持ち物をまとめました。</p>
+
+      <h2>日数別、荷物の目安</h2>
+      <p>まず、何にどれくらいの荷物を入れるかを決めます。</p>
+      <ul class="checklist">
+        <li>日帰り・1泊2日：小さめのバックパックで十分なことが多いです。身軽さを優先しましょう。</li>
+        <li>2泊3日：バックパックなら30L前後、荷物が多いならSサイズのスーツケースが目安です。</li>
+        <li>3泊以上・家族旅行：Mサイズ以上のスーツケースがあると、余裕を持って詰められます。</li>
+      </ul>
+      {cta(
+          "",
+          [("バックパック", "index.html#backpack"), ("スーツケース", "index.html#suitcase")],
+      )}
+
+      <h2>忘れがちな持ち物</h2>
+      <p>国内旅行では、パスポートやビザは要りませんが、代わりに次のようなものを忘れがちです。</p>
+      {checklist([
+          "本人確認書類（運転免許証など。チェックインで求められることがあります）",
+          "宿・交通機関の予約確認書（印刷、またはスマホですぐ開ける状態に）",
+          "交通系ICカード（Suica・ICOCAなど。現地でも使える地域が多いです）",
+          "現金（宿泊施設や飲食店によっては、カードやコード決済が使えない場合があります）",
+          "スマホの充電器・モバイルバッテリー",
+          "常備薬・普段使っている化粧品や日用品（現地調達しにくい持病の薬は特に）",
+          "着替え（気温差がある地域へ行く場合は、羽織るものを1枚多めに）",
+      ])}
+
+      <h2>荷物を軽くするコツ</h2>
+      <p>衣類は、圧縮袋やトラベルポーチでまとめると、短い旅行でもカバンの中が整理しやすくなります。お土産のぶんのスペースを、あらかじめ空けておくのもおすすめです。</p>
+      {cta("", [("圧縮袋・トラベルポーチ", "index.html#compression")])}
+
+      <h2>電源とモバイルバッテリー</h2>
+      <p>国内は電圧・プラグの形が共通なので、変換プラグは不要です。ただ、観光で写真や地図アプリを多く使うと、スマホの充電が早く減ります。1日中出歩く予定があるなら、モバイルバッテリーがあると安心です。</p>
+      {cta("", [("モバイルバッテリー", "index.html#battery")])}
+
+      <h2>移動中を快適に</h2>
+      <p>新幹線や夜行バスでの長距離移動があるなら、ネックピローやアイマスクで、移動中に少し休めます。</p>
+      {cta("", [("ネックピロー", "index.html#neckpillow"), ("アイマスク", "index.html#eyemask")])}
+
+      <h2>出発前チェックリスト</h2>
+      {checklist([
+          "本人確認書類・予約確認書は、すぐ取り出せる場所に入れた",
+          "現金を、ある程度用意した",
+          "モバイルバッテリー・充電器を入れた",
+          "天気予報を確認し、服装・雨具を調整した",
+          "自宅の戸締まり・電気やガスの元栓を確認した",
+      ])}
+
+      <p>このリストが、荷造りの参考になればうれしいです。カテゴリごとの商品は、<a href="index.html">トップページ</a>からご覧いただけます。海外旅行の場合は、<a href="packing-checklist.html">初めての海外旅行 持ち物リスト</a>もあわせてご覧ください。</p>
+    </article>"""
+    return render_page(title, desc, body, "domestic-packing-list.html")
+
+
+def render_page(title: str, desc: str, body: str, path: str) -> str:
     full_title = f"{title} | {SITE_NAME}"
-    page_url = f"{SITE_URL}packing-checklist.html"
+    page_url = f"{SITE_URL}{path}"
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -123,7 +181,7 @@ def render_page(title: str, desc: str, body: str) -> str:
 {body}
   </main>
   <footer>
-    <p>記事の内容は{date.today():%Y年%m月%d日}時点の一般的な情報です。出入国のルールや航空会社の規定は変わることがあるため、必ず公式情報でご確認ください。</p>
+    <p>記事の内容は{date.today():%Y年%m月%d日}時点の一般的な情報です。ルールや規定は変わることがあるため、必ず公式情報でご確認ください。</p>
     <p><a href="index.html">← {SITE_NAME} トップへ戻る</a></p>
   </footer>
 </body>
@@ -131,10 +189,17 @@ def render_page(title: str, desc: str, body: str) -> str:
 """
 
 
+ARTICLES = {
+    "packing-checklist.html": build_packing_checklist,
+    "domestic-packing-list.html": build_domestic_packing_list,
+}
+
+
 def main() -> None:
-    (ROOT / "docs" / "packing-checklist.html").write_text(build_packing_checklist(), encoding="utf-8")
+    for path, builder in ARTICLES.items():
+        (ROOT / "docs" / path).write_text(builder(), encoding="utf-8")
     sitemap.build()
-    print("生成しました: docs/packing-checklist.html")
+    print("生成しました:", ", ".join(f"docs/{p}" for p in ARTICLES))
 
 
 if __name__ == "__main__":
