@@ -27,6 +27,8 @@ GA_SNIPPET = """  <script async src="https://www.googletagmanager.com/gtag/js?id
 
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
+HERO_HTML = '  <div class="hero"><img src="hero.jpg" alt="" width="1600" height="460" loading="eager"></div>'
+
 
 def clean_name(name: str, limit: int = 46) -> str:
     n = PROMO.sub(" ", name)
@@ -104,6 +106,7 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
 <body>
+{HERO_HTML}
   <header>
     <p class="site-name"><a href="index.html">{SITE_NAME}</a></p>
     <p class="ad">※ 当サイトは楽天アフィリエイトを利用した広告（PR）を含みます。</p>
@@ -215,6 +218,7 @@ def main() -> None:
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
 <body>
+{HERO_HTML}
   <header>
     <h1>{SITE_NAME}</h1>
     <p>{TAGLINE}</p>
