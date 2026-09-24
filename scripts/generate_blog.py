@@ -41,6 +41,9 @@ PRODUCT_BLOCK_HEADING: dict[str, dict[str, str]] = {
     "dog-travel-1night2days": {
         "hotel": "旅行用として選ぶなら",
     },
+    "reduce-luggage-1night2days": {
+        "pouch": "冬場など衣類がかさばるときは、こうした圧縮ポーチも選択肢",
+    },
 }
 
 
