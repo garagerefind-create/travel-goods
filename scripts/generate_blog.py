@@ -23,14 +23,24 @@ CONTENT_DIR = ROOT / "content" / "blog"
 
 TYPE_LABEL = {"diary": "体験記", "guide": "ガイド"}
 
-# マーカー名 -> (差し込む見出し文, 各商品のリンク文言)
-# リンク文言は「実際に使っています」等の実体験を示す表現を使わない
-# （記事で紹介する体験と、掲載商品が同一とは限らないため）。
-PRODUCT_BLOCK_LINK_TEXT = {
-    "cart": "同じように、キャリーとしても使える3wayタイプを楽天で探す",
+# slug -> { マーカー名: リンク文言 } / { マーカー名: 差し込む見出し文 }
+# マーカー名は記事ごとに独立（別記事で同じマーカー名を使っても文言は混ざらない）。
+# リンク文言は「実際に使っています」「愛用品」等、確認できていない実体験を
+# 示す表現を使わない。製品そのものの使用が確認できている場合のみ、
+# 「記事で使用している◯◯を楽天で見る」のように、製品名を主語にした
+# 中立的な言い方にする（特定の販売ページ・ショップでの購入は明言しない）。
+PRODUCT_BLOCK_LINK_TEXT: dict[str, dict[str, str]] = {
+    "dog-travel-1night2days": {
+        "cart": "同じように、キャリーとしても使える3wayタイプを楽天で探す",
+    },
+    "iphone-travel-video": {
+        "osmo": "記事で使用しているOsmo Pocket 4を楽天で見る",
+    },
 }
-PRODUCT_BLOCK_HEADING = {
-    "hotel": "旅行用として選ぶなら",
+PRODUCT_BLOCK_HEADING: dict[str, dict[str, str]] = {
+    "dog-travel-1night2days": {
+        "hotel": "旅行用として選ぶなら",
+    },
 }
 
 
@@ -55,13 +65,11 @@ def product_mention_html(item_code: str, items: dict, names: dict, link_text: st
         </li>"""
 
 
-def render_product_block(marker: str, codes: list[str], items: dict, names: dict) -> str:
+def render_product_block(slug: str, marker: str, codes: list[str], items: dict, names: dict) -> str:
     default_link = "楽天市場で見る"
-    if marker in PRODUCT_BLOCK_LINK_TEXT:
-        mentions = "\n".join(product_mention_html(c, items, names, PRODUCT_BLOCK_LINK_TEXT[marker]) for c in codes)
-    else:
-        mentions = "\n".join(product_mention_html(c, items, names, default_link) for c in codes)
-    heading = PRODUCT_BLOCK_HEADING.get(marker)
+    link_text = PRODUCT_BLOCK_LINK_TEXT.get(slug, {}).get(marker, default_link)
+    mentions = "\n".join(product_mention_html(c, items, names, link_text) for c in codes)
+    heading = PRODUCT_BLOCK_HEADING.get(slug, {}).get(marker)
     heading_html = f'\n        <p class="pm-heading">{html.escape(heading)}</p>' if heading else ""
     return f"""      <div class="product-mentions">{heading_html}
         <ul class="pm-list">
@@ -70,7 +78,7 @@ def render_product_block(marker: str, codes: list[str], items: dict, names: dict
       </div>"""
 
 
-def fill_product_markers(frag: str, product_refs: dict) -> str:
+def fill_product_markers(slug: str, frag: str, product_refs: dict) -> str:
     if not product_refs:
         return frag
     items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
@@ -81,7 +89,7 @@ def fill_product_markers(frag: str, product_refs: dict) -> str:
         codes = product_refs.get(marker)
         if not codes:
             return ""
-        return render_product_block(marker, codes, items, names)
+        return render_product_block(slug, marker, codes, items, names)
 
     return re.sub(r"<!--\s*product:(\w[\w-]*)\s*-->", repl, frag)
 
@@ -99,7 +107,7 @@ def load_posts() -> list[dict]:
 
 def build_post(post: dict) -> str:
     frag = (CONTENT_DIR / f"{post['slug']}.html").read_text(encoding="utf-8")
-    frag = fill_product_markers(frag, post.get("product_refs", {}))
+    frag = fill_product_markers(post["slug"], frag, post.get("product_refs", {}))
     label = TYPE_LABEL.get(post.get("type"), "")
     pub = date.fromisoformat(post["published"])
     body = f"""    <article class="article">

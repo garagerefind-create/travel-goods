@@ -965,5 +965,48 @@
     }
    }
   ]
+ },
+ {
+  "id": "video-gear",
+  "title": "旅行動画撮影グッズ",
+  "lead": "旅行動画の撮影で使われることが多いグッズです。",
+  "hidden_from_index": true,
+  "tips": [],
+  "items": [
+   {
+    "itemCode": "rainbowshoji:10002184",
+    "name": "自撮り棒 セルカ棒 三脚リモコン付",
+    "desc": "三脚としても自撮り棒としても使える、リモコン付きのタイプ。125cmまで伸ばせます。",
+    "for_whom": "夫婦や家族、ペットと一緒の様子を、固定した画角で撮りたい人向け",
+    "scenes": [
+     "photo"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "dji-shop:10002613",
+    "name": "DJI Osmo Pocket 4 スタンダードコンボ",
+    "desc": "3軸ジンバル搭載で手ブレを抑えられる、DJI公式ストアのビデオカメラ。被写体を追従する機能があります。",
+    "for_whom": "歩きながらの撮影が多く、手ブレの少ない映像を撮りたい人向け",
+    "scenes": [
+     "photo"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   }
+  ]
  }
 ]
