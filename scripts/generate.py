@@ -72,13 +72,14 @@ def card(it: dict, name: str, desc: str = "", for_whom: str = "", used: dict | N
 
 # 「目的から探す」の項目。(アイコン, ラベル, リンク先)
 # リンク先は、今あるページの中でいちばん近いものを選んでいる。
-# 旅行撮影・犬連れ旅行は、それぞれ対応する体験記の公開に合わせて更新済み。
+# 旅行撮影・犬連れ旅行・荷物を減らすは、それぞれ対応する体験記の公開に
+# 合わせて更新済み。
 PURPOSES = [
     ("🗾", "国内旅行", "domestic-packing-list.html"),
     ("✈️", "海外旅行", "packing-checklist.html"),
     ("♨️", "ホテル・温泉旅行", "index.html#hanger-laundry"),
     ("💺", "移動を快適にする", "index.html#neckpillow"),
-    ("🎒", "荷物を減らす", "index.html#compression"),
+    ("🎒", "荷物を減らす", "blog-reduce-luggage-1night2days.html"),
     ("🔋", "スマホ・充電", "index.html#battery"),
     ("📷", "旅行撮影", "blog-iphone-travel-video.html"),
     ("🐶", "犬連れ旅行", "blog-dog-travel-1night2days.html"),
