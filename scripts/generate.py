@@ -292,7 +292,7 @@ def main() -> None:
 
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
-<body>
+<body class="home">
 {HERO_HTML}
   <header>
     <h1>{SITE_NAME}</h1>

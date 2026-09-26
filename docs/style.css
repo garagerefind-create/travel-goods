@@ -1,101 +1,119 @@
 :root {
-  --bg:#fdf6ec; --fg:#2e2118; --muted:#8a7660; --card:#fffaf2;
-  --accent:#d9622b; --accent-dark:#b84a1a; --accent2:#3e6c5f; --line:#ecdfc9;
-  --on-accent:#2b1608;
-  --shadow:0 1px 3px rgba(120,70,20,.1); --shadow-hover:0 10px 24px rgba(120,70,20,.2);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:#1c140d; --fg:#f5ece0; --muted:#c2a98c; --card:#281e15;
-    --accent:#f0803f; --accent-dark:#ffab6b; --line:#3d2e20;
-    --shadow:0 1px 3px rgba(0,0,0,.35); --shadow-hover:0 10px 24px rgba(0,0,0,.55);
-  }
+  /* 明るいCalifornia Coast: 青緑=探す・読む / オレンジ=買う */
+  --bg:#faf7f2; --fg:#303030; --muted:#6b6257; --card:#ffffff;
+  --sea:#247b7b; --sea-dark:#1b6262; --sea-pale:#e4f1ef; --sea-pale-hover:#d2e8e5;
+  --sand:#e8dcc8; --info:#f3ebdd;
+  --cta:#e9824a; --cta-hover:#dc7238; --on-cta:#2b1608; --price:#a8480f;
+  --line:#e8dfd0; --line-soft:#efe8db;
+  --shadow:0 1px 3px rgba(60,45,20,.08); --shadow-hover:0 6px 16px rgba(60,45,20,.13);
 }
 * { box-sizing: border-box; }
-body { margin:0; background:var(--bg); color:var(--fg); font-family:-apple-system,"Hiragino Sans",sans-serif; line-height:1.6; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:-apple-system,"Hiragino Sans",sans-serif; line-height:1.7; }
+a { color:var(--sea-dark); }
 header, main, footer { max-width:1000px; margin:0 auto; padding:16px; }
-header h1 { margin:24px 0 4px; }
+header h1 { margin:20px 0 4px; color:var(--sea-dark); font-size:1.7rem; letter-spacing:.02em; }
 header p { color:var(--muted); margin:0; }
-.hero { width:100%; height:220px; overflow:hidden; background:var(--accent); }
+/* ヒーロー: 夕焼け・ヤシの画像はそのまま、下端をアイボリーへ自然にとかす */
+.hero { position:relative; width:100%; height:240px; overflow:hidden; background:var(--sand); }
 .hero img { width:100%; height:100%; object-fit:cover; display:block; }
-@media (max-width:600px) { .hero { height:130px; } }
-.grid { list-style:none; padding:0; display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
-.card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow); transition:box-shadow .18s ease, transform .18s ease; }
-.card:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
-.card img { width:100%; aspect-ratio:1; object-fit:cover; background:var(--line); }
-.card .body { padding:12px; display:flex; flex-direction:column; gap:8px; flex:1; }
-.card h2 { font-size:.9rem; margin:0; font-weight:500; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-.price { font-weight:700; font-size:1.15rem; margin-top:auto; color:var(--accent-dark); }
-.card a.btn { text-align:center; background:var(--accent); color:var(--on-accent); text-decoration:none; padding:9px; border-radius:10px; font-weight:600; transition:filter .15s ease, box-shadow .15s ease; }
-.card a.btn:hover { filter:brightness(1.08); box-shadow:0 4px 10px rgba(120,70,20,.25); }
+.hero::after { content:""; position:absolute; left:0; right:0; bottom:0; height:70px; background:linear-gradient(to bottom, rgba(250,247,242,0), var(--bg)); }
+@media (max-width:600px) { .hero { height:150px; } .hero::after { height:44px; } header h1 { font-size:1.45rem; } }
 footer { color:var(--muted); font-size:.8rem; }
-header nav { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 8px; }
-header nav a { padding:5px 14px; border:1px solid var(--line); border-radius:999px; color:var(--fg); text-decoration:none; font-size:.85rem; background:var(--card); transition:border-color .15s ease, color .15s ease; }
-header nav a:hover { border-color:var(--accent); color:var(--accent-dark); }
-.ad { font-size:.8rem; }
-section { margin:32px 0; scroll-margin-top:12px; }
-section h2 { border-left:4px solid var(--accent); padding-left:10px; margin:0 0 4px; }
-.lead { color:var(--muted); margin:0 0 12px; font-size:.9rem; }
-.card h3 { font-size:.9rem; margin:0; font-weight:500; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-.meta, .shop { margin:0; font-size:.8rem; color:var(--muted); }
 footer a { color:var(--muted); }
-.desc { font-size:.82rem; color:var(--muted); margin:0; }
-.intro { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:4px 16px 8px; box-shadow:var(--shadow); }
-.intro h2 { border-left:4px solid var(--accent); padding-left:10px; }
+.ad { font-size:.78rem; }
+section { margin:36px 0; scroll-margin-top:12px; }
+section h2 { border-left:4px solid var(--sea); padding-left:10px; margin:0 0 4px; color:var(--sea-dark); }
+.lead { color:var(--muted); margin:0 0 12px; font-size:.92rem; }
+
+/* ナビ・カテゴリチップ: 淡い青緑 */
+header nav { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 8px; }
+header nav a { padding:6px 14px; border:1px solid transparent; border-radius:999px; color:var(--sea-dark); text-decoration:none; font-size:.85rem; background:var(--sea-pale); transition:background .15s ease, border-color .15s ease; }
+header nav a:hover { background:var(--sea-pale-hover); border-color:var(--sea); }
+header nav a.active { background:var(--sea); color:#fff; border-color:var(--sea); }
+
+/* 商品グリッド / 商品カード（写真が主役の白カード） */
+.grid { list-style:none; padding:0; display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
+@media (max-width:520px) { .grid { grid-template-columns:1fr; } .card img { aspect-ratio:4/3; } }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow); transition:box-shadow .18s ease; }
+.card:hover { box-shadow:var(--shadow-hover); }
+.card img { width:100%; aspect-ratio:1; object-fit:cover; background:var(--line-soft); }
+.card .body { padding:12px 14px 14px; display:flex; flex-direction:column; gap:6px; flex:1; }
+.card h3 { font-size:.95rem; line-height:1.45; margin:0; font-weight:600; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.meta, .shop { margin:0; font-size:.8rem; color:var(--muted); }
+.desc { font-size:.85rem; color:var(--muted); margin:0; }
+.price { font-weight:700; font-size:1.1rem; margin:auto 0 0; color:var(--price); }
+/* 購入導線: ここだけオレンジ */
+.card a.btn { display:block; text-align:center; background:var(--cta); color:var(--on-cta); text-decoration:none; padding:11px 10px; border-radius:8px; font-weight:700; font-size:.95rem; margin-top:4px; transition:background .15s ease; }
+.card a.btn:hover { background:var(--cta-hover); }
+.for-whom { font-size:.8rem; color:var(--sea-dark); font-weight:600; margin:0; }
+.used-badge { display:inline-block; align-self:flex-start; background:var(--sea); color:#fff; font-size:.72rem; font-weight:600; border-radius:999px; padding:3px 10px; margin:0; }
+
+/* 情報ボックス（選び方のポイント・このサイトについて）: 薄いベージュで商品カードと区別 */
+.intro, .tips { background:var(--info); border:1px solid var(--sand); border-radius:12px; box-shadow:none; }
+.intro { padding:4px 16px 12px; }
+.tips { padding:8px 16px; margin:0 0 16px; }
+.intro h2 { border-left:4px solid var(--sea); padding-left:10px; }
 .intro p { margin:8px 0; font-size:.92rem; }
-.tips { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:8px 16px; margin:0 0 16px; box-shadow:var(--shadow); }
-.tips h3 { font-size:.95rem; margin:4px 0; }
-.tips ul { margin:4px 0 8px; padding-left:1.2em; font-size:.88rem; }
+.tips h3 { font-size:.95rem; margin:4px 0; color:var(--sea-dark); }
+.tips ul { margin:4px 0 8px; padding-left:1.2em; font-size:.9rem; }
 .tips li { margin:4px 0; }
 
 /* 記事ページ */
-.site-name { font-size:1.3rem; font-weight:700; margin:16px 0 0; }
-.site-name a { color:var(--fg); text-decoration:none; }
+.site-name { font-size:1.3rem; font-weight:700; margin:12px 0 0; }
+.site-name a { color:var(--sea-dark); text-decoration:none; }
 .article { max-width:760px; margin:0 auto; }
-.article h1 { font-size:1.5rem; line-height:1.4; margin:8px 0 12px; }
-.article h2 { border-left:4px solid var(--accent); padding-left:10px; margin:32px 0 8px; font-size:1.1rem; }
-.article > p.lead { color:var(--fg); font-size:.95rem; }
+.article h1 { font-size:1.5rem; line-height:1.4; margin:8px 0 12px; color:var(--fg); }
+.article h2 { border-left:4px solid var(--sea); padding-left:10px; margin:36px 0 8px; font-size:1.15rem; color:var(--sea-dark); }
+.article p { line-height:1.85; }
+.article > p.lead { color:var(--fg); font-size:1rem; }
 .article p.note { font-size:.82rem; color:var(--muted); }
-.checklist { list-style:none; padding:0; margin:8px 0; }
-.checklist li { margin:6px 0; font-size:.92rem; }
-.checklist input { margin-right:6px; }
+.checklist { list-style:none; padding:12px 16px; margin:12px 0; background:#fff; border:1px solid var(--line); border-radius:12px; }
+.checklist li { margin:6px 0; font-size:.95rem; }
+.checklist input { margin-right:6px; accent-color:var(--sea); }
 .cta { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
-.cta a { background:var(--card); border:1px solid var(--accent); color:var(--accent-dark); text-decoration:none; padding:6px 14px; border-radius:999px; font-size:.88rem; transition:background .15s ease, color .15s ease; }
-.cta a:hover { background:var(--accent); color:var(--on-accent); }
+.cta a { background:var(--sea-pale); border:1px solid transparent; color:var(--sea-dark); text-decoration:none; padding:7px 14px; border-radius:999px; font-size:.88rem; transition:background .15s ease; }
+.cta a:hover { background:var(--sea-pale-hover); border-color:var(--sea); }
 
 /* 旅行記（ブログ） */
-header nav a.active { background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
 .post-list { list-style:none; padding:0; display:grid; gap:16px; }
-.post-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:4px 16px 12px; box-shadow:var(--shadow); transition:box-shadow .18s ease, transform .18s ease; }
-.post-card:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
+.post-card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:4px 16px 12px; box-shadow:var(--shadow); transition:box-shadow .18s ease; }
+.post-card:hover { box-shadow:var(--shadow-hover); }
 .post-card a { text-decoration:none; color:inherit; display:block; }
-.post-card h2 { margin:4px 0; font-size:1.05rem; }
+.post-card h2 { margin:4px 0; font-size:1.05rem; border:0; padding:0; color:var(--sea-dark); }
 .post-meta { font-size:.8rem; color:var(--muted); margin:8px 0 0; }
-.tag { display:inline-block; background:var(--accent2); color:#fff; border-radius:999px; padding:1px 10px; font-size:.75rem; margin-right:6px; }
+.tag { display:inline-block; background:var(--sea-pale); color:var(--sea-dark); border-radius:999px; padding:1px 10px; font-size:.75rem; margin-right:6px; }
 
 /* フッターの案内リンク */
 .footer-links { display:flex; flex-wrap:wrap; gap:4px 16px; margin:12px 0; }
 .footer-links a { color:var(--muted); text-decoration:underline; }
 
-/* 目的から探す */
+/* 目的から探す: 明るいカード・青緑（オレンジは使わない） */
 .purpose-finder { margin:24px 0 32px; }
 .purpose-grid { list-style:none; padding:0; margin:12px 0 0; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
 @media (max-width:600px) { .purpose-grid { grid-template-columns:repeat(2,1fr); } }
-.purpose-grid a { display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 8px; text-decoration:none; color:var(--fg); font-size:.85rem; font-weight:600; box-shadow:var(--shadow); transition:box-shadow .18s ease, transform .18s ease; }
-.purpose-grid a:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
+.purpose-grid a { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; min-height:84px; text-align:center; background:#fff; border:1px solid var(--sea-pale-hover); border-radius:12px; padding:14px 8px; text-decoration:none; color:var(--sea-dark); font-size:.9rem; font-weight:600; box-shadow:var(--shadow); transition:background .15s ease, border-color .15s ease; }
+.purpose-grid a::after { content:"›"; font-size:1rem; line-height:1; color:var(--sea); }
+.purpose-grid a:hover { background:var(--sea-pale); border-color:var(--sea); }
 .purpose-icon { font-size:1.6rem; line-height:1; }
 
-/* 商品カード: 向いている人 / 使用済みバッジ */
-.for-whom { font-size:.8rem; color:var(--accent-dark); font-weight:600; margin:0; }
-.used-badge { display:inline-block; align-self:flex-start; background:var(--accent2); color:#fff; font-size:.72rem; font-weight:600; border-radius:999px; padding:3px 10px; margin:0; }
-
-/* 記事内の商品紹介ブロック（控えめ・本文より目立たせない） */
-.product-mentions { margin:16px 0; }
+/* 記事内の商品紹介ブロック（トップのカードよりさらに控えめ） */
+.product-mentions { margin:16px 0; padding:10px 12px; background:var(--info); border-radius:10px; }
 .pm-heading { font-size:.8rem; color:var(--muted); margin:0 0 6px; font-weight:600; }
 .pm-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
-.product-mention a { display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 12px; text-decoration:none; color:var(--fg); }
-.product-mention img { width:48px; height:48px; object-fit:cover; border-radius:8px; flex-shrink:0; background:var(--line); }
-.pm-body { display:flex; flex-direction:column; gap:1px; min-width:0; }
-.pm-name { font-size:.82rem; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.pm-price { font-size:.78rem; color:var(--accent-dark); }
-.pm-link { font-size:.75rem; color:var(--muted); }
+.product-mention a { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px 10px; text-decoration:none; color:var(--fg); }
+.product-mention a:hover { border-color:var(--sea); }
+.product-mention img { width:56px; height:56px; object-fit:cover; border-radius:6px; flex-shrink:0; background:var(--line-soft); }
+.pm-body { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.pm-name { font-size:.85rem; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pm-price { font-size:.8rem; color:var(--price); }
+.pm-link { font-size:.8rem; color:var(--sea-dark); text-decoration:underline; }
+
+/* トップ: ヒーロー画像の下部にサイト名とキャッチコピーを重ねる（文字の背後は暗めのグラデーション） */
+.home .hero { height:280px; }
+.home .hero::after { height:55%; background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(20,35,35,.62)); }
+.home header { position:relative; margin-top:-104px; padding-top:0; }
+.home header h1 { color:#fff; margin:0 0 2px; font-size:2rem; text-shadow:0 2px 8px rgba(0,0,0,.55); }
+.home header h1 + p { color:#fff; font-size:1rem; text-shadow:0 1px 6px rgba(0,0,0,.6); margin-bottom:22px; }
+@media (max-width:600px) { .home .hero { height:210px; } .home header { margin-top:-84px; } .home header h1 { font-size:1.6rem; } .home header h1 + p { font-size:.88rem; } }
+/* 購入ボタンの外部リンク表示 */
+.card a.btn::after { content:" ↗"; font-weight:400; }
