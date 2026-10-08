@@ -1,0 +1,89 @@
+{
+  "claims": [
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=hitidear%3A10000115",
+      "acquired_at": "2026-10-08T00:36:06.711777+00:00",
+      "claim": "hitidear:10000115 itemPrice=2980",
+      "source_sha256": "0b7fc7858f91e0c808ea642c5005a414d03052da9db1e3b15ccf7a3e692cf258"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=hitidear%3A10000115",
+      "acquired_at": "2026-10-08T00:36:06.711777+00:00",
+      "claim": "hitidear:10000115 reviewAverage=4.45",
+      "source_sha256": "0b7fc7858f91e0c808ea642c5005a414d03052da9db1e3b15ccf7a3e692cf258"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=hitidear%3A10000115",
+      "acquired_at": "2026-10-08T00:36:06.711777+00:00",
+      "claim": "hitidear:10000115 reviewCount=8751",
+      "source_sha256": "0b7fc7858f91e0c808ea642c5005a414d03052da9db1e3b15ccf7a3e692cf258"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=hitidear%3A10000115",
+      "acquired_at": "2026-10-08T00:36:06.711777+00:00",
+      "claim": "hitidear:10000115 availability=1",
+      "source_sha256": "0b7fc7858f91e0c808ea642c5005a414d03052da9db1e3b15ccf7a3e692cf258"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=value-create%3A10000010",
+      "acquired_at": "2026-10-08T00:36:08.347780+00:00",
+      "claim": "value-create:10000010 itemPrice=1780",
+      "source_sha256": "c2f7aa2e66b64f8d352012af014560bcf34447abf0c6574bcfc2979a29679ddf"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=value-create%3A10000010",
+      "acquired_at": "2026-10-08T00:36:08.347780+00:00",
+      "claim": "value-create:10000010 reviewAverage=4.73",
+      "source_sha256": "c2f7aa2e66b64f8d352012af014560bcf34447abf0c6574bcfc2979a29679ddf"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=value-create%3A10000010",
+      "acquired_at": "2026-10-08T00:36:08.347780+00:00",
+      "claim": "value-create:10000010 reviewCount=2321",
+      "source_sha256": "c2f7aa2e66b64f8d352012af014560bcf34447abf0c6574bcfc2979a29679ddf"
+    },
+    {
+      "source_url": "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701?itemCode=value-create%3A10000010",
+      "acquired_at": "2026-10-08T00:36:08.347780+00:00",
+      "claim": "value-create:10000010 availability=1",
+      "source_sha256": "c2f7aa2e66b64f8d352012af014560bcf34447abf0c6574bcfc2979a29679ddf"
+    },
+    {
+      "source_url": "https://github.com/garagerefind-create/travel-goods/blob/bf9d3fc2c969c5245776396d4e4ece50855c29d5/content/blog/reduce-luggage-1night2days.html",
+      "acquired_at": "2026-10-08T00:36:10.777731+00:00",
+      "claim": "Existing first-person luggage, clothing, charging and hotel-amenity preparation experience: explicitly confirmed factual by owner in this chat on 2026-10-07; not publication approval",
+      "confirmation_kind": "direct owner statement"
+    }
+  ],
+  "product_evidence": {
+    "hitidear:10000115": {
+      "status": "received",
+      "acquired_at": "2026-10-08T00:36:06.711777+00:00",
+      "values": {
+        "itemCode": "hitidear:10000115",
+        "itemName": "【クーポンで最安2086円】「年間ランキング受賞」「楽天1位」モバイルバッテリー 半固体電池 大容量 20800mAh 4本ケーブル内蔵 燃えにくい 準固体電池 超軽量 小型 ワイヤレス充電 6台同時充電 3way蓄電 MFi認証 持ち運び便利 残量表示 iPhone/iPad/Android対応",
+        "itemPrice": 2980,
+        "reviewAverage": 4.45,
+        "reviewCount": 8751,
+        "availability": 1,
+        "itemUrl": "https://item.rakuten.co.jp/hitidear/q8-1/?rafcid=wsc_i_is_f7e00f82-1826-4e1b-8e80-4a6de3e3b04a"
+      },
+      "sha256": "0b7fc7858f91e0c808ea642c5005a414d03052da9db1e3b15ccf7a3e692cf258"
+    },
+    "value-create:10000010": {
+      "status": "received",
+      "acquired_at": "2026-10-08T00:36:08.347780+00:00",
+      "values": {
+        "itemCode": "value-create:10000010",
+        "itemName": "＼マラソン限定P5倍／【楽天1位受賞】【YKK製ファスナー】【ほつれ穴なし】【撥水加工】 トラベルポーチ 圧縮 YKK セット 圧縮ポーチ 圧縮袋 衣類 旅行 便利グッズ 旅行用 旅行用圧縮袋 トラベル 圧縮バッグ 圧縮バック 収納ポーチ 旅行用ポーチ 服 両面 出張 おむつ",
+        "itemPrice": 1780,
+        "reviewAverage": 4.73,
+        "reviewCount": 2321,
+        "availability": 1,
+        "itemUrl": "https://item.rakuten.co.jp/value-create/travel-pouch/?rafcid=wsc_i_is_f7e00f82-1826-4e1b-8e80-4a6de3e3b04a"
+      },
+      "sha256": "c2f7aa2e66b64f8d352012af014560bcf34447abf0c6574bcfc2979a29679ddf"
+    }
+  },
+  "note": "API item titles are seller-provided raw evidence, not independently verified specifications. The article uses generic product names."
+}
