@@ -29,7 +29,7 @@ GA_SNIPPET = """  <script async src="https://www.googletagmanager.com/gtag/js?id
 
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
-HERO_HTML = '  <div class="hero"><img src="hero.jpg" alt="" width="1600" height="460" loading="eager"></div>'
+HERO_HTML = '  <div class="hero"><img src="refind-travel-header.jpg" alt="Refind Travel — まだ知らない、好きな場所を見つけに行こう" width="1536" height="576" loading="eager"></div>'
 FOOTER_LINKS_HTML = ('    <p class="footer-links"><a href="about.html">運営者情報</a> '
                      '<a href="privacy.html">プライバシーポリシー</a> '
                      '<a href="affiliate.html">アフィリエイトについて</a></p>')

@@ -108,12 +108,13 @@ header nav a.active { background:var(--sea); color:#fff; border-color:var(--sea)
 .pm-price { font-size:.8rem; color:var(--price); }
 .pm-link { font-size:.8rem; color:var(--sea-dark); text-decoration:underline; }
 
-/* トップ: ヒーロー画像の下部にサイト名とキャッチコピーを重ねる（文字の背後は暗めのグラデーション） */
-.home .hero { height:280px; }
-.home .hero::after { height:55%; background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(20,35,35,.62)); }
-.home header { position:relative; margin-top:-104px; padding-top:0; }
-.home header h1 { color:#fff; margin:0 0 2px; font-size:2rem; text-shadow:0 2px 8px rgba(0,0,0,.55); }
-.home header h1 + p { color:#fff; font-size:1rem; text-shadow:0 1px 6px rgba(0,0,0,.6); margin-bottom:22px; }
-@media (max-width:600px) { .home .hero { height:210px; } .home header { margin-top:-84px; } .home header h1 { font-size:1.6rem; } .home header h1 + p { font-size:.88rem; } }
+/* ブランド画像は文字・ロゴを切らずに全体表示する */
+.hero, .home .hero { height:auto; }
+.hero img { width:100%; height:auto; object-fit:contain; }
+.hero::after, .home .hero::after { display:none; }
+.home header { position:relative; margin-top:0; padding-top:16px; }
+.home header h1 { color:var(--sea-dark); margin:0 0 4px; font-size:2rem; text-shadow:none; }
+.home header h1 + p { color:var(--muted); font-size:1rem; text-shadow:none; margin-bottom:16px; }
+@media (max-width:600px) { .home header h1 { font-size:1.6rem; } .home header h1 + p { font-size:.88rem; } }
 /* 購入ボタンの外部リンク表示 */
 .card a.btn::after { content:" ↗"; font-weight:400; }
