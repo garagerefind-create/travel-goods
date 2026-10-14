@@ -118,3 +118,14 @@ header nav a.active { background:var(--sea); color:#fff; border-color:var(--sea)
 @media (max-width:600px) { .home header h1 { font-size:1.6rem; } .home header h1 + p { font-size:.88rem; } }
 /* 購入ボタンの外部リンク表示 */
 .card a.btn::after { content:" ↗"; font-weight:400; }
+
+/* 旅行記の写真 */
+.article .post-photo{margin:16px 0 24px}
+.article .post-photo img{display:block;width:100%;max-height:640px;object-fit:cover;border-radius:12px}
+
+/* 宿の紹介ボックス（楽天トラベル） */
+.article .hotel-cta{margin:20px 0 28px;padding:16px 18px;border-radius:12px;background:#fff;border:1px solid var(--line);text-align:center}
+.article .hotel-cta .hc-name{margin:0 0 4px;font-weight:700;font-size:1.05rem}
+.article .hotel-cta .hc-note{margin:0 0 12px;font-size:.85rem;color:#777}
+.article .hotel-cta .hc-btn{display:inline-block;padding:12px 20px;border-radius:999px;background:var(--cta);color:var(--on-cta);font-weight:700;text-decoration:none}
+.article .hotel-cta .hc-btn:hover{background:var(--cta-hover)}

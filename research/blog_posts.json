@@ -35,5 +35,16 @@
       "pouch": ["value-create:10000010"],
       "battery": ["hitidear:10000115"]
     }
+  },
+  {
+    "slug": "tokinos-ito-villa",
+    "title": "伊東の高級ヴィラ「TOKINOS」宿泊記｜プール・ジャグジー付きで非日常すぎた",
+    "type": "diary",
+    "published": "2026-10-14",
+    "updated": "2026-10-14",
+    "excerpt": "静岡県伊東市のヴィラ「TOKINOS」に泊まってきました。プール、ジャグジー、広いリビング、寝室やお風呂まで、実際に撮った写真と一緒に紹介します。",
+    "product_refs": {
+      "battery": ["hitidear:10000115"]
+    }
   }
 ]

@@ -7,6 +7,8 @@
 """
 import html
 import json
+import os
+import urllib.parse
 import re
 import sys
 from datetime import date
@@ -15,6 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
 from generate import SITE_NAME, image_of, page_shell  # noqa: E402
+from build import load_dotenv  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_PATH = ROOT / "research" / "blog_posts.json"
@@ -97,6 +100,27 @@ def fill_product_markers(slug: str, frag: str, product_refs: dict) -> str:
     return re.sub(r"<!--\s*product:(\w[\w-]*)\s*-->", repl, frag)
 
 
+# 宿の紹介ボックス。本文に <!-- hotel:施設番号|宿名 --> と書くと、楽天トラベルの
+# アフィリエイトリンク付きボックスに置き換わる（アフィリエイトIDは .env から読む）。
+def hotel_cta_html(hotel_no: str, name: str) -> str:
+    page = f"https://travel.rakuten.co.jp/HOTEL/{hotel_no}/{hotel_no}.html"
+    aid = os.environ.get("RAKUTEN_AFFILIATE_ID")
+    if aid:
+        q = urllib.parse.quote(page, safe="")
+        url = f"https://hb.afl.rakuten.co.jp/hgc/{aid}/?pc={q}&m={q}"
+    else:
+        url = page
+    return f"""      <div class="hotel-cta">
+        <p class="hc-name">{html.escape(name)}</p>
+        <p class="hc-note">空室・料金は楽天トラベルで確認できます</p>
+        <a class="hc-btn" href="{html.escape(url)}" target="_blank" rel="noopener sponsored nofollow">楽天トラベルで空室・料金を見る →</a>
+      </div>"""
+
+
+def fill_hotel_markers(frag: str) -> str:
+    return re.sub(r"<!--\s*hotel:(\d+)\|([^>]*?)\s*-->", lambda m: hotel_cta_html(m.group(1), m.group(2).strip()), frag)
+
+
 def load_posts() -> list[dict]:
     posts = json.loads(POSTS_PATH.read_text(encoding="utf-8")) if POSTS_PATH.exists() else []
     for p in posts:
@@ -111,6 +135,7 @@ def load_posts() -> list[dict]:
 def build_post(post: dict) -> str:
     frag = (CONTENT_DIR / f"{post['slug']}.html").read_text(encoding="utf-8")
     frag = fill_product_markers(post["slug"], frag, post.get("product_refs", {}))
+    frag = fill_hotel_markers(frag)
     label = TYPE_LABEL.get(post.get("type"), "")
     pub = date.fromisoformat(post["published"])
     body = f"""    <article class="article">
@@ -146,6 +171,7 @@ def build_index(posts: list[dict]) -> str:
 
 
 def main() -> None:
+    load_dotenv(ROOT / ".env")
     posts = load_posts()
     for p in posts:
         (ROOT / "docs" / f"blog-{p['slug']}.html").write_text(build_post(p), encoding="utf-8")
