@@ -17,7 +17,8 @@ SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
 
 def build() -> None:
     meta = json.loads((ROOT / "research" / "meta.json").read_text(encoding="utf-8"))
-    pages = [{"path": "", "lastmod": meta["updated"], "changefreq": "weekly"}]
+    pages = [{"path": "", "lastmod": meta["updated"], "changefreq": "weekly"},
+             {"path": "goods.html", "lastmod": meta["updated"], "changefreq": "weekly"}]
     articles_path = ROOT / "research" / "articles.json"
     if articles_path.exists():
         for a in json.loads(articles_path.read_text(encoding="utf-8")):

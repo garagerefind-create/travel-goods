@@ -14,7 +14,8 @@ import sitemap  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_NAME = "たびのおとも"
-TAGLINE = "旅行の荷物と準備を、ちょっとラクにするグッズ集"
+TAGLINE = "実際に泊まった宿を、写真と動画でまるごと紹介する旅のサイト"
+GOODS_TAGLINE = "旅行の荷物と準備を、ちょっとラクにするグッズ集"
 SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
 GOOGLE_SITE_VERIFICATION = "SzZWEITRdzKd3c99CG40kZVERlz_qep6-tLqyId-0cs"
 GA_MEASUREMENT_ID = "G-E5KN18EGMZ"
@@ -77,10 +78,10 @@ def card(it: dict, name: str, desc: str = "", for_whom: str = "", used: dict | N
 PURPOSES = [
     ("🗾", "国内旅行", "domestic-packing-list.html"),
     ("✈️", "海外旅行", "packing-checklist.html"),
-    ("♨️", "ホテル・温泉旅行", "index.html#hanger-laundry"),
-    ("💺", "移動を快適にする", "index.html#neckpillow"),
+    ("♨️", "ホテル・温泉旅行", "goods.html#hanger-laundry"),
+    ("💺", "移動を快適にする", "goods.html#neckpillow"),
     ("🎒", "荷物を減らす", "blog-reduce-luggage-1night2days.html"),
-    ("🔋", "スマホ・充電", "index.html#battery"),
+    ("🔋", "スマホ・充電", "goods.html#battery"),
     ("📷", "旅行撮影", "blog-iphone-travel-video.html"),
     ("🐶", "犬連れ旅行", "blog-dog-travel-1night2days.html"),
 ]
@@ -101,16 +102,27 @@ def purpose_finder_html(base: str = "") -> str:
     </section>"""
 
 
-def site_nav(base: str = "index.html", blog_active: bool = False) -> str:
-    """全ページ共通のヘッダーナビ（旅行記リンク＋カテゴリ一覧）を返す。
+def site_nav(base: str = "goods.html", blog_active: bool = False, active: str = "") -> str:
+    """全ページ共通のヘッダーナビ。
 
-    base="" のときは同ページ内アンカー（トップページ用）、
-    base="index.html" のときは他ページからトップの該当カテゴリへのリンクになる。
+    以前はカテゴリ一覧を全ページに並べていたが、宿泊記を主役にするため、
+    ナビは「ホーム／宿泊記・旅行記／持ち物・グッズ」の3つにした。
+    カテゴリ一覧は持ち物・グッズページ（goods.html）の中だけに出す。
+    base 引数は互換のために残している（使っていない）。
     """
+    if blog_active:
+        active = "blog"
+    items = [("home", "index.html", "ホーム"), ("blog", "blog.html", "宿泊記・旅行記"), ("goods", "goods.html", "持ち物・グッズ")]
+    out = []
+    for key, href, label in items:
+        cls = ' class="active"' if key == active else ""
+        out.append(f'<a href="{href}"{cls}>{label}</a>')
+    return "".join(out)
+
+
+def goods_category_nav() -> str:
     picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
-    blog_cls = ' class="active"' if blog_active else ""
-    cat_links = "".join(f'<a href="{base}#{p["id"]}">{p["title"]}</a>' for p in picks if not p.get("hidden_from_index"))
-    return f'<a href="blog.html"{blog_cls}>旅行記</a>{cat_links}'
+    return "".join(f'<a href="#{p["id"]}">{p["title"]}</a>' for p in picks if not p.get("hidden_from_index"))
 
 
 def article_json_ld(*, title: str, desc: str, page_url: str, published: str | None, updated: str | None) -> str:
@@ -133,7 +145,7 @@ def article_json_ld(*, title: str, desc: str, page_url: str, published: str | No
 
 
 def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "article", extra_head: str = "",
-               published: str | None = None, updated: str | None = None) -> str:
+               published: str | None = None, updated: str | None = None, og_image: str | None = None) -> str:
     """記事・旅行記など、商品一覧を持たないページ共通のテンプレート。
 
     published/updated (YYYY-MM-DD) を渡すと、Article構造化データ(JSON-LD)を出力する。
@@ -141,6 +153,7 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
     full_title = f"{title} | {SITE_NAME}"
     page_url = f"{SITE_URL}{path}"
     blog_active = path.startswith("blog")
+    og_img = f"{SITE_URL}{og_image}" if og_image else f"{SITE_URL}og-image.jpg"
     json_ld_html = article_json_ld(title=full_title, desc=desc, page_url=page_url,
                                     published=published, updated=updated) if og_type == "article" else ""
     return f"""<!doctype html>
@@ -161,13 +174,11 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
   <meta property="og:title" content="{full_title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="{page_url}">
-  <meta property="og:image" content="{SITE_URL}og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="{og_img}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{full_title}">
   <meta name="twitter:description" content="{desc}">
-  <meta name="twitter:image" content="{SITE_URL}og-image.jpg">
+  <meta name="twitter:image" content="{og_img}">
 {json_ld_html}
 {extra_head}
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
@@ -177,7 +188,7 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
   <header>
     <p class="site-name"><a href="index.html">{SITE_NAME}</a></p>
     <p class="ad">※ 当サイトは楽天アフィリエイトを利用した広告（PR）を含みます。</p>
-    <nav>{site_nav("index.html", blog_active)}</nav>
+    <nav>{site_nav("goods.html", blog_active, active="blog" if blog_active else "")}</nav>
   </header>
   <main>
 {body}
@@ -218,6 +229,125 @@ def product_ld(it: dict, name: str, position: int) -> dict:
     }
 
 
+# 宿の型。宿泊記（blog_posts.json の persona）と同じ表記にする。
+PERSONAS = [
+    ("anniv", "記念日・ご褒美", "非日常の特別な宿"),
+    ("dog", "犬連れ", "愛犬と泊まれる宿"),
+    ("value", "コスパ・ビジホ", "安くて便利な宿"),
+    ("family", "ファミリー・グループ", "みんなで泊まれる宿"),
+    ("solo", "一人旅・ワーケーション", "ひとりで落ち着ける宿"),
+]
+
+
+def load_blog_posts() -> list[dict]:
+    path = ROOT / "research" / "blog_posts.json"
+    posts = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    return sorted(posts, key=lambda p: p["published"], reverse=True)
+
+
+def stay_card(p: dict) -> str:
+    persona = f'<span class="stay-type">{html.escape(p["persona"])}</span>' if p.get("persona") else ""
+    return f"""        <li class="stay-card">
+          <a href="blog-{p['slug']}.html">
+            <img src="{html.escape(p['cover'])}" alt="{html.escape(p['title'])}" loading="lazy">
+            <span class="stay-body">{persona}
+              <span class="stay-title">{html.escape(p['title'])}</span>
+              <span class="stay-desc">{html.escape(p.get('excerpt', ''))}</span>
+            </span>
+          </a>
+        </li>"""
+
+
+def build_home() -> str:
+    posts = load_blog_posts()
+    stays = [p for p in posts if p.get("cover")]
+    others = [p for p in posts if not p.get("cover")]
+    stays_html = ("\n".join(stay_card(p) for p in stays[:6]) if stays else
+                  '        <li class="stay-empty">宿泊記は準備中です。</li>')
+    counts = {name: sum(1 for p in stays if p.get("persona") == name) for _, name, _ in PERSONAS}
+    personas_html = "\n".join(
+        f'        <li><a href="blog.html#{key}"><span class="p-name">{name}</span><span class="p-note">{note}</span>'
+        f'<span class="p-count">{counts[name]}件</span></a></li>' if counts[name] else
+        f'        <li class="soon"><span class="p-name">{name}</span><span class="p-note">{note}</span><span class="p-count">準備中</span></li>'
+        for key, name, note in PERSONAS)
+    tips_html = "\n".join(
+        f'        <li><a href="blog-{p["slug"]}.html">{html.escape(p["title"])}</a></li>' for p in others)
+    desc = f"{TAGLINE}。記念日のご褒美宿から犬連れOKの宿、コスパのいいビジネスホテルまで、実際に泊まった感想を紹介します。"
+    title = f"{SITE_NAME}｜実際に泊まった宿の宿泊記"
+    cover = f"{SITE_URL}{stays[0]['cover']}" if stays else f"{SITE_URL}og-image.jpg"
+    return f"""<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content="{desc}">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">
+  <link rel="canonical" href="{SITE_URL}">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:url" content="{SITE_URL}">
+  <meta property="og:image" content="{cover}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="{cover}">
+{GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
+</head>
+<body class="home">
+{HERO_HTML}
+  <header>
+    <h1>{SITE_NAME}</h1>
+    <p>{TAGLINE}</p>
+    <p class="ad">※ 当サイトはアフィリエイト広告（PR）を含みます。</p>
+    <nav>{site_nav(active="home")}</nav>
+  </header>
+  <main>
+    <section class="stays">
+      <h2>最新の宿泊記</h2>
+      <p class="lead">実際に泊まって、写真と動画で全部撮ってきた宿です。</p>
+      <ul class="stay-grid">
+{stays_html}
+      </ul>
+      <p class="more"><a href="blog.html">宿泊記・旅行記をすべて見る →</a></p>
+    </section>
+    <section class="personas">
+      <h2>旅のスタイルから探す</h2>
+      <p class="lead">あなたの旅行に合う宿を、タイプ別にまとめています。</p>
+      <ul class="persona-grid">
+{personas_html}
+      </ul>
+    </section>
+    <section class="goods-entry">
+      <h2>旅の持ち物・ノウハウ</h2>
+      <ul class="tip-list">
+{tips_html}
+        <li><a href="domestic-packing-list.html">国内旅行 持ち物リスト</a></li>
+        <li><a href="packing-checklist.html">初めての海外旅行 持ち物リスト</a></li>
+      </ul>
+      <p class="more"><a href="goods.html">旅の持ち物・グッズを見る →</a></p>
+    </section>
+    <section class="intro">
+      <h2>このサイトについて</h2>
+      <p>Refind Travel の「たびのおとも」は、実際に泊まった宿を、撮影した写真と動画でまるごと紹介するサイトです。1軒の宿で何十本も動画を撮って、部屋・お風呂・食事・まわりの景色まで、泊まる前に知りたいところを全部見せます。</p>
+      <p>宿泊記には、楽天トラベルなどの予約ページへのリンクを載せています。料金や空室、プランの内容は変わるので、予約の前にリンク先で最新の情報を確認してください。</p>
+    </section>
+  </main>
+  <footer>
+{FOOTER_LINKS_HTML}
+    <p><a href="https://developers.rakuten.com/" target="_blank" rel="noopener">Supported by Rakuten Developers</a></p>
+  </footer>
+</body>
+</html>
+"""
+
+
 def main() -> None:
     picks_all = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
     # hidden_from_index の付いたカテゴリ（例: 特定の記事だけで使う商品）は、トップページには出さない
@@ -225,7 +355,7 @@ def main() -> None:
     items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
     meta = json.loads((ROOT / "research" / "meta.json").read_text(encoding="utf-8"))
     data_date = date.fromisoformat(meta["updated"])
-    nav = site_nav("")
+    nav = site_nav(active="goods")
     body = []
     ld_items = []
     position = 0
@@ -259,8 +389,8 @@ def main() -> None:
          "itemListElement": ld_items},
         ensure_ascii=False,
     )
-    full_title = f"{SITE_NAME} | 旅行グッズ紹介"
-    full_desc = f"{TAGLINE}。バックパック、スーツケース、圧縮袋、モバイルバッテリーなど、楽天市場のレビューをもとに厳選して紹介します。"
+    full_title = f"旅の持ち物・グッズ | {SITE_NAME}"
+    full_desc = f"{GOODS_TAGLINE}。バックパック、スーツケース、圧縮袋、モバイルバッテリーなど、楽天市場のレビューをもとに厳選して紹介します。"
     page = f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -269,8 +399,7 @@ def main() -> None:
   <title>{full_title}</title>
   <meta name="description" content="{full_desc}">
   <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">
-  <link rel="canonical" href="{SITE_URL}">
+  <link rel="canonical" href="{SITE_URL}goods.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 
@@ -279,7 +408,7 @@ def main() -> None:
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="{full_title}">
   <meta property="og:description" content="{full_desc}">
-  <meta property="og:url" content="{SITE_URL}">
+  <meta property="og:url" content="{SITE_URL}goods.html">
   <meta property="og:image" content="{SITE_URL}og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -292,25 +421,23 @@ def main() -> None:
 
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
-<body class="home">
+<body class="goods">
 {HERO_HTML}
   <header>
-    <h1>{SITE_NAME}</h1>
-    <p>{TAGLINE}</p>
+    <p class="site-name"><a href="index.html">{SITE_NAME}</a></p>
     <p class="ad">※ 当サイトは楽天アフィリエイトを利用した広告（PR）を含みます。</p>
     <nav>{nav}</nav>
   </header>
   <main>
-{purpose_finder_html()}
     <section class="intro">
-      <h2>このサイトについて</h2>
+      <h1 class="page-title">旅の持ち物・グッズ</h1>
+      <nav class="cat-nav">{goods_category_nav()}</nav>
       <p>旅の準備で迷いやすいグッズを、楽天市場の商品からまとめて紹介しています。荷物を入れるバッグから、荷造り、電源、移動中の快適グッズまで、{len(picks)}個のカテゴリに分けました。</p>
       <p><strong>商品の選び方：</strong>楽天市場の在庫があり、レビュー評価が4.0以上で、レビューが30件以上ある商品を候補にしています。そこから、価格帯やタイプが偏らないように選びました。</p>
       <p>{used_note} 仕様や在庫は、購入前にリンク先でご確認ください。</p>
       <p class="cta">
         <a href="packing-checklist.html">初めての海外旅行 持ち物リストを読む →</a>
         <a href="domestic-packing-list.html">国内旅行 持ち物リストを読む →</a>
-        <a href="blog.html">旅行記を読む →</a>
       </p>
     </section>
 {chr(10).join(body)}
@@ -324,7 +451,8 @@ def main() -> None:
 </body>
 </html>
 """
-    (ROOT / "docs" / "index.html").write_text(page, encoding="utf-8")
+    (ROOT / "docs" / "goods.html").write_text(page, encoding="utf-8")
+    (ROOT / "docs" / "index.html").write_text(build_home(), encoding="utf-8")
 
     sitemap.build()
     favicon = ROOT / "docs" / "favicon.svg"
@@ -337,7 +465,7 @@ def main() -> None:
             "</svg>",
             encoding="utf-8",
         )
-    print("生成しました: docs/index.html, robots.txt, sitemap.xml, favicon.svg")
+    print("生成しました: docs/index.html, docs/goods.html, robots.txt, sitemap.xml, favicon.svg")
 
 
 if __name__ == "__main__":

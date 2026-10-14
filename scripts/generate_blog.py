@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
-from generate import SITE_NAME, image_of, page_shell  # noqa: E402
+from generate import PERSONAS, SITE_NAME, image_of, page_shell, stay_card  # noqa: E402
 from build import load_dotenv  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -38,6 +38,13 @@ PRODUCT_BLOCK_LINK_TEXT: dict[str, dict[str, str]] = {
     },
     "iphone-travel-video": {
         "osmo": "記事で使用しているOsmo Pocket 4を楽天で見る",
+    },
+}
+# 記事ごとに、商品名の表示を差し替える（筆者が使っている商品と同一でない場合に「参考商品」と明示する等）
+PRODUCT_NAME_OVERRIDE: dict[str, dict[str, str]] = {
+    "reduce-luggage-1night2days": {
+        "hitidear:10000115": "モバイルバッテリー（参考商品）",
+        "value-create:10000010": "衣類用圧縮ポーチ（参考商品）",
     },
 }
 PRODUCT_BLOCK_HEADING: dict[str, dict[str, str]] = {
@@ -74,6 +81,7 @@ def product_mention_html(item_code: str, items: dict, names: dict, link_text: st
 def render_product_block(slug: str, marker: str, codes: list[str], items: dict, names: dict) -> str:
     default_link = "楽天市場で見る"
     link_text = PRODUCT_BLOCK_LINK_TEXT.get(slug, {}).get(marker, default_link)
+    names = {**names, **PRODUCT_NAME_OVERRIDE.get(slug, {})}
     mentions = "\n".join(product_mention_html(c, items, names, link_text) for c in codes)
     heading = PRODUCT_BLOCK_HEADING.get(slug, {}).get(marker)
     heading_html = f'\n        <p class="pm-heading">{html.escape(heading)}</p>' if heading else ""
@@ -102,7 +110,7 @@ def fill_product_markers(slug: str, frag: str, product_refs: dict) -> str:
 
 # 宿の紹介ボックス。本文に <!-- hotel:施設番号|宿名 --> と書くと、楽天トラベルの
 # アフィリエイトリンク付きボックスに置き換わる（アフィリエイトIDは .env から読む）。
-def hotel_cta_html(hotel_no: str, name: str) -> str:
+def hotel_cta_html(hotel_no: str, name: str, tiktok: str = "") -> str:
     page = f"https://travel.rakuten.co.jp/HOTEL/{hotel_no}/{hotel_no}.html"
     aid = os.environ.get("RAKUTEN_AFFILIATE_ID")
     if aid:
@@ -110,15 +118,17 @@ def hotel_cta_html(hotel_no: str, name: str) -> str:
         url = f"https://hb.afl.rakuten.co.jp/hgc/{aid}/?pc={q}&m={q}"
     else:
         url = page
-    return f"""      <div class="hotel-cta">
-        <p class="hc-name">{html.escape(name)}</p>
-        <p class="hc-note">空室・料金は楽天トラベルで確認できます</p>
-        <a class="hc-btn" href="{html.escape(url)}" target="_blank" rel="noopener sponsored nofollow">楽天トラベルで空室・料金を見る →</a>
+    tt = (f"""
+        <a class="hc-btn hc-tiktok" href="{html.escape(tiktok)}" target="_blank" rel="noopener">TikTokで動画を見る →</a>
+        <p class="hc-tiktok-note">スマホのTikTokアプリで開くと、動画からそのまま予約できます</p>""" if tiktok else "")
+    return f"""      <div class="hotel-cta{' has-tiktok' if tiktok else ''}">
+        <p class="hc-name">{html.escape(name)}</p>{tt}
+        <a class="hc-btn hc-rakuten" href="{html.escape(url)}" target="_blank" rel="noopener sponsored nofollow">楽天トラベルで空室・料金を見る →</a>
       </div>"""
 
 
-def fill_hotel_markers(frag: str) -> str:
-    return re.sub(r"<!--\s*hotel:(\d+)\|([^>]*?)\s*-->", lambda m: hotel_cta_html(m.group(1), m.group(2).strip()), frag)
+def fill_hotel_markers(frag: str, tiktok: str = "") -> str:
+    return re.sub(r"<!--\s*hotel:(\d+)\|([^>]*?)\s*-->", lambda m: hotel_cta_html(m.group(1), m.group(2).strip(), tiktok), frag)
 
 
 def load_posts() -> list[dict]:
@@ -135,7 +145,7 @@ def load_posts() -> list[dict]:
 def build_post(post: dict) -> str:
     frag = (CONTENT_DIR / f"{post['slug']}.html").read_text(encoding="utf-8")
     frag = fill_product_markers(post["slug"], frag, post.get("product_refs", {}))
-    frag = fill_hotel_markers(frag)
+    frag = fill_hotel_markers(frag, post.get("tiktok", ""))
     label = TYPE_LABEL.get(post.get("type"), "")
     pub = date.fromisoformat(post["published"])
     body = f"""    <article class="article">
@@ -146,27 +156,52 @@ def build_post(post: dict) -> str:
     </article>"""
     return page_shell(title=post["title"], desc=post.get("excerpt", ""), body=body,
                        path=f"blog-{post['slug']}.html", og_type="article",
-                       published=post.get("published"), updated=post.get("updated"))
+                       published=post.get("published"), updated=post.get("updated"),
+                       og_image=post.get("cover"))
 
 
 def build_index(posts: list[dict]) -> str:
-    if posts:
-        cards = "\n".join(f"""        <li class="post-card">
+    stays = [p for p in posts if p.get("cover")]
+    others = [p for p in posts if not p.get("cover")]
+    groups = []
+    for key, name, note in PERSONAS:
+        ps = [p for p in stays if p.get("persona") == name]
+        if ps:
+            groups.append(f"""      <section id="{key}">
+        <h2>{html.escape(name)}</h2>
+        <p class="lead">{html.escape(note)}</p>
+        <ul class="stay-grid">
+{chr(10).join(stay_card(p) for p in ps)}
+        </ul>
+      </section>""")
+    rest = [p for p in stays if p.get("persona") not in [n for _, n, _ in PERSONAS]]
+    if rest:
+        groups.append(f"""      <section id="other-stays">
+        <h2>そのほかの宿</h2>
+        <ul class="stay-grid">
+{chr(10).join(stay_card(p) for p in rest)}
+        </ul>
+      </section>""")
+    tips = "\n".join(f"""        <li class="post-card">
           <a href="blog-{p['slug']}.html">
             <p class="post-meta"><span class="tag">{html.escape(TYPE_LABEL.get(p.get('type'), ''))}</span> {date.fromisoformat(p['published']):%Y年%m月%d日}</p>
             <h2>{html.escape(p['title'])}</h2>
             <p class="desc">{html.escape(p.get('excerpt', ''))}</p>
           </a>
-        </li>""" for p in posts)
-        list_html = f'      <ul class="post-list">\n{cards}\n      </ul>'
-    else:
-        list_html = '      <p class="lead">まだ記事がありません。近日公開予定です。お楽しみに。</p>'
+        </li>""" for p in others)
+    tips_html = f"""      <section id="tips">
+        <h2>旅のノウハウ</h2>
+        <ul class="post-list">
+{tips}
+        </ul>
+      </section>""" if others else ""
     body = f"""    <section class="article">
-      <h1>旅行記</h1>
-      <p class="lead">実際に旅行に行ったときの記録や、荷物・グッズにまつわる話をまとめています。</p>
-{list_html}
+      <h1>宿泊記・旅行記</h1>
+      <p class="lead">実際に泊まった宿の記録と、旅の準備のノウハウをまとめています。</p>
+{chr(10).join(groups) if groups else '      <p class="lead">宿泊記は準備中です。</p>'}
+{tips_html}
     </section>"""
-    return page_shell(title="旅行記", desc=f"{SITE_NAME}の旅行記・体験談をまとめたページです。",
+    return page_shell(title="宿泊記・旅行記", desc=f"{SITE_NAME}の宿泊記と旅のノウハウをまとめたページです。",
                        body=body, path="blog.html", og_type="website")
 
 
