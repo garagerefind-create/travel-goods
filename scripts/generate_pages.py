@@ -10,7 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
-from generate import SITE_NAME, page_shell  # noqa: E402
+from generate import SITE_NAME, SOCIAL_LINKS, page_shell  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -31,6 +31,12 @@ def build_about() -> str:
         <li>運営開始：{SITE_STARTED}</li>
       </ul>
 
+      <h2>各SNSでも発信中</h2>
+      <p>宿の動画や新しい宿泊記のお知らせは、各SNSで発信しています。</p>
+      <ul class="social-list">
+{{social}}
+      </ul>
+
       <h2>サイトの目的</h2>
       <p>{SITE_NAME}は、旅行の持ち物や準備で「何を選べばいいか分からない」と迷う時間を減らすことを目的にした、旅行メディアです。持ち物リストや準備のコツといった記事と、実際に役立つ旅行グッズの紹介をあわせて掲載しています。</p>
 
@@ -45,6 +51,8 @@ def build_about() -> str:
 
       <p><a href="index.html">← {SITE_NAME} トップへ戻る</a></p>
     </article>"""
+    body = body.replace("{social}", "\n".join(
+        f'        <li><a href="{u}" target="_blank" rel="noopener me">{n}</a>：{d}</li>' for n, u, d in SOCIAL_LINKS))
     return page_shell(title=title, desc=desc, body=body, path="about.html", og_type="website")
 
 

@@ -31,7 +31,19 @@ GA_SNIPPET = """  <script async src="https://www.googletagmanager.com/gtag/js?id
 PROMO = re.compile(r"【[^】]*】|＼[^／]*／|★[^★]*★|\[[^\]]*\]|《[^》]*》|「[^」]*」")
 
 HERO_HTML = '  <div class="hero"><img src="refind-travel-header.jpg" alt="Refind Travel — まだ知らない、好きな場所を見つけに行こう" width="1536" height="576" loading="eager"></div>'
-FOOTER_LINKS_HTML = ('    <p class="footer-links"><a href="about.html">運営者情報</a> '
+SOCIAL_LINKS = [
+    ("TikTok", "https://www.tiktok.com/@garagerefind2023", "宿の動画はここがメイン。アプリからそのまま空室チェックと予約ができます"),
+    ("Instagram", "https://www.instagram.com/refind.travel/", "リールで宿の雰囲気を。ハイライトに宿ごとの予約リンクをまとめています"),
+    ("YouTube", "https://www.youtube.com/@refindtravel", "ショート動画で宿をサクッと紹介"),
+    ("Threads", "https://www.threads.com/@refind.travel", "旅のゆるい話と、新しく泊まった宿のお知らせ"),
+    ("X", "https://x.com/refindtravel", "新しい宿泊記の更新情報"),
+    ("note", "https://note.com/refindtravel", "泊まった宿の正直な感想"),
+]
+SOCIAL_HTML = ('    <p class="footer-social-title">Refind travel をフォロー</p>\n'
+               '    <ul class="footer-social">' + "".join(
+                   f'<li><a href="{url}" target="_blank" rel="noopener me">{name}</a></li>'
+                   for name, url, _ in SOCIAL_LINKS) + '</ul>')
+FOOTER_LINKS_HTML = SOCIAL_HTML + "\n" + ('    <p class="footer-links"><a href="about.html">運営者情報</a> '
                      '<a href="privacy.html">プライバシーポリシー</a> '
                      '<a href="affiliate.html">アフィリエイトについて</a></p>')
 
@@ -136,7 +148,7 @@ def article_json_ld(*, title: str, desc: str, page_url: str, published: str | No
         "description": desc,
         "image": f"{SITE_URL}og-image.jpg",
         "author": {"@type": "Organization", "name": SITE_NAME},
-        "publisher": {"@type": "Organization", "name": SITE_NAME},
+        "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL, "sameAs": [u for _, u, _ in SOCIAL_LINKS]},
         "datePublished": published,
         "dateModified": updated or published,
         "mainEntityOfPage": {"@type": "WebPage", "@id": page_url},
@@ -298,6 +310,7 @@ def build_home() -> str:
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{desc}">
   <meta name="twitter:image" content="{cover}">
+  <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL}, {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL, "logo": f"{SITE_URL}favicon.svg", "sameAs": [u for _, u, _ in SOCIAL_LINKS]}]}, ensure_ascii=False)}</script>
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
 <body class="home">

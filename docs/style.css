@@ -175,3 +175,9 @@ header .site-name a { color:var(--sea-dark); text-decoration:none; }
   .article .hotel-cta .hc-tiktok { order:2; background:transparent; color:var(--fg); border:1px solid var(--line); }
   .article .hotel-cta .hc-tiktok-note { order:3; }
 }
+
+.footer-social-title { margin:20px 0 6px; font-weight:700; color:var(--fg); font-size:.85rem; }
+.footer-social { list-style:none; display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:0 0 12px; }
+.footer-social a { display:inline-block; padding:6px 14px; border:1px solid var(--line); background:var(--card); color:var(--sea-dark); border-radius:999px; text-decoration:none; font-size:.8rem; }
+.footer-social a:hover { background:var(--sea-pale); border-color:var(--sea); }
+.social-list li { margin:6px 0; }
