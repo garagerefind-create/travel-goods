@@ -1,6 +1,6 @@
 # travel-goods
 
-旅行グッズの紹介サイト「たびのおとも」（静的サイト、GitHub Pages公開）。
+旅行グッズの紹介サイト「Refind travel」（旧：たびのおとも）（静的サイト、GitHub Pages公開）。
 https://garagerefind-create.github.io/travel-goods/
 
 ## 構成

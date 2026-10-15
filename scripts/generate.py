@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_NAME = "たびのおとも"
+SITE_NAME = "Refind travel"
 TAGLINE = "実際に泊まった宿を、写真と動画でまるごと紹介する旅のサイト"
 GOODS_TAGLINE = "旅行の荷物と準備を、ちょっとラクにするグッズ集"
 SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
@@ -273,7 +273,7 @@ def build_home() -> str:
     tips_html = "\n".join(
         f'        <li><a href="blog-{p["slug"]}.html">{html.escape(p["title"])}</a></li>' for p in others)
     desc = f"{TAGLINE}。記念日のご褒美宿から犬連れOKの宿、コスパのいいビジネスホテルまで、実際に泊まった感想を紹介します。"
-    title = f"{SITE_NAME}｜実際に泊まった宿の宿泊記"
+    title = f"{SITE_NAME}｜泊まってよかった宿の宿泊記と旅の持ち物"
     cover = f"{SITE_URL}{stays[0]['cover']}" if stays else f"{SITE_URL}og-image.jpg"
     return f"""<!doctype html>
 <html lang="ja">
@@ -335,7 +335,7 @@ def build_home() -> str:
     </section>
     <section class="intro">
       <h2>このサイトについて</h2>
-      <p>Refind Travel の「たびのおとも」は、実際に泊まった宿を、撮影した写真と動画でまるごと紹介するサイトです。1軒の宿で何十本も動画を撮って、部屋・お風呂・食事・まわりの景色まで、泊まる前に知りたいところを全部見せます。</p>
+      <p>Refind travel は、実際に泊まった宿を、撮影した写真と動画でまるごと紹介するサイトです。1軒の宿で何十本も動画を撮って、部屋・お風呂・食事・まわりの景色まで、泊まる前に知りたいところを全部見せます。</p>
       <p>宿泊記には、楽天トラベルなどの予約ページへのリンクを載せています。料金や空室、プランの内容は変わるので、予約の前にリンク先で最新の情報を確認してください。</p>
     </section>
   </main>

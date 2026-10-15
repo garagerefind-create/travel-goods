@@ -14,7 +14,7 @@ from generate import SITE_NAME, page_shell  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
-OPERATOR_NAME = "たびのおとも運営"
+OPERATOR_NAME = "Refind travel 運営"
 SITE_STARTED = "2026年9月"
 
 
