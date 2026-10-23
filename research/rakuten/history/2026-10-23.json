@@ -1,0 +1,966 @@
+{
+  "generated_at": "2026-10-23T23:15:59+09:00",
+  "sections": [
+    {
+      "key": "season_realtime",
+      "label": "季節もの：楽天全体リアルタイム",
+      "type": "ranking",
+      "query": {
+        "period": "realtime"
+      },
+      "items": [
+        {
+          "rank": 30,
+          "name": "【最安値に挑戦中！】炭酸水 500ml 48本 (24本×2ケース) 送料無料※一部地域除く 強炭酸 炭酸 無糖 OZA SODA プレーン レモン ピンクグレープフルーツ ライム 割り材 箱買い まとめ買い ライフドリンクカンパニー LIFEDRINK ZAO SODA",
+          "price": "2550",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn46.l1tn30aa.g00tkn46.l1tn43b6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifedrinkcompany%2Fzaosoda-500-48%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "LIFEDRINKオンラインストア",
+          "reviewCount": 18139,
+          "reviewAverage": "4.66",
+          "genreId": "506536",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifedrinkcompany/cabinet/item-soda/ozasoda/proper/oza48_peach.jpg?_ex=128x128"
+        },
+        {
+          "rank": 29,
+          "name": "【ボンボンドロップシール】churukira ポムポムプリン",
+          "price": "605",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00upvs6.l1tn37cc.g00upvs6.l1tn404f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvvstore%2F6171608%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ヴィレヴァンオンラインストア",
+          "reviewCount": 0,
+          "reviewAverage": "0.0",
+          "genreId": "111163",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/vvstore/cabinet/11698572/imgrc0108991149.jpg?_ex=128x128"
+        },
+        {
+          "rank": 28,
+          "name": "【先着特典】Kis SCENE (初回盤A(Blu-ray)＋初回盤B(Blu-ray)＋通常盤セット)(セルカトレカ 3枚(横尾渉＆藤ヶ谷太輔＆宮田俊哉)+セルカトレカ 3枚 (玉森裕太＆二階堂高嗣＆千賀健永)+スクリーマーズ スクエアステッカー 6枚) [ Kis-My-Ft2 ]",
+          "price": "11222",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q0726.l1tn3b9c.g00q0726.l1tn48db/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F18762799%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "楽天ブックス",
+          "reviewCount": 0,
+          "reviewAverage": "0.0",
+          "genreId": "300011",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9356/2100015139356_1_2.gif?_ex=128x128"
+        },
+        {
+          "rank": 27,
+          "name": "【楽天ブックス限定先着特典+先着特典】【クレジットカード決済限定】【シリアル対象】TXT KR 9th MINI ‘PERFECT STORM(STORM IS COMING Ver.) (単品ランダム)(フォトカード1枚+イベント応募用シリアルナンバー(10/31に配信)+応募抽選用シリアルナンバー)",
+          "price": "2420",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q0726.l1tn3b9c.g00q0726.l1tn48db/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F18865357%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "楽天ブックス",
+          "reviewCount": 0,
+          "reviewAverage": "0.0",
+          "genreId": "553676",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8933/2100015268933_1_2.jpg?_ex=128x128"
+        },
+        {
+          "rank": 26,
+          "name": "コンタクトレンズ ワンデー 近視 遠視 選べる【2箱4箱】 TeAmo CLEAR 1DAY UV 低含水 高含水 ティアモ クリア ワンデー まとめ買い 1箱30枚 TeAmo コンタクト クリア 近視用 遠視用 1日使い捨て クリアワンデー 度あり UVカット ソフトコンタクト 送料無料 【最安値に挑戦】",
+          "price": "1986",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ram06.l1tn3ce5.g00ram06.l1tn4520/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fteamo%2Fpure_clear_1%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "コンタクトレンズのTeAmo",
+          "reviewCount": 15105,
+          "reviewAverage": "4.56",
+          "genreId": "563999",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/teamo/cabinet/2026/clear/1day_clear2box_tm.jpg?_ex=128x128"
+        },
+        {
+          "rank": 25,
+          "name": "アキュビューオアシス 2~8箱セット ( コンタクトレンズ 2week コンタクト 2週間使い捨て 2ウィーク ジョンソン アキュビュー acuvue UVカット メール便 ジョンソン・エンド・ジョンソン 2箱 4箱 6箱 8箱 コンタクト洗浄液 ) 近視 遠視 アキュビューオアシス2week",
+          "price": "4980",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rz7b6.l1tn3566.g00rz7b6.l1tn473d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fearth-contact%2Faoas-02%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "アースコンタクト",
+          "reviewCount": 421,
+          "reviewAverage": "4.67",
+          "genreId": "563999",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/earth-contact/cabinet/thumbnail_/p10/aoas-02.jpg?_ex=128x128"
+        },
+        {
+          "rank": 24,
+          "name": "【楽券_eギフト】サーティワン 500円",
+          "price": "500",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4q96.l1tn33b5.g00u4q96.l1tn45ba/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakkenshop%2Frakken_107-137%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "楽券ショップ",
+          "reviewCount": 3124,
+          "reviewAverage": "4.63",
+          "genreId": "566730",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/rakkenshop/cabinet/08757658/13157239/imgrc0099575088.jpg?_ex=128x128"
+        },
+        {
+          "rank": 23,
+          "name": "【10%OFFクーポン】【医師共同開発】Suuu 睡眠サプリ GABA ギャバ 睡眠の質 リラックス ナイトケア 美容サプリ リラックスPLX スゥー 国内製造 約30日分 送料無料",
+          "price": "1980",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00uobc6.l1tn3793.g00uobc6.l1tn4dcd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifewell%2Fsuuu-01%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Lifewell楽天市場店",
+          "reviewCount": 58,
+          "reviewAverage": "4.72",
+          "genreId": "407974",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifewell/cabinet/suuu/12013852/12151025/imgrc0108584436.jpg?_ex=128x128"
+        },
+        {
+          "rank": 22,
+          "name": "ポロラルフローレン POLO RALPH LAUREN マフラー メンズ レディース pc0455 002【返品送料無料】[2026AW]",
+          "price": "10500",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pmr46.l1tn3781.g00pmr46.l1tn4ecb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmb%2Fpc0455%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "モダンブルー楽天市場店",
+          "reviewCount": 6,
+          "reviewAverage": "4.5",
+          "genreId": "408914",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/mb/cabinet/img420/pc045501.jpg?_ex=128x128"
+        },
+        {
+          "rank": 21,
+          "name": "メダリストワンデープラス 90枚パック ×2箱セット ボシュロム コンタクトレンズ ワンデー コンタクト 1day 1日使い捨て",
+          "price": "5705",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s2zr6.l1tn37d7.g00s2zr6.l1tn4532/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flensfree%2Fbl1dmp90-2%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "コンタクト通販　レンズフリー",
+          "reviewCount": 1997,
+          "reviewAverage": "4.78",
+          "genreId": "563999",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lensfree/cabinet/product/event/point/imgrc0124652087.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "dog_outing_ranking",
+      "label": "犬のお出かけ用品：ランキング",
+      "type": "ranking",
+      "query": {
+        "genreId": 215347
+      },
+      "items": [
+        {
+          "rank": 30,
+          "name": "★楽天1位★ 給水ボトル 犬 ペット水飲み器 300ml ワンタッチ 給水 水 餌やり 散歩 水筒 ウォーターボトル ペットウォーターボトル お散歩 お出かけボトル 給水器 携帯 持ち運び 水分補給 かわいい おしゃれ ロック バッグ ペット用品 犬用",
+          "price": "1380",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u5lk6.l1tn3076.g00u5lk6.l1tn4cf9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhitsumi%2F0113%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "おしゃれ＆便利グッズ通販 hitsumi",
+          "reviewCount": 245,
+          "reviewAverage": "4.58",
+          "genreId": "215348",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hitsumi/cabinet/image_2023_1_17.jpg?_ex=128x128"
+        },
+        {
+          "rank": 29,
+          "name": "★Freshguard 防臭袋 うんちが臭わない袋 消臭袋 犬うんち処理袋 SS/S/M/L/LL 1/2個セット 6色選択可 半透明 中身見えにくい 品質フィルム構造 匂わない袋 徹底消臭 お散歩ウンチ袋 ペット 猫 犬 猫砂処理袋 うんち袋 箱型",
+          "price": "1780",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00uqiw6.l1tn34c9.g00uqiw6.l1tn49b9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fspark-madoka%2Fmdk-zhfcd-s-ss-m%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "FRESHGUARD HANSILK",
+          "reviewCount": 93,
+          "reviewAverage": "4.68",
+          "genreId": "404148",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/spark-madoka/cabinet/11730808/11736524/1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 28,
+          "name": "驚異の防臭袋 BOS ボス うんちが臭わない袋 犬用 ペット用 うんち 消臭袋 処理袋 トイレ袋 うんち袋 Mサイズ 90枚入 5個セット",
+          "price": "7150",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tl226.l1tn3fa4.g00tl226.l1tn4828/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhappiport%2F4560224462757-5%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ハピポート　楽天市場店",
+          "reviewCount": 81,
+          "reviewAverage": "4.79",
+          "genreId": "215350",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/happiport/cabinet/06916244/06917508/06917513/ss200-set-5.jpg?_ex=128x128"
+        },
+        {
+          "rank": 27,
+          "name": "ラフウェア トリートトレーダー 小型犬用 中型犬用 大型犬用 ナイロン 全3色",
+          "price": "7200",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00r58n6.l1tn39ea.g00r58n6.l1tn46aa/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftorusdogmart%2Fruffwear_treat_trader%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "トオルズドッグマート楽天市場店",
+          "reviewCount": 1,
+          "reviewAverage": "5.0",
+          "genreId": "304271",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/torusdogmart/cabinet/05157333/12599259/imgrc0125710388.jpg?_ex=128x128"
+        },
+        {
+          "rank": 26,
+          "name": "ペット 水筒 携帯 犬用 水筒 520ml 給水ボトル ウォーターボトル トラベル 折りたたみ式ボウル カップ付 水飲み器 犬 猫 散歩 ドライブ 旅行 ドッグラン 熱中症対策 軽量 お出かけ 旅行に便利",
+          "price": "1880",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00skuh6.l1tn357f.g00skuh6.l1tn40a5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpurple7%2Fpet-water-bottle%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Purple7",
+          "reviewCount": 45,
+          "reviewAverage": "4.18",
+          "genreId": "215348",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/purple7/cabinet/06391468/pwa.jpg?_ex=128x128"
+        },
+        {
+          "rank": 25,
+          "name": "【要エントリー!10/31まで最大10万ポイント当たる】ウンチ処理袋 ウンチポイ 100枚入(お散歩 おさんぽ 犬グッズ 散歩 グッズ フン ふん 糞 猫 ペット うんち 袋 犬 うんち袋)【Z】",
+          "price": "1254",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q1mv6.l1tn366a.g00q1mv6.l1tn4fff/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdogparadise%2F4947094000027%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ドッグパラダイスぷらすニャン",
+          "reviewCount": 49,
+          "reviewAverage": "4.69",
+          "genreId": "206217",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/dogparadise/cabinet/ad_cart/100kpoint/01/4947094000027.jpg?_ex=128x128"
+        },
+        {
+          "rank": 24,
+          "name": "おさんぽソックス (2個入）　犬　靴　靴下　ソックス　保護　肉球 犬用シューズ　選べるサイズ　犬用　ドッグシューズ　レインシューズ　怪我　足舐め　犬の靴　アニマルオルソジャパン　散歩　室内　ペットシューズ　ドッグ　くつ　老犬　肉球保護",
+          "price": "3960",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s6su6.l1tn38c0.g00s6su6.l1tn4499/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmatsumotogishi%2F10000000%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "松本義肢製作所　楽天市場店",
+          "reviewCount": 361,
+          "reviewAverage": "4.22",
+          "genreId": "206217",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/matsumotogishi/cabinet/04585119/imgrc0104336341.jpg?_ex=128x128"
+        },
+        {
+          "rank": 23,
+          "name": "犬 お散歩バッグ 散歩バッグ ショルダー ワンショルダー 大容量 撥水 反射 ペットボトルホルダー ペットボトル2本収納可 マナーポーチ 消臭 抗菌 収納ポケット きれいめ おしゃれ 軽量 SUZUKOUBOUお散歩バッグ BAISC【ボディバッグタイプ】",
+          "price": "8480",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rero6.l1tn32e4.g00rero6.l1tn49ea/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsuzukoubou%2F10003006%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "犬と出かける専門店SUZUKOUBOU",
+          "reviewCount": 142,
+          "reviewAverage": "4.66",
+          "genreId": "404148",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/suzukoubou/cabinet/data/bag_walk_bdy_2026/kv.jpg?_ex=128x128"
+        },
+        {
+          "rank": 22,
+          "name": "驚異の防臭袋 BOS ボス うんちが臭わない袋 犬用 ペット用 うんち 消臭袋 処理袋 トイレ袋 うんち袋 Sサイズ 200枚入 4個セット",
+          "price": "9790",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tl226.l1tn3fa4.g00tl226.l1tn4828/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhappiport%2F4560224462344-4%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ハピポート　楽天市場店",
+          "reviewCount": 11,
+          "reviewAverage": "4.73",
+          "genreId": "215350",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/happiport/cabinet/06916244/06917508/06917512/ss200-set-4.jpg?_ex=128x128"
+        },
+        {
+          "rank": 21,
+          "name": "【まとめ買い対象】犬 小型犬 犬用 マナーポーチ 消臭機能付き うんち袋 お散歩用品 トリーツポーチ 撥水 防汚 交換OK/返品不可 メール便可 コーデュラ スマートお散歩マナーポーチ",
+          "price": "1290",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qwnm6.l1tn3b82.g00qwnm6.l1tn4ee6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fradica%2Fc4014-0004%2F&rafcid=wsc_i_ra_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "犬の服　RADICA（ラディカ）",
+          "reviewCount": 10,
+          "reviewAverage": "4.8",
+          "genreId": "404148",
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/radica/cabinet/2026ss/c4014_001.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "dog_travel",
+      "label": "犬のお出かけ用品：犬連れ旅行グッズ（レビュー数順）",
+      "type": "search",
+      "query": {
+        "keyword": "犬 旅行 グッズ"
+      },
+      "items": [
+        {
+          "rank": 1,
+          "name": "【期間限定28%クーポン!10/24まで】 【900件レビュー突破！】 湯たんぽ 充電式 蓄熱式湯たんぽ ゆたんぽ カバー付 防寒グッズ あったかグッズ キャンプ 蓄電 ミニ 足 電気あんか 犬 かわいい クッション 携帯 持ち運び 電気湯たんぽ 旅行 やわらか",
+          "price": 1960,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00uh0r6.l1tn3e30.g00uh0r6.l1tn4fa5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgoodlifestyle%2Fts-gds-0085%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgoodlifestyle%2Fi%2F10000167%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "グッドライフスタイル",
+          "reviewCount": 971,
+          "reviewAverage": 4.53,
+          "genreId": 208202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/goodlifestyle/cabinet/gds/gds_008/gds-0085_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 2,
+          "name": "【楽天1位】ペットウォーターボトル 犬グッズ ペット用品 ペット 水 水飲み ボトル 犬 ペットボトル ペット給水器 犬 グッズ 散歩 外出 ドライブ 旅行 漏れ防止 ワンタッチ 贈り物",
+          "price": 1880,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00thrk6.l1tn3ce0.g00thrk6.l1tn44a7/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fwishsun%2Fpet_water_bottle%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fwishsun%2Fi%2F10000101%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "WISH SUN",
+          "reviewCount": 932,
+          "reviewAverage": 4.52,
+          "genreId": 215348,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/wishsun/cabinet/biiino/item/main-image/20220118163648_1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 3,
+          "name": "【35％OFFクーポン】 1位連冠 蓄熱式湯たんぽ 充電式 コードレス カバー付き 急速蓄熱 30〜65℃温度調整 あったかグッズ 寝る時 足元 腰 お腹 ぽかぽか 冬 防寒 電気あんか ミニ ペット 犬 猫 洗えるカバー 冷え対策 POCA+ 長時間保温 省エネ設計 やさしい暖かさ",
+          "price": 1980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00unfj6.l1tn32d5.g00unfj6.l1tn4149/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhrubyroad%2Fgds-311-0002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhrubyroad%2Fi%2F10000020%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "HRUBYROAD",
+          "reviewCount": 370,
+          "reviewAverage": 4.57,
+          "genreId": 208202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hrubyroad/cabinet/zjcp/topimg/gds-311-0002new2.jpg?_ex=128x128"
+        },
+        {
+          "rank": 4,
+          "name": "【最大2000円OFFクーポン+P5倍】ペットパラダイス公式 Lee 犬 リュック キャリーバッグ 抱っこヒッコリー 超小型犬 小型犬 | ペット 防災 ハグ キャリーリュック キャリー バック 防災 避難 お出かけ 旅行 おしゃれ かわいい 猫 デニム",
+          "price": 16870,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pv4q6.l1tn33c8.g00pv4q6.l1tn424a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpet-para%2F294-11091%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpet-para%2Fi%2F10073764%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ペットパラダイス",
+          "reviewCount": 234,
+          "reviewAverage": 4.54,
+          "genreId": 206151,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/pet-para/cabinet/le24s/29414671.jpg?_ex=128x128"
+        },
+        {
+          "rank": 5,
+          "name": "【先着順★10/24まで26%クーポン】 POCA+ 湯たんぽ 充電式 蓄熱式湯たんぽ 電気湯たんぽ ゆたんぽ湯たんぽ 充電式湯たんぽ コードレス 蓄電式 蓄熱式 ゆたんぽ お湯不要 あったかグッズ 長時間 カバー付き おしゃれ あったか 本体 軽量",
+          "price": 1880,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4pf6.l1tn31fa.g00u4pf6.l1tn4dc3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbestselectmart%2Fse-gds-0085%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbestselectmart%2Fi%2F10000474%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ベストセレクトマート",
+          "reviewCount": 194,
+          "reviewAverage": 4.5,
+          "genreId": 208202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/bestselectmart/cabinet/gds/gds_008/gds-0085_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 6,
+          "name": "ペットキャリー リュック 犬 小型犬 中型犬 猫 キャスター付き キャリー 持ち手 ペットキャリーバッグ カート 手提げ ペットハウス 折りたたみ 3way メッシュ 窓 リード 飛び出し防止 マット 耐荷重 15kg お出かけ 旅行 車 ドライブ お散歩 防災 災害 避難 ペット用品",
+          "price": 7380,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00t4kg6.l1tn3e2b.g00t4kg6.l1tn443d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fflourish12%2Fpets045%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fflourish12%2Fi%2F10000106%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Medel Quon 楽天市場店",
+          "reviewCount": 194,
+          "reviewAverage": 4.07,
+          "genreId": 206151,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/flourish12/cabinet/pets3/pets045x1_2.jpg?_ex=128x128"
+        },
+        {
+          "rank": 7,
+          "name": "【楽天1位】小中型犬服 犬 レインウェア レインコート/雨具 リード穴あり 反射テープ付き ドッグウェア 散歩 旅行 お出かけ 犬の服 ペット用品 グッズ 梅雨対策 梅雨カッパ 雪 防水 防寒 防風 軽量 可愛い 帽子付き ネコポス送料無料！【ra47710】",
+          "price": 1228,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00teqt6.l1tn3ce1.g00teqt6.l1tn4ee2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjsusa%2Fra47710%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjsusa%2Fi%2F10002690%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "JS U.S.A",
+          "reviewCount": 172,
+          "reviewAverage": 4.18,
+          "genreId": 409718,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/jsusa/cabinet/5824368/ra47710_1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 8,
+          "name": "＼ポイント5倍！24日20時～／【楽天ランキング1位】 犬 水飲み 散歩 ボトル 給水ボトル 水飲み器 ペットボトル 水入れ 持ち運び 水筒 ペット ウォーターボトル 給水器 水飲みボトル 携帯用 ペット用品 便利 犬用品 犬グッズ 柴犬 旅行 外出 ワンタッチ お出かけ",
+          "price": 1680,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tw5t6.l1tn3083.g00tw5t6.l1tn4a52/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcorleoamor%2Fpetwater02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcorleoamor%2Fi%2F10000036%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Corleoamor(コルレオアモル)",
+          "reviewCount": 166,
+          "reviewAverage": 4.51,
+          "genreId": 215348,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/corleoamor/cabinet/petwater02/petwater02-000a.jpg?_ex=128x128"
+        },
+        {
+          "rank": 9,
+          "name": "【楽天1位】ペットレインコート レインウェア 小中型犬服 犬 雨具 帽子付き リード穴あり 反射テープ付き ドッグウェア 散歩 旅行 お出かけ 梅雨対策 梅雨カッパ 雪 防寒 防風 軽量 防水服 春 夏 秋 冬適用 犬服 ペット用品 レイングッズ ネコポス送料無料！[ra47710]",
+          "price": 1358,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u5n96.l1tn32ce.g00u5n96.l1tn472a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftoysboxstore%2Fra47710%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftoysboxstore%2Fi%2F10000005%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "トイズボックスストア",
+          "reviewCount": 136,
+          "reviewAverage": 4.27,
+          "genreId": 409718,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/toysboxstore/cabinet/08911626/ra47710_1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 10,
+          "name": "【 1000円ポッキリ 送料無料 】写真 オリジナル ポーチ 巾着 ペット 写真入り オリジナルグッズ プレゼント 名入れ 文字 巾着袋 オーダー 作成 ラッピング 袋 卒団記念品 オーガニックコットン",
+          "price": 1000,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u1kh6.l1tn3053.g00u1kh6.l1tn4242/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprint-laboratory%2Fpl0006-free-01%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprint-laboratory%2Fi%2F10000776%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ピーラボ オリジナル 名入れ 写真",
+          "reviewCount": 127,
+          "reviewAverage": 4.92,
+          "genreId": 213918,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/print-laboratory/cabinet/default/1501-2000/imgrc0080201862.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "travel_goods",
+      "label": "旅行グッズ：トラベルグッズ（レビュー数順）",
+      "type": "search",
+      "query": {
+        "keyword": "トラベルグッズ"
+      },
+      "items": [
+        {
+          "rank": 1,
+          "name": "＼楽天1位／【メール便送料無料】 GPT スーツケース ベルト TSAロック 【 当店オリジナル 】 3桁 ダイヤル おしゃれ カラフル チェック ドット ストライプ アウトレット gpt-skb-12-mail(gu1a063)(1通につき2点迄)",
+          "price": 1480,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pv0j6.l1tn3236.g00pv0j6.l1tn42e5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgriptone%2F6455bk%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgriptone%2Fi%2F10005349%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "スーツケース旅行用品のグリプトン",
+          "reviewCount": 9601,
+          "reviewAverage": 4.33,
+          "genreId": 301586,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/griptone/cabinet/shohin18/gu1a064_01-mail.jpg?_ex=128x128"
+        },
+        {
+          "rank": 2,
+          "name": "全店限定価格◎【MAX39%OFF】 【圧倒的レビュー数&高評価】 トラベルポーチ 吊り下げ 旅行 レディース 便利グッズ ポーチ 4in1 コスメポーチ セット おしゃれ メイク 化粧ポーチ 洗面用具 仕切り トラベルグッズ 旅行グッズ 風呂 温泉 洗面道具",
+          "price": 1630,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4pf6.l1tn31fa.g00u4pf6.l1tn4dc3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbestselectmart%2Fse-travel-0003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbestselectmart%2Fi%2F10000142%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ベストセレクトマート",
+          "reviewCount": 6370,
+          "reviewAverage": 4.59,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/bestselectmart/cabinet/trip/trip_000/trip-0003_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 3,
+          "name": "【MAX43%OFF祭◎限定開催中】 ＼雑誌TV掲載 1位連冠／ 旅行 トラベルポーチ セット メイクポーチ おしゃれ 便利グッズ 旅行 ポーチ トラベル 化粧 コスメ ポーチ グッズ 取り外し 旅行グッズ トラベルグッズ レディース お風呂 かわいい 洗面用具",
+          "price": 1760,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4k06.l1tn3b36.g00u4k06.l1tn4fe2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuturebox%2Ffb-travel-0003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuturebox%2Fi%2F10000385%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "フューチャーボックス",
+          "reviewCount": 4922,
+          "reviewAverage": 4.58,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/futurebox/cabinet/trip/trip_000/trip-0003_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 4,
+          "name": "スーツケースベルト TSAスーツケースベルト TSAロック搭載のワンタッチスーツケースベルト TSAロックベルト 海外旅行 旅行用品 トラベル用品 トラベルグッズ",
+          "price": 980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qpol6.l1tn372a.g00qpol6.l1tn4cb9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forange58%2Ftsa%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forange58%2Fi%2F10000652%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "オレンジウェディング",
+          "reviewCount": 4906,
+          "reviewAverage": 4.42,
+          "genreId": 301586,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/orange58/cabinet/imgrc0093331742.jpg?_ex=128x128"
+        },
+        {
+          "rank": 5,
+          "name": "【楽天1位累計315冠 ネックピロー ★2個目 15％OFF】ポンプ式 飛行機 コンパクト エアー 空気 車 まくら 首枕 携帯枕 折りたたみ トラベルピロー 洗える 簡単 収納袋付 新幹線 出張 夜行バス 旅行グッズ 快適 クッション 安眠グッズ リラックスタイム ギフ",
+          "price": 1980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00umqx6.l1tn3249.g00umqx6.l1tn4aff/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Finamical%2Fnpa-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Finamical%2Fi%2F10000000%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "amifun",
+          "reviewCount": 2638,
+          "reviewAverage": 4.57,
+          "genreId": 208213,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/inamical/cabinet/11273188/imgrc0335697935.jpg?_ex=128x128"
+        },
+        {
+          "rank": 6,
+          "name": "【200枚限定★40％OFFクーポン 10/27 23:59迄】 ★新色登場★《便利な内ポケット付き》トラベルポーチ 圧縮 おしゃれ 圧縮袋 衣類 旅行 圧縮ポーチ 収納ポーチ 便利グッズ 圧縮 コンパクト 収納 水洗い可 ファスナー 国内旅行 海外旅行 レディース 軽量 トラベルグッズ",
+          "price": 1780,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0p36.l1tn35b9.g00s0p36.l1tn4296/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-risecreation%2Fy0516%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-risecreation%2Fi%2F10003265%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "atRise(アットライズ)",
+          "reviewCount": 2551,
+          "reviewAverage": 4.52,
+          "genreId": 565226,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-risecreation/cabinet/product/13165206/y0516_01c.jpg?_ex=128x128"
+        },
+        {
+          "rank": 7,
+          "name": "【レビュー2000件超！24日20時～4h限定20％OFFクーポン】【雑誌掲載★楽天1位獲得】 トラベルポーチ セット おしゃれ 洗える 旅行用ポーチ トラベル パッキング 旅行 バッグ トラベルグッズ シューズバッグ 仕分け 出張 入院 衣類収納 便利グッズ ギフト 男女兼用",
+          "price": 2980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u05c6.l1tn3847.g00u05c6.l1tn4068/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fluckyhill%2Fnz-37tp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fluckyhill%2Fi%2F10000105%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Luckyhill 楽天市場店",
+          "reviewCount": 2369,
+          "reviewAverage": 4.71,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/luckyhill/cabinet/nz-37tp_b4.jpg?_ex=128x128"
+        },
+        {
+          "rank": 8,
+          "name": "＼楽天1位／ 【メール便送料無料】GPT パスポートカバー パスポートケース 半透明 無地 日本製 【 当店オリジナル 】 海外旅行 トラベル シンプル 便利グッズ PPC-1501-mail(1通につき80点迄)(gu1a027)",
+          "price": 348,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00pv0j6.l1tn3236.g00pv0j6.l1tn42e5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgriptone%2Fppc-1501%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgriptone%2Fi%2F10002617%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "スーツケース旅行用品のグリプトン",
+          "reviewCount": 2113,
+          "reviewAverage": 4.58,
+          "genreId": 505555,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/griptone/cabinet/shohin24/gu1a036_01-mail.jpg?_ex=128x128"
+        },
+        {
+          "rank": 9,
+          "name": "【10％OFFCP★マラソン限定】＼当日発送／【楽天1位連冠】4点セット トラベル 圧縮 ポーチ 衣類スペース 60％ 節約 旅行 収納ポーチ トラベルポーチ 圧縮袋 軽量 出張 旅行 仕分け 簡単 便利グッズ シンプル おしゃれ トラベルグッズ パッキング 整理 衣類 圧縮袋",
+          "price": 700,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tpvl6.l1tn3a7b.g00tpvl6.l1tn4e95/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fownlife%2Ftw000266%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fownlife%2Fi%2F10000777%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "OwnLife",
+          "reviewCount": 1951,
+          "reviewAverage": 4.35,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ownlife/cabinet/07587831/10114948/11043344/01a.jpg?_ex=128x128"
+        },
+        {
+          "rank": 10,
+          "name": "【激安45%OFFで8個605円】 スーツケース キャスターカバー タイヤ カバー フルタイプ キャリーケース タイヤカバー トラベルグッズ キャリーバッグ シリコン キャスター カバー 静音 スーツケースカバー 便利グッズ キャスターカバー・スーツケースカバー",
+          "price": 1100,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ue496.l1tn3744.g00ue496.l1tn418a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Famstore123%2Fcover-01a%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Famstore123%2Fi%2F10000255%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "AMstore",
+          "reviewCount": 1806,
+          "reviewAverage": 4.26,
+          "genreId": 565223,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/amstore123/cabinet/thum/coupon/cover-01a.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "travel_compress",
+      "label": "旅行グッズ：圧縮袋（レビュー数順）",
+      "type": "search",
+      "query": {
+        "keyword": "圧縮袋 旅行"
+      },
+      "items": [
+        {
+          "rank": 1,
+          "name": "2点セット 旅行用圧縮袋 トラベルポーチ YKK 圧縮バッグ 圧縮ポーチ 圧縮 圧縮袋 旅行用 旅行用収納ポーチ 旅行圧縮袋 セット 衣類旅行圧縮 収納ポーチ ファスナー圧縮 衣類スペース 50％ 節約 軽量 出張 旅行 仕分け 簡単",
+          "price": 3490,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn86.l1tn3490.g00tkn86.l1tn4764/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fichifujiec%2Fnsana018set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fichifujiec%2Fi%2F10000075%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ICHIFUJI Online",
+          "reviewCount": 3371,
+          "reviewAverage": 4.5,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ichifujiec/cabinet/nsana018/nk039/nk03920230930/nsana018set2b.jpg?_ex=128x128"
+        },
+        {
+          "rank": 2,
+          "name": "【200枚限定★40％OFFクーポン 10/27 23:59迄】 ★新色登場★《便利な内ポケット付き》トラベルポーチ 圧縮 おしゃれ 圧縮袋 衣類 旅行 圧縮ポーチ 収納ポーチ 便利グッズ 圧縮 コンパクト 収納 水洗い可 ファスナー 国内旅行 海外旅行 レディース 軽量 トラベルグッズ",
+          "price": 1780,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0p36.l1tn35b9.g00s0p36.l1tn4296/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-risecreation%2Fy0516%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-risecreation%2Fi%2F10003265%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "atRise(アットライズ)",
+          "reviewCount": 2551,
+          "reviewAverage": 4.52,
+          "genreId": 565226,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-risecreation/cabinet/product/13165206/y0516_01c.jpg?_ex=128x128"
+        },
+        {
+          "rank": 3,
+          "name": "【楽天1位受賞】【YKK製ファスナー】【ほつれ穴なし】【撥水加工】 トラベルポーチ 圧縮 YKK セット 圧縮ポーチ 圧縮袋 衣類 旅行 便利グッズ 旅行用 旅行用圧縮袋 トラベル 圧縮バッグ 圧縮バック 収納ポーチ 旅行用ポーチ 服 両面 出張 おむつ",
+          "price": 1780,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tmtx6.l1tn335b.g00tmtx6.l1tn4850/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvalue-create%2Ftravel-pouch%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvalue-create%2Fi%2F10000010%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "COCRE",
+          "reviewCount": 2379,
+          "reviewAverage": 4.73,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/value-create/cabinet/travelpouch/0328_2.jpg?_ex=128x128"
+        },
+        {
+          "rank": 4,
+          "name": "旅行用圧縮袋 トラベルポーチ YKK 圧縮バッグ 圧縮ポーチ. 圧縮 圧縮袋 収納ポーチ 旅行圧縮袋 ファスナー 圧縮で衣類スペース50％節約 軽量 出張 旅行 便利グッズ 衣類仕分け 簡単圧縮",
+          "price": 1000,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn86.l1tn3490.g00tkn86.l1tn4764/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fichifujiec%2Fnsana-018%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fichifujiec%2Fi%2F10000032%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ICHIFUJI Online",
+          "reviewCount": 2329,
+          "reviewAverage": 4.49,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ichifujiec/cabinet/nsana018/nk039/nk03920230930/nk039b.jpg?_ex=128x128"
+        },
+        {
+          "rank": 5,
+          "name": "＼楽天1位受賞 正規品／ 圧縮袋 高密封・厚手素材 布団圧縮袋 衣類圧縮袋 真空袋 収納袋 掃除機・吸引機対応 ハンドポンプ 電動ポンプ 携帯式電動ポンプ 防湿・防塵・防臭・防カビ 真空 収納 布団 衣類 ポンプ 衣類収納 布団収納 布団圧縮 引越し・旅行・家庭用",
+          "price": 1790,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u5p56.l1tn369f.g00u5p56.l1tn4cfd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Farcraiz%2Farc99010%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Farcraiz%2Fi%2F10000087%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "arcraizオンライン楽天市場店",
+          "reviewCount": 2069,
+          "reviewAverage": 4.6,
+          "genreId": 216033,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/arcraiz/cabinet/arcraiz/arc1/arc99010/imgrc0111894728.jpg?_ex=128x128"
+        },
+        {
+          "rank": 6,
+          "name": "【10％OFFCP★マラソン限定】＼当日発送／【楽天1位連冠】4点セット トラベル 圧縮 ポーチ 衣類スペース 60％ 節約 旅行 収納ポーチ トラベルポーチ 圧縮袋 軽量 出張 旅行 仕分け 簡単 便利グッズ シンプル おしゃれ トラベルグッズ パッキング 整理 衣類 圧縮袋",
+          "price": 700,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tpvl6.l1tn3a7b.g00tpvl6.l1tn4e95/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fownlife%2Ftw000266%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fownlife%2Fi%2F10000777%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "OwnLife",
+          "reviewCount": 1951,
+          "reviewAverage": 4.35,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ownlife/cabinet/07587831/10114948/11043344/01a.jpg?_ex=128x128"
+        },
+        {
+          "rank": 7,
+          "name": "3点セット 旅行用圧縮袋 トラベルポーチ YKK 圧縮バッグ 圧縮ポーチ 圧縮 圧縮袋 セット 旅行圧縮袋 衣類旅行圧縮 収納ポーチ ファスナー圧縮 衣類スペース 50％ 節約 軽量 出張 旅行 仕分け 簡単",
+          "price": 4490,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn86.l1tn3490.g00tkn86.l1tn4764/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fichifujiec%2Fnsana018set3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fichifujiec%2Fi%2F10000105%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ICHIFUJI Online",
+          "reviewCount": 1705,
+          "reviewAverage": 4.47,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ichifujiec/cabinet/nsana018/nk039/nk03920230930/imgrc0093778378.jpg?_ex=128x128"
+        },
+        {
+          "rank": 8,
+          "name": "＼雑誌に掲載されました！／＼楽天ランキング1位獲得！／ 圧縮袋 圧縮 衣類 押すだけ 掃除機不要 2枚セット 衣類圧縮袋 立体圧縮袋 手押し 衣類 収納 圧縮ボックス 衣類ケース カビ対策 防カビ ポンプ不要 衣類収納 衣替え 旅行 vc-bag-02",
+          "price": 1690,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rt7q6.l1tn37da.g00rt7q6.l1tn45e4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftakara-jiang%2Fvc-bag-02%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftakara-jiang%2Fi%2F10034170%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "TK-JIANG",
+          "reviewCount": 1649,
+          "reviewAverage": 4.52,
+          "genreId": 216033,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/takara-jiang/cabinet/zakka/top-h/vc-bag-02_topc.jpg?_ex=128x128"
+        },
+        {
+          "rank": 9,
+          "name": "【200枚限定★40％OFFクーポン 10/27 23:59迄】 ＼新♪Mサイズ★／圧縮 トラベルポーチ 吊り下げ おしゃれ トラベル ポーチ バッグ 着替え 収納 かわいい 大きい 旅行 出張 トラベルバッグ インナーバッグ 整理 圧縮バッグ 圧縮袋 仕分け トラベルグッズ つり下げ",
+          "price": 2980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0p36.l1tn35b9.g00s0p36.l1tn4296/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-risecreation%2Fr0408%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-risecreation%2Fi%2F10005002%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "atRise(アットライズ)",
+          "reviewCount": 1431,
+          "reviewAverage": 4.34,
+          "genreId": 565226,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-risecreation/cabinet/product/top/r0408_01_b_em.jpg?_ex=128x128"
+        },
+        {
+          "rank": 10,
+          "name": "お得な3・4点セット 圧縮収納ポーチ 旅行用圧縮袋 YKK トラベルポーチ 圧縮バッグ 圧縮ポーチ 圧縮 圧縮袋 セット 旅行圧縮袋 収納ポーチ ファスナー 圧縮で衣類スペース50％節約 軽量 出張 旅行 便利グッズ 衣類仕分け",
+          "price": 3990,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn86.l1tn3490.g00tkn86.l1tn4764/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fichifujiec%2Fnk058set3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fichifujiec%2Fi%2F10000136%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ICHIFUJI Online",
+          "reviewCount": 1327,
+          "reviewAverage": 4.55,
+          "genreId": 568599,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ichifujiec/cabinet/09897591/10068184/nk058set3set4c.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "travel_pouch",
+      "label": "旅行グッズ：トラベルポーチ（レビュー数順）",
+      "type": "search",
+      "query": {
+        "keyword": "トラベルポーチ"
+      },
+      "items": [
+        {
+          "rank": 1,
+          "name": "全店限定価格◎【MAX39%OFF】 【圧倒的レビュー数&高評価】 トラベルポーチ 吊り下げ 旅行 レディース 便利グッズ ポーチ 4in1 コスメポーチ セット おしゃれ メイク 化粧ポーチ 洗面用具 仕切り トラベルグッズ 旅行グッズ 風呂 温泉 洗面道具",
+          "price": 1630,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4pf6.l1tn31fa.g00u4pf6.l1tn4dc3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbestselectmart%2Fse-travel-0003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbestselectmart%2Fi%2F10000142%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ベストセレクトマート",
+          "reviewCount": 6370,
+          "reviewAverage": 4.59,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/bestselectmart/cabinet/trip/trip_000/trip-0003_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 2,
+          "name": "【MAX43%OFF祭◎限定開催中】 ＼雑誌TV掲載 1位連冠／ 旅行 トラベルポーチ セット メイクポーチ おしゃれ 便利グッズ 旅行 ポーチ トラベル 化粧 コスメ ポーチ グッズ 取り外し 旅行グッズ トラベルグッズ レディース お風呂 かわいい 洗面用具",
+          "price": 1760,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4k06.l1tn3b36.g00u4k06.l1tn4fe2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffuturebox%2Ffb-travel-0003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffuturebox%2Fi%2F10000385%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "フューチャーボックス",
+          "reviewCount": 4922,
+          "reviewAverage": 4.58,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/futurebox/cabinet/trip/trip_000/trip-0003_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 3,
+          "name": "2点セット 旅行用圧縮袋 トラベルポーチ YKK 圧縮バッグ 圧縮ポーチ 圧縮 圧縮袋 旅行用 旅行用収納ポーチ 旅行圧縮袋 セット 衣類旅行圧縮 収納ポーチ ファスナー圧縮 衣類スペース 50％ 節約 軽量 出張 旅行 仕分け 簡単",
+          "price": 3490,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tkn86.l1tn3490.g00tkn86.l1tn4764/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fichifujiec%2Fnsana018set%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fichifujiec%2Fi%2F10000075%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ICHIFUJI Online",
+          "reviewCount": 3371,
+          "reviewAverage": 4.5,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ichifujiec/cabinet/nsana018/nk039/nk03920230930/nsana018set2b.jpg?_ex=128x128"
+        },
+        {
+          "rank": 4,
+          "name": "＼楽天1位／化粧ポーチ メイクポーチ 小物入れ 大容量 可愛い 小さい ポーチ トラベルポーチ 大きめ かわいい おしゃれ コンパクト 縦型 収納 自立 洗える バッグインバッグ 仕切り",
+          "price": 1780,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0p36.l1tn35b9.g00s0p36.l1tn4296/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-risecreation%2Fr0336%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-risecreation%2Fi%2F10004613%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "atRise(アットライズ)",
+          "reviewCount": 3209,
+          "reviewAverage": 4.58,
+          "genreId": 403822,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-risecreation/cabinet/product/top/r0336_01_em.jpg?_ex=128x128"
+        },
+        {
+          "rank": 5,
+          "name": "【クーポンで40％OFF】トラベルポーチ 圧縮バッグ 収納ポーチ 圧縮ポーチ 軽量 旅行 便利グッズ 簡単圧縮 コンパクト 圧縮 コンパクト 撥水加工 国内旅行 海外旅行 防災 メンズ レディース 母の日 XS S M L [S2]【予約販売】",
+          "price": 1170,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00sv256.l1tn3c1d.g00sv256.l1tn401a/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Feunicedress%2Feuni-07%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Feunicedress%2Fi%2F10001735%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "京童工房(きょうわらべこうぼう)",
+          "reviewCount": 2687,
+          "reviewAverage": 4.56,
+          "genreId": 565226,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/eunicedress/cabinet/item7/euni-07r.jpg?_ex=128x128"
+        },
+        {
+          "rank": 6,
+          "name": "【最大36%クーポン♪超目玉】 トラベルポーチ 取り外し 4in1 4連 メッシュポーチ 折りたたみ コンパクト 大容量 軽量 ナイロン 仕切り 小物収納 化粧品収納 洗面用具収納 マジックテープ 単品使用 中身が見える 吊るして使える 省スペース",
+          "price": 1550,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u3yj6.l1tn3c8a.g00u3yj6.l1tn48c9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fgoodcarsstyle%2Fts-travel-0003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fgoodcarsstyle%2Fi%2F10000312%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "グッドカーズスタイル",
+          "reviewCount": 2682,
+          "reviewAverage": 4.56,
+          "genreId": 403822,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/goodcarsstyle/cabinet/trip/trip_000/trip-0003_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 7,
+          "name": "【200枚限定★40％OFFクーポン 10/27 23:59迄】 ★新色登場★《便利な内ポケット付き》トラベルポーチ 圧縮 おしゃれ 圧縮袋 衣類 旅行 圧縮ポーチ 収納ポーチ 便利グッズ 圧縮 コンパクト 収納 水洗い可 ファスナー 国内旅行 海外旅行 レディース 軽量 トラベルグッズ",
+          "price": 1780,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00s0p36.l1tn35b9.g00s0p36.l1tn4296/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fauc-risecreation%2Fy0516%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fauc-risecreation%2Fi%2F10003265%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "atRise(アットライズ)",
+          "reviewCount": 2551,
+          "reviewAverage": 4.52,
+          "genreId": 565226,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-risecreation/cabinet/product/13165206/y0516_01c.jpg?_ex=128x128"
+        },
+        {
+          "rank": 8,
+          "name": "【10/24 20時～】1980円→1782円＼レビュー2000件突破／圧倒的高評価4.70【3冠獲得!!】【熱いままでも収納OK】ヘアアイロンケース ヘアアイロン 収納 ポーチ ヘアアイロン ケース ヘアアイロンポーチ 耐熱 吊り下げ 引っ掛け 旅行 ヘアアイロンホルダー ヘアアイロンカバー",
+          "price": 1980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tblu6.l1tn3f39.g00tblu6.l1tn4c93/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flifeinnovation430%2Fbag015%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flifeinnovation430%2Fi%2F10000052%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Liscia(リーシャ)",
+          "reviewCount": 2547,
+          "reviewAverage": 4.71,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/lifeinnovation430/cabinet/item/sale/bag015_10off_102.jpg?_ex=128x128"
+        },
+        {
+          "rank": 9,
+          "name": "【楽天1位受賞】【YKK製ファスナー】【ほつれ穴なし】【撥水加工】 トラベルポーチ 圧縮 YKK セット 圧縮ポーチ 圧縮袋 衣類 旅行 便利グッズ 旅行用 旅行用圧縮袋 トラベル 圧縮バッグ 圧縮バック 収納ポーチ 旅行用ポーチ 服 両面 出張 おむつ",
+          "price": 1780,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tmtx6.l1tn335b.g00tmtx6.l1tn4850/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvalue-create%2Ftravel-pouch%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvalue-create%2Fi%2F10000010%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "COCRE",
+          "reviewCount": 2379,
+          "reviewAverage": 4.73,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/value-create/cabinet/travelpouch/0328_2.jpg?_ex=128x128"
+        },
+        {
+          "rank": 10,
+          "name": "【レビュー2000件超！24日20時～4h限定20％OFFクーポン】【雑誌掲載★楽天1位獲得】 トラベルポーチ セット おしゃれ 洗える 旅行用ポーチ トラベル パッキング 旅行 バッグ トラベルグッズ シューズバッグ 仕分け 出張 入院 衣類収納 便利グッズ ギフト 男女兼用",
+          "price": 2980,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u05c6.l1tn3847.g00u05c6.l1tn4068/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fluckyhill%2Fnz-37tp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fluckyhill%2Fi%2F10000105%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Luckyhill 楽天市場店",
+          "reviewCount": 2369,
+          "reviewAverage": 4.71,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/luckyhill/cabinet/nz-37tp_b4.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "onsen_goods",
+      "label": "温泉・宿泊系：温泉グッズ（レビュー数順）",
+      "type": "search",
+      "query": {
+        "keyword": "温泉 グッズ"
+      },
+      "items": [
+        {
+          "rank": 1,
+          "name": "全店限定価格◎【MAX39%OFF】 【圧倒的レビュー数&高評価】 トラベルポーチ 吊り下げ 旅行 レディース 便利グッズ ポーチ 4in1 コスメポーチ セット おしゃれ メイク 化粧ポーチ 洗面用具 仕切り トラベルグッズ 旅行グッズ 風呂 温泉 洗面道具",
+          "price": 1630,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u4pf6.l1tn31fa.g00u4pf6.l1tn4dc3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbestselectmart%2Fse-travel-0003%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbestselectmart%2Fi%2F10000142%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ベストセレクトマート",
+          "reviewCount": 6370,
+          "reviewAverage": 4.59,
+          "genreId": 210202,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/bestselectmart/cabinet/trip/trip_000/trip-0003_00.jpg?_ex=128x128"
+        },
+        {
+          "rank": 2,
+          "name": "入浴剤 バラエティ 100個セット | 20種類 入浴剤セット 個包装 薬用入浴剤 バスソルト ソルト バスパウダー プレゼント ギフト プチギフト ノベルティ アメニティ バスグッズ 詰め合わせ 福袋 アソート 薬用 温泉 アロマ 香り 保湿 睡眠",
+          "price": 3730,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ts2z6.l1tn325e.g00ts2z6.l1tn42b0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyuyanotemiyage%2F154136245%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyuyanotemiyage%2Fi%2F10000001%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "小ロットアメニティ 湯屋の手土産",
+          "reviewCount": 2053,
+          "reviewAverage": 4.64,
+          "genreId": 205761,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yuyanotemiyage/cabinet/12101333/12412971/2025_20_100_1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 3,
+          "name": "入浴剤 バラエティ 20個セット | 入浴剤セット 個包装 薬用入浴剤 バスソルト ソルト バスパウダー プレゼント ギフト プチギフト ノベルティ アメニティ バスグッズ 詰め合わせ アソート 福袋 薬用 温泉 アロマ ハーブ 香り",
+          "price": 1000,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ts2z6.l1tn325e.g00ts2z6.l1tn42b0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyuyanotemiyage%2F12500001%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyuyanotemiyage%2Fi%2F10000526%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "小ロットアメニティ 湯屋の手土産",
+          "reviewCount": 2023,
+          "reviewAverage": 4.58,
+          "genreId": 205761,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yuyanotemiyage/cabinet/1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 4,
+          "name": "【レビューでマットプレゼント★評価4.7】 サウナハット サウナ ハット タオル メンズ レディース フェルト 意匠権 視界確保 開閉 洗える のぼせ防止 深め 大きめ 大きい サウナキャップ サウナグッズ ポリエステル 瞑想 温泉 撥水 無地 人気 おすすめ おしゃれ 可愛い 耳 髪",
+          "price": 1740,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tjb16.l1tn3b1e.g00tjb16.l1tn4672/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyukinosizuku%2Fn-saunahat-1%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyukinosizuku%2Fi%2F10010488%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "YuLago(ユラゴ)",
+          "reviewCount": 1279,
+          "reviewAverage": 4.71,
+          "genreId": 568714,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/yukinosizuku/cabinet/09634671/saunahat_01.jpg?_ex=128x128"
+        },
+        {
+          "rank": 5,
+          "name": "入浴剤 魔法のバスソルト箱入り5kg ヒマラヤ岩塩【入浴剤 まとめ買い お得パック バスソルト ピンク ブラック ミネラル 硫黄 ローズ お風呂 グッズ リラックス 入浴剤 ギフト お世話になりました】 バスタイム 自然派 プレゼント 誕生日 女性 岩塩入浴剤",
+          "price": 3981,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00q5u36.l1tn3f85.g00q5u36.l1tn4202/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbathlier%2F2000-090305%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbathlier%2Fi%2F10010612%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "お風呂のソムリエSHOPバスリエ",
+          "reviewCount": 815,
+          "reviewAverage": 4.63,
+          "genreId": 205761,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/bathlier/cabinet/2000-01/2000-090305-r1.jpg?_ex=128x128"
+        },
+        {
+          "rank": 6,
+          "name": "【送料無料】 ラップタオル 60cm キッズ 女の子 プールタオル 巻きタオル バスタオル 水着 子供用 ガールズ 小学校 小学生 学校用 幼稚園 綿100％ コットン お名前タグ付 120cm いちご 苺 イチゴ スイカ 小花 フルーツ 食べ物 着替え 海水浴 水遊び 可愛い 水泳",
+          "price": 1680,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ss276.l1tn3152.g00ss276.l1tn416d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fzooland%2F302019%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fzooland%2Fi%2F10001406%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ZooLand",
+          "reviewCount": 592,
+          "reviewAverage": 4.71,
+          "genreId": 213923,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/zooland/cabinet/swim03/302019_01.jpg?_ex=128x128"
+        },
+        {
+          "rank": 7,
+          "name": "【送料無料 最大11%OFF】 ラップタオル 60cm キッズ プールタオル 男の子 パトカー 消防車 救急車 恐竜 ダイナソー 新幹線 電車 働く車 昆虫 巻きタオル 子供用 綿100％ コットン お名前タグ付 水着用品 バスタオル 120cm 着替え スイミング プール 海水浴 通園 通学 水泳",
+          "price": 1480,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00ss276.l1tn3152.g00ss276.l1tn416d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fzooland%2F202016%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fzooland%2Fi%2F10006321%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ZooLand",
+          "reviewCount": 588,
+          "reviewAverage": 4.68,
+          "genreId": 213923,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/zooland/cabinet/swim03/202016_01.jpg?_ex=128x128"
+        },
+        {
+          "rank": 8,
+          "name": "＼4点セット／圧縮トラベルポーチ Sサイズ2枚/M/L トラベルポーチ 圧縮 衣類収納 旅行 出張 軽量 仕分け 便利グッズ メッシュ&撥水 圧縮バッグ 圧縮袋 インナーバッグ ポーチ 旅行用便利グッズ オーガナイザー 冬ギフト",
+          "price": 2290,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tf976.l1tn3414.g00tf976.l1tn4070/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdotline%2F998002katamen-t%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdotline%2Fi%2F10000203%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Dot Line 便利雑貨&レディース靴",
+          "reviewCount": 577,
+          "reviewAverage": 4.49,
+          "genreId": 567450,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/dotline/cabinet/travel/a-katamen/2512katat/2512katat-2.jpg?_ex=128x128"
+        },
+        {
+          "rank": 9,
+          "name": "＼サウナでも使える耐熱フレーム／ お風呂メガネ サウナメガネ 度付き -3.0 -4.0 -5.0 -6.0 -7.0 -8.0 ボスリントン ES-002 ピンク 眼鏡 めがね お風呂用 曇りにくい 風呂 温泉 メガネ サウナ用メガネ サウナ 好き プレゼント ソーシャルギフト 誕生日 お風呂グッズ",
+          "price": 3630,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tvdl6.l1tn3044.g00tvdl6.l1tn420e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fplus-fujikon%2F88-es002-3%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fplus-fujikon%2Fi%2F10000417%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "MEGANE+PLUS",
+          "reviewCount": 481,
+          "reviewAverage": 4.5,
+          "genreId": 207204,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/plus-fujikon/cabinet/10329044/imgrc0098406798.jpg?_ex=128x128"
+        },
+        {
+          "rank": 10,
+          "name": "【予約商品　10月31日　発送】＼楽天1位／ 防災備蓄　水のいらないシャンプー　ふく温泉 500ml [ 防災グッズ ドライシャンプー 非常用 持ち運び 災害 ノンアルコール]　[使用期限2031年3月以降]",
+          "price": 1650,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00snua6.l1tn3f3e.g00snua6.l1tn45c3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcorilla%2Ffb-400%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcorilla%2Fi%2F10000008%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "j : m",
+          "reviewCount": 422,
+          "reviewAverage": 4.59,
+          "genreId": 111523,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/corilla/cabinet/fo/imgrc0081663949.jpg?_ex=128x128"
+        }
+      ]
+    },
+    {
+      "key": "onsen_bag",
+      "label": "温泉・宿泊系：温泉バッグ（レビュー数順）",
+      "type": "search",
+      "query": {
+        "keyword": "温泉 バッグ"
+      },
+      "items": [
+        {
+          "rank": 1,
+          "name": "【ゆうパック配送】温泉水99 11.5L BIB×2箱★送料無料★SOC バッグインボックス 温泉水99 飲料水 飲む温泉水 超軟水 ミネラルウォーター 軟水 アルカリ性 水 九州 鹿児島 水 ボックス お水 天然水 箱 アルカリイオン水 軟水 ミネラルウオーター アルカリ水 備蓄 水 2ケース",
+          "price": 4134,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rcxw6.l1tn3db6.g00rcxw6.l1tn4b37/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonsensui99%2Fset-b%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonsensui99%2Fi%2F10000058%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "温泉水99エスオーシー公式ショップ",
+          "reviewCount": 3066,
+          "reviewAverage": 4.81,
+          "genreId": 201351,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onsensui99/cabinet/item/onsensui99/yubin_2hako.jpg?_ex=128x128"
+        },
+        {
+          "rank": 2,
+          "name": "【10％OFFCP★マラソン限定】＼当日発送／【楽天1位連冠】ショルダー付き トートバッグ キルティング 折りたたみ 拡大 旅行バッグ 大容量 超軽量 トラベル お出かけ 自立 コンパクト マザーズバッグ 男女兼用 大きめ 軽い ボストンバッグ オシャレ シンプル かわいい",
+          "price": 1380,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tpvl6.l1tn3a7b.g00tpvl6.l1tn4e95/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fownlife%2Ftw000236%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fownlife%2Fi%2F10000702%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "OwnLife",
+          "reviewCount": 2459,
+          "reviewAverage": 4.35,
+          "genreId": 408789,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ownlife/cabinet/07587831/09403294/12504948/01.jpg?_ex=128x128"
+        },
+        {
+          "rank": 3,
+          "name": "【ゆうパック配送】温泉水99 11.5L BIB×4箱★送料無料★SOC バッグインボックス 飲む温泉水 飲める 温泉水 ミネラルウォーター 軟水 送料無料 温泉水 軟水 アルカリ性 水 九州 鹿児島 水 飲料水 天然水 アルカリイオン水 温泉水99 超軟水 ミネラルウオーター お水 備蓄 水",
+          "price": 7840,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rcxw6.l1tn3db6.g00rcxw6.l1tn4b37/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonsensui99%2Fset-c%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonsensui99%2Fi%2F10000060%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "温泉水99エスオーシー公式ショップ",
+          "reviewCount": 2064,
+          "reviewAverage": 4.88,
+          "genreId": 201351,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onsensui99/cabinet/item/onsensui99/yubin_4hako.jpg?_ex=128x128"
+        },
+        {
+          "rank": 4,
+          "name": "【ヤマト運輸配送】温泉水99 11.5L BIB×4箱★送料無料★SOC バッグインボックス 飲む温泉水 飲める 温泉水 軟水 ミネラルウォーター 送料無料 温泉水 軟水 アルカリ性 水 九州 鹿児島 水 飲料水 天然水 アルカリイオン水 温泉水99 超軟水 お水 ミネラルウオーター 備蓄 水",
+          "price": 7840,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rcxw6.l1tn3db6.g00rcxw6.l1tn4b37/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonsensui99%2Fset-c2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonsensui99%2Fi%2F10000246%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "温泉水99エスオーシー公式ショップ",
+          "reviewCount": 1302,
+          "reviewAverage": 4.85,
+          "genreId": 201351,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onsensui99/cabinet/item/onsensui99/yamato_115-4hako.jpg?_ex=128x128"
+        },
+        {
+          "rank": 5,
+          "name": "【ヤマト運輸配送】温泉水99 天然アルカリイオン水(11.5L×2箱)★送料無料★SOC 温泉水99 アルカリイオン水 超軟水 天然水 ミネラルウォーター 軟水 国産 九州 鹿児島 水 飲む温泉水 箱 お水 ミネラルウオーター アルカリ性 飲料水 飲泉 バッグインボックス 備蓄 水 健康",
+          "price": 4134,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rcxw6.l1tn3db6.g00rcxw6.l1tn4b37/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonsensui99%2F12lx2_cook%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonsensui99%2Fi%2F10000185%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "温泉水99エスオーシー公式ショップ",
+          "reviewCount": 1288,
+          "reviewAverage": 4.81,
+          "genreId": 201351,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onsensui99/cabinet/item/onsensui99/yamato_115-2hako.jpg?_ex=128x128"
+        },
+        {
+          "rank": 6,
+          "name": "『川田直樹さん推奨』【立ってるメッシュバッグ】 サウナバッグ ハイロバッグ2 スパバッグ 温泉バッグ プールバッグ ジムバッグ ビーチ 大容量 収納力 自立 Ladle Mark ラドルマーク サウナ ジム 銭湯 バッグ",
+          "price": 2480,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00unfb6.l1tn3492.g00unfb6.l1tn4be8/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fladlemark%2Flm-2403002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fladlemark%2Fi%2F10000002%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Ladle Mark 楽天市場店",
+          "reviewCount": 1005,
+          "reviewAverage": 4.72,
+          "genreId": 408789,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/ladlemark/cabinet/11208599/compass1781153530.jpg?_ex=128x128"
+        },
+        {
+          "rank": 7,
+          "name": "防水 バッグ 選べるサイズ 5L 10L 【レビュープレゼント】 防水バッグ 耐水圧5000mm プール アウトドア 温泉 サウナ 雨 海水浴 水着 汚れた服入れ おむつ入れ 部活 スポーツ 運動 メンズ レディース 送料無料 1000円ポッキリ",
+          "price": 1000,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00tesa6.l1tn33a9.g00tesa6.l1tn4ce1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Famal-shop002%2Fot-bbag5l%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Famal-shop002%2Fi%2F10000036%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "Amal-Trade-Group",
+          "reviewCount": 772,
+          "reviewAverage": 4.43,
+          "genreId": 402300,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/amal-shop002/cabinet/ot-bbag5l/imgrc0073136400.jpg?_ex=128x128"
+        },
+        {
+          "rank": 8,
+          "name": "【20％OFFクーポン2枚セット】 スマホ 防水ケース 7.3インチ iPhone 防水 ケース IPX8認証 携帯 防水ケース 完全 防水 水中撮影 温泉 プール 顔認証 スマホ 防水カバー iPhone 15 14 13 Pro Max 12 11 XR SE2 以下対応 防水 ポーチ 海 お風呂 海水浴 水泳 SGS認証",
+          "price": 1000,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00u6br6.l1tn3958.g00u6br6.l1tn4287/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbesthouse%2Fwpc%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbesthouse%2Fi%2F10000053%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "OKUTA ダイレクト楽天市場店",
+          "reviewCount": 757,
+          "reviewAverage": 4.5,
+          "genreId": 560271,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/besthouse/cabinet/09304805/10845534/10845539/imgrc0120667484.jpg?_ex=128x128"
+        },
+        {
+          "rank": 9,
+          "name": "【あす楽】 かごバッグ P.Pジャンボバッグ 9684 村田屋産業 P・Pジャンボバッグビニール製 浴衣 おしゃれ カゴバッグ ビニール かごバック トート ビニールバッグ 耐水 買い物かご 買い物カゴ エコバッグ レジャーバッグ スパバッグ 温泉 お花見 バスケット",
+          "price": 2510,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00qmtt6.l1tn3d65.g00qmtt6.l1tn47af/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-piglet%2F2356%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-piglet%2Fi%2F10000337%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "ガーデニングと雑貨のスイートピー",
+          "reviewCount": 689,
+          "reviewAverage": 4.48,
+          "genreId": 509179,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-piglet/cabinet/00861006/01248147/d20230428-508048.jpg?_ex=128x128"
+        },
+        {
+          "rank": 10,
+          "name": "【ヤマト運輸配送】温泉水99 11.5L BIB×6箱★送料無料★SOC バッグインボックス 温泉水99 箱 飲む温泉水 飲料水 ミネラルウォーター 軟水 国産 九州 アルカリ性 水 天然水 鹿児島 温泉水99 アルカリイオン水 アルカリ水 超軟水 お水 ミネラルウオーター 備蓄 水 ボックス",
+          "price": 11760,
+          "url": "https://hb.afl.rakuten.co.jp/hgc/g00rcxw6.l1tn3db6.g00rcxw6.l1tn4b37/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonsensui99%2Fset-d2%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonsensui99%2Fi%2F10000245%2F&rafcid=wsc_i_is_c659fba4-851c-4144-80ad-fcd0e121e67a",
+          "shop": "温泉水99エスオーシー公式ショップ",
+          "reviewCount": 642,
+          "reviewAverage": 4.9,
+          "genreId": 201351,
+          "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/onsensui99/cabinet/item/onsensui99/yamato_115-6hako.jpg?_ex=128x128"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
