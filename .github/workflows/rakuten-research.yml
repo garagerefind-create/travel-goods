@@ -1,0 +1,173 @@
+name: Rakuten weekly research
+
+# 毎週の楽天売れ筋リサーチ（Refind travel 用）
+# - 楽天公式API（ランキングAPI / 商品検索API）だけを使う
+# - 結果は research/rakuten/ に保存してコミットする
+# - 手動実行は Actions タブ → この workflow → Run workflow
+
+on:
+  schedule:
+    # 毎週日曜 21:00（日本時間）= 日曜 12:00 UTC
+    - cron: "0 12 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rakuten-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch Rakuten ranking and popular items
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+          SITE_ORIGIN: https://garagerefind-create.github.io
+          SITE_REFERER: https://garagerefind-create.github.io/travel-goods/
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, time, datetime, urllib.parse, urllib.request, urllib.error
+
+          APP_ID = os.environ.get("RAKUTEN_APP_ID", "").strip()
+          ACCESS_KEY = os.environ.get("RAKUTEN_ACCESS_KEY", "").strip()
+          AFF_ID = os.environ.get("RAKUTEN_AFFILIATE_ID", "").strip()
+          ORIGIN = os.environ["SITE_ORIGIN"]
+          REFERER = os.environ["SITE_REFERER"]
+          if not APP_ID or not ACCESS_KEY:
+              sys.exit("RAKUTEN_APP_ID / RAKUTEN_ACCESS_KEY が Secrets に入っていません")
+
+          RANKING_URL = "https://openapi.rakuten.co.jp/ichibaranking/api/IchibaItem/Ranking/20220601"
+          SEARCH_URL = "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701"
+
+          # ---- リサーチ対象（ここを書き換えればジャンルを増減できる）----
+          SECTIONS = [
+              # 季節もの：楽天全体のリアルタイムランキング（いま何が動いてるか）
+              {"key": "season_realtime", "label": "季節もの：楽天全体リアルタイム", "type": "ranking",
+               "params": {"period": "realtime"}},
+              # 犬のお出かけ用品：ジャンル「お出かけ・お散歩グッズ（犬用品）」215347
+              {"key": "dog_outing_ranking", "label": "犬のお出かけ用品：ランキング", "type": "ranking",
+               "params": {"genreId": 215347}},
+              {"key": "dog_travel", "label": "犬のお出かけ用品：犬連れ旅行グッズ（レビュー数順）", "type": "search",
+               "params": {"keyword": "犬 旅行 グッズ"}},
+              # 旅行グッズ（レビュー数が多い＝長く売れてる定番）
+              {"key": "travel_goods", "label": "旅行グッズ：トラベルグッズ（レビュー数順）", "type": "search",
+               "params": {"keyword": "トラベルグッズ"}},
+              {"key": "travel_compress", "label": "旅行グッズ：圧縮袋（レビュー数順）", "type": "search",
+               "params": {"keyword": "圧縮袋 旅行"}},
+              {"key": "travel_pouch", "label": "旅行グッズ：トラベルポーチ（レビュー数順）", "type": "search",
+               "params": {"keyword": "トラベルポーチ"}},
+              # 温泉・宿泊系
+              {"key": "onsen_goods", "label": "温泉・宿泊系：温泉グッズ（レビュー数順）", "type": "search",
+               "params": {"keyword": "温泉 グッズ"}},
+              {"key": "onsen_bag", "label": "温泉・宿泊系：温泉バッグ（レビュー数順）", "type": "search",
+               "params": {"keyword": "温泉 バッグ"}},
+          ]
+          TOP_N = 10
+
+          def call(url, params):
+              q = {"applicationId": APP_ID, "format": "json", "formatVersion": 2}
+              if AFF_ID:
+                  q["affiliateId"] = AFF_ID
+              q.update(params)
+              full = url + "?" + urllib.parse.urlencode(q)
+              req = urllib.request.Request(full, headers={
+                  "accessKey": ACCESS_KEY,
+                  "Origin": ORIGIN,
+                  "Referer": REFERER,
+                  "User-Agent": "refind-travel-research/1.0",
+              })
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.loads(r.read().decode("utf-8"))
+
+          def pick(it, rank):
+              imgs = it.get("mediumImageUrls") or []
+              img = imgs[0] if imgs else ""
+              if isinstance(img, dict):
+                  img = img.get("imageUrl", "")
+              return {
+                  "rank": it.get("rank", rank),
+                  "name": it.get("itemName", ""),
+                  "price": it.get("itemPrice"),
+                  "url": it.get("affiliateUrl") or it.get("itemUrl", ""),
+                  "shop": it.get("shopName", ""),
+                  "reviewCount": it.get("reviewCount"),
+                  "reviewAverage": it.get("reviewAverage"),
+                  "genreId": it.get("genreId"),
+                  "image": img,
+              }
+
+          now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
+          result = {"generated_at": now.isoformat(timespec="seconds"), "sections": [], "errors": []}
+
+          for s in SECTIONS:
+              try:
+                  if s["type"] == "ranking":
+                      data = call(RANKING_URL, s["params"])
+                  else:
+                      p = dict(s["params"]); p.update({"sort": "-reviewCount", "hits": TOP_N, "availability": 1})
+                      data = call(SEARCH_URL, p)
+                  items = [pick(it, i + 1) for i, it in enumerate((data.get("Items") or [])[:TOP_N])]
+                  result["sections"].append({"key": s["key"], "label": s["label"], "type": s["type"],
+                                             "query": s["params"], "items": items})
+                  print(f"OK  {s['key']}: {len(items)} items")
+              except urllib.error.HTTPError as e:
+                  body = e.read().decode("utf-8", "replace")[:300]
+                  result["errors"].append({"key": s["key"], "status": e.code, "body": body})
+                  print(f"ERR {s['key']}: HTTP {e.code} {body}")
+              except Exception as e:
+                  result["errors"].append({"key": s["key"], "status": None, "body": str(e)[:300]})
+                  print(f"ERR {s['key']}: {e}")
+              time.sleep(1.5)  # 1秒1回以内に抑える
+
+          if not result["sections"]:
+              print(json.dumps(result["errors"], ensure_ascii=False, indent=2))
+              sys.exit("全部の取得に失敗しました（上のエラーを確認）")
+
+          os.makedirs("research/rakuten/history", exist_ok=True)
+          with open("research/rakuten/latest.json", "w", encoding="utf-8") as f:
+              json.dump(result, f, ensure_ascii=False, indent=2)
+          with open(f"research/rakuten/history/{now:%Y-%m-%d}.json", "w", encoding="utf-8") as f:
+              json.dump(result, f, ensure_ascii=False, indent=2)
+
+          # 人が読む用のまとめ（Markdown）
+          lines = [f"# 楽天 売れ筋リサーチ（{now:%Y-%m-%d %H:%M} JST）", ""]
+          for sec in result["sections"]:
+              lines += [f"## {sec['label']}", ""]
+              for it in sec["items"]:
+                  rv = ""
+                  if it.get("reviewCount"):
+                      rv = f" / レビュー{it['reviewCount']}件 ★{it.get('reviewAverage')}"
+                  price = f"{it['price']:,}円" if isinstance(it.get("price"), int) else ""
+                  lines.append(f"{it['rank']}. {it['name'][:60]}（{price}{rv}）")
+              lines.append("")
+          if result["errors"]:
+              lines += ["## 取得できなかった項目", ""]
+              lines += [f"- {e['key']}: HTTP {e['status']}" for e in result["errors"]]
+          with open("research/rakuten/latest.md", "w", encoding="utf-8") as f:
+              f.write("\n".join(lines) + "\n")
+          print("saved research/rakuten/latest.json & latest.md")
+          PY
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/rakuten
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "楽天リサーチ更新 $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+            git push
+          fi
