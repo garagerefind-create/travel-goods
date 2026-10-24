@@ -11,6 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
 from generate import SITE_NAME, SOCIAL_LINKS, page_shell  # noqa: E402
+from safety import docs_dir, hold_site_lock, write_all  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -126,8 +127,9 @@ PAGES = {
 
 
 def main() -> None:
-    for path, builder in PAGES.items():
-        (ROOT / "docs" / path).write_text(builder(), encoding="utf-8")
+    _lock = hold_site_lock(ROOT)  # noqa: F841  同時に書き換えないためのロック（プロセス終了まで保持）
+    # 全ページ作り終えてから一時ファイル経由で書き込む
+    write_all({docs_dir(ROOT) / path: builder() for path, builder in PAGES.items()})
     sitemap.build()
     print("生成しました:", ", ".join(f"docs/{p}" for p in PAGES))
 

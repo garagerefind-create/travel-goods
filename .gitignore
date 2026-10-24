@@ -1,3 +1,9 @@
 .env
 .DS_Store
 __pycache__/
+.claude/
+.docs-staging-*/
+.docs-prev/
+.docs-prev-old/
+.build_site.lock
+.build_site.pending.json

@@ -19,11 +19,14 @@
    ```
 
    - `type` は `"diary"`（実体験記）か `"guide"`（一般的な旅行ガイド記事）のどちらか。
+   - 下書きにしたいときは `"status": "draft"` を付ける（生成されない）。`published` が未来の日付の記事も、その日まで生成されない。
+   - 公開済みの記事の公開をやめたいときも、一覧から消さずに `"status": "draft"` にする（`build_site.py` が docs/ から外す）。
+   - `tiktok` に動画URLを入れる場合は `https://` で始まるURLにする（それ以外はエラーで止まる）。
    - `slug` は半角英数とハイフンのみ。ファイル名（`.html`を除いた部分）と一致させる。
 
-3. `python3 scripts/generate_blog.py` を実行すると、
-   `docs/blog-<slug>.html` と、一覧ページ `docs/blog.html` が生成される。
-   `python3 scripts/generate.py` も、旅行記の件数を反映するため実行しておくとよい。
+3. `python3 scripts/build_site.py` を実行すると、
+   `docs/blog-<slug>.html`、一覧ページ `docs/blog.html`、トップページ・サイトマップがまとめて生成・点検される。
+   先に `python3 scripts/build_site.py --dry-run` で、何が変わるかだけ確認できる。
 
 4. 実際にあった旅行の内容だけを書く。行っていない旅行を「行ってきました」と書かない
    （読者に対して、事実と異なる体験談を、事実であるかのように伝えることになるため）。

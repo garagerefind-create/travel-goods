@@ -114,6 +114,11 @@ def render(items: list[dict]) -> str:
 
 
 def main() -> None:
+    # 旧スクリプト：実行すると現在のトップページ（宿泊記中心）を古い「パッキングキューブ」ページで上書きする。
+    # load_dotenv などの共通関数は他スクリプトから使われているためファイルは残し、誤実行だけ防ぐ。
+    if "--legacy-overwrite-index" not in sys.argv[1:]:
+        sys.exit("build.py は旧スクリプトです。docs/index.html を上書きするため、通常は実行しません。\n"
+                 "サイトの生成は scripts/build_site.py を使ってください。")
     load_dotenv(ROOT / ".env")
     app_id = os.environ.get("RAKUTEN_APP_ID")
     access_key = os.environ.get("RAKUTEN_ACCESS_KEY")

@@ -8,8 +8,12 @@
 generate.py / generate_article.py / generate_blog.py / generate_pages.py のいずれからも、生成の最後に呼ばれる。
 """
 import json
+import sys
 from datetime import date
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from safety import atomic_write_text, blog_meta_path, docs_dir, is_publishable  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://garagerefind-create.github.io/travel-goods/"
@@ -22,15 +26,21 @@ def build() -> None:
     articles_path = ROOT / "research" / "articles.json"
     if articles_path.exists():
         for a in json.loads(articles_path.read_text(encoding="utf-8")):
+            if not is_publishable(a, a["path"]):
+                continue  # 下書き・未来日の記事はサイトマップに載せない
             pages.append({"path": a["path"], "lastmod": a.get("updated", a["published"]), "changefreq": "monthly"})
 
-    blog_meta_path = ROOT / "research" / "blog_meta.json"
+    meta_path = blog_meta_path(ROOT)
+    if not meta_path.exists():
+        meta_path = ROOT / "research" / "blog_meta.json"
     blog_posts_path = ROOT / "research" / "blog_posts.json"
-    if blog_meta_path.exists():
-        blog_meta = json.loads(blog_meta_path.read_text(encoding="utf-8"))
+    if meta_path.exists():
+        blog_meta = json.loads(meta_path.read_text(encoding="utf-8"))
         pages.append({"path": "blog.html", "lastmod": blog_meta["updated"], "changefreq": "weekly"})
     if blog_posts_path.exists():
         for p in json.loads(blog_posts_path.read_text(encoding="utf-8")):
+            if not is_publishable(p, p.get("slug", "")):
+                continue  # 下書き・未来日の記事はサイトマップに載せない
             pages.append({"path": f"blog-{p['slug']}.html", "lastmod": p.get("updated", p["published"]),
                           "changefreq": "monthly"})
 
@@ -44,14 +54,12 @@ def build() -> None:
         f'<changefreq>{p["changefreq"]}</changefreq></url>'
         for p in pages
     )
-    (ROOT / "docs" / "sitemap.xml").write_text(
+    atomic_write_text(
+        docs_dir(ROOT) / "sitemap.xml",
         f'<?xml version="1.0" encoding="UTF-8"?>\n'
         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n',
-        encoding="utf-8",
     )
-    (ROOT / "docs" / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n", encoding="utf-8"
-    )
+    atomic_write_text(docs_dir(ROOT) / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
     print(f"sitemap.xml を書き出しました（{len(pages)}ページ）")
 
 

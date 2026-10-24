@@ -3,6 +3,9 @@
 
 コンテンツはこのファイル内の ARTICLES に直接書く。商品の個別紹介はせず、
 docs/index.html の該当カテゴリへ内部リンクする（商品情報の二重管理を避けるため）。
+
+公開制御：research/articles.json に登録され、status が draft でなく、公開日が今日以前の記事だけを生成する。
+articles.json から外した記事の docs/*.html は削除せず、警告で知らせる。
 """
 import json
 import sys
@@ -11,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
 from generate import page_shell  # noqa: E402
+from safety import docs_dir, esc, hold_site_lock, is_publishable, warn, write_all  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -21,8 +25,8 @@ def checklist(items: list[str]) -> str:
 
 
 def cta(lead: str, links: list[tuple[str, str]]) -> str:
-    buttons = "\n".join(f'        <a href="{href}">{label} を見る →</a>' for label, href in links)
-    lead_html = f'      <p class="lead">{lead}</p>\n' if lead else ""
+    buttons = "\n".join(f'        <a href="{esc(href)}">{esc(label)} を見る →</a>' for label, href in links)
+    lead_html = f'      <p class="lead">{esc(lead)}</p>\n' if lead else ""
     return f"""{lead_html}      <p class="cta">
 {buttons}
       </p>"""
@@ -154,11 +158,22 @@ ARTICLES = {
 }
 
 
+def publishable_article_paths() -> list[str]:
+    """articles.json に登録済みで、下書きでも未来日でもない記事のパス。"""
+    articles = json.loads((ROOT / "research" / "articles.json").read_text(encoding="utf-8"))
+    return [a["path"] for a in articles if is_publishable(a, a["path"])]
+
+
 def main() -> None:
-    for path, builder in ARTICLES.items():
-        (ROOT / "docs" / path).write_text(builder(), encoding="utf-8")
+    _lock = hold_site_lock(ROOT)  # noqa: F841  同時に書き換えないためのロック（プロセス終了まで保持）
+    allowed = set(publishable_article_paths())
+    targets = [p for p in ARTICLES if p in allowed]
+    for path in ARTICLES:
+        if path not in allowed and (docs_dir(ROOT) / path).exists():
+            warn(f"docs/{path} は公開対象外ですが残っています（削除はしていません。公開を止めるなら手動で確認）")
+    write_all({docs_dir(ROOT) / path: ARTICLES[path]() for path in targets})
     sitemap.build()
-    print("生成しました:", ", ".join(f"docs/{p}" for p in ARTICLES))
+    print("生成しました:", ", ".join(f"docs/{p}" for p in targets) or "（なし）")
 
 
 if __name__ == "__main__":

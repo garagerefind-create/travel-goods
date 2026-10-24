@@ -11,6 +11,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
+from safety import (check_items_have_affiliate, docs_dir, esc, json_for_script, orphan_blog_pages,  # noqa: E402
+                    GUIDE_PAGES, hold_site_lock, is_publishable, publishable_posts, warn, write_all)
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_NAME = "Refind travel"
@@ -99,11 +101,27 @@ PURPOSES = [
 ]
 
 
+def _is_published_href(href: str) -> bool:
+    """「目的から探す」のリンク先が、下書き・未来日・一覧から外れた記事でないか。"""
+    page = href.split("#", 1)[0]
+    if page.startswith("blog-") and page.endswith(".html"):
+        return page[len("blog-"):-len(".html")] in {p["slug"] for p in load_blog_posts()}
+    if page in GUIDE_PAGES:
+        # ガイド記事は articles.json に登録され、公開対象のときだけリンクする（一覧から消したら出さない）
+        articles_path = ROOT / "research" / "articles.json"
+        articles = json.loads(articles_path.read_text(encoding="utf-8")) if articles_path.exists() else []
+        return any(a["path"] == page and is_publishable(a, page) for a in articles)
+    return True
+
+
 def purpose_finder_html(base: str = "") -> str:
-    """トップページ上部の「目的から探す」エリア。base はリンク先の先頭に付ける（記事ページ等からの利用は今のところ想定していない）。"""
+    """トップページ上部の「目的から探す」エリア。base はリンク先の先頭に付ける（記事ページ等からの利用は今のところ想定していない）。
+
+    ※ 2026-10 時点ではどのページからも呼ばれていない。使う場合も、公開対象外の記事へのリンクは出さない。
+    """
     items = "\n".join(
-        f'        <li><a href="{base}{href}"><span class="purpose-icon">{icon}</span>{label}</a></li>'
-        for icon, label, href in PURPOSES
+        f'        <li><a href="{esc(base + href)}"><span class="purpose-icon">{icon}</span>{esc(label)}</a></li>'
+        for icon, label, href in PURPOSES if _is_published_href(href)
     )
     return f"""    <section class="purpose-finder">
       <h2>目的から探す</h2>
@@ -134,7 +152,7 @@ def site_nav(base: str = "goods.html", blog_active: bool = False, active: str = 
 
 def goods_category_nav() -> str:
     picks = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
-    return "".join(f'<a href="#{p["id"]}">{p["title"]}</a>' for p in picks if not p.get("hidden_from_index"))
+    return "".join(f'<a href="#{esc(p["id"])}">{esc(p["title"])}</a>' for p in picks if not p.get("hidden_from_index"))
 
 
 def article_json_ld(*, title: str, desc: str, page_url: str, published: str | None, updated: str | None) -> str:
@@ -153,7 +171,7 @@ def article_json_ld(*, title: str, desc: str, page_url: str, published: str | No
         "dateModified": updated or published,
         "mainEntityOfPage": {"@type": "WebPage", "@id": page_url},
     }
-    return f'\n  <script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
+    return f'\n  <script type="application/ld+json">{json_for_script(data)}</script>'
 
 
 def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "article", extra_head: str = "",
@@ -162,12 +180,14 @@ def page_shell(*, title: str, desc: str, body: str, path: str, og_type: str = "a
 
     published/updated (YYYY-MM-DD) を渡すと、Article構造化データ(JSON-LD)を出力する。
     """
-    full_title = f"{title} | {SITE_NAME}"
+    full_title_raw = f"{title} | {SITE_NAME}"
     page_url = f"{SITE_URL}{path}"
     blog_active = path.startswith("blog")
-    og_img = f"{SITE_URL}{og_image}" if og_image else f"{SITE_URL}og-image.jpg"
-    json_ld_html = article_json_ld(title=full_title, desc=desc, page_url=page_url,
+    og_img = esc(f"{SITE_URL}{og_image}" if og_image else f"{SITE_URL}og-image.jpg")
+    json_ld_html = article_json_ld(title=full_title_raw, desc=desc, page_url=page_url,
                                     published=published, updated=updated) if og_type == "article" else ""
+    # HTMLに埋め込む値はここでエスケープする（記事タイトルや説明文に " や < が入っても崩れないように）
+    full_title, desc, page_url = esc(full_title_raw), esc(desc), esc(page_url)
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -254,7 +274,8 @@ PERSONAS = [
 def load_blog_posts() -> list[dict]:
     path = ROOT / "research" / "blog_posts.json"
     posts = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
-    return sorted(posts, key=lambda p: p["published"], reverse=True)
+    # 下書き（status: draft）と公開日が未来の記事はトップに出さない
+    return sorted(publishable_posts(posts), key=lambda p: p["published"], reverse=True)
 
 
 def stay_card(p: dict) -> str:
@@ -286,7 +307,7 @@ def build_home() -> str:
         f'        <li><a href="blog-{p["slug"]}.html">{html.escape(p["title"])}</a></li>' for p in others)
     desc = f"{TAGLINE}。記念日のご褒美宿から犬連れOKの宿、コスパのいいビジネスホテルまで、実際に泊まった感想を紹介します。"
     title = f"{SITE_NAME}｜泊まってよかった宿の宿泊記と旅の持ち物"
-    cover = f"{SITE_URL}{stays[0]['cover']}" if stays else f"{SITE_URL}og-image.jpg"
+    cover = esc(f"{SITE_URL}{stays[0]['cover']}" if stays else f"{SITE_URL}og-image.jpg")
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -310,7 +331,7 @@ def build_home() -> str:
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{desc}">
   <meta name="twitter:image" content="{cover}">
-  <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL}, {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL, "logo": f"{SITE_URL}favicon.svg", "sameAs": [u for _, u, _ in SOCIAL_LINKS]}]}, ensure_ascii=False)}</script>
+  <script type="application/ld+json">{json_for_script({"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL}, {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL, "logo": f"{SITE_URL}favicon.svg", "sameAs": [u for _, u, _ in SOCIAL_LINKS]}]})}</script>
 {GA_SNIPPET.format(id=GA_MEASUREMENT_ID)}
 </head>
 <body class="home">
@@ -362,6 +383,7 @@ def build_home() -> str:
 
 
 def main() -> None:
+    _lock = hold_site_lock(ROOT)  # noqa: F841  同時に書き換えないためのロック（プロセス終了まで保持）
     picks_all = json.loads((ROOT / "research" / "picks.json").read_text(encoding="utf-8"))
     # hidden_from_index の付いたカテゴリ（例: 特定の記事だけで使う商品）は、トップページには出さない
     picks = [s for s in picks_all if not s.get("hidden_from_index")]
@@ -372,8 +394,12 @@ def main() -> None:
     body = []
     ld_items = []
     position = 0
+    missing = [i["itemCode"] for sec in picks for i in sec["items"] if i["itemCode"] not in items]
+    if missing:
+        sys.exit(f"items.json に無い商品コードが picks.json にあります（何も書き込まずに中止）: {', '.join(missing)}")
+    check_items_have_affiliate(items, [i["itemCode"] for sec in picks for i in sec["items"]], "持ち物・グッズページの生成")
     for sec in picks:
-        sid, title, lead = sec["id"], sec["title"], sec["lead"]
+        sid, title, lead = esc(sec["id"]), esc(sec["title"]), esc(sec["lead"])
         tips = "\n".join(f"          <li>{html.escape(t)}</li>" for t in sec.get("tips", []))
         cards_data = [(items[i["itemCode"]], i["name"], i.get("desc", ""), i.get("for_whom", ""), i.get("used"))
                       for i in sec["items"]]
@@ -397,10 +423,9 @@ def main() -> None:
     used_note = ("一部の商品は、実際に旅行で使用したうえで紹介しています。商品カードの「実際に使っています」のバッジが目印です。"
                  if any_used else
                  "掲載している商品は、私たちが実際に使って確かめたものではありません。商品ページの情報とレビューをもとに紹介しています。")
-    json_ld = json.dumps(
+    json_ld = json_for_script(
         {"@context": "https://schema.org", "@type": "ItemList", "name": f"{SITE_NAME} 掲載商品",
          "itemListElement": ld_items},
-        ensure_ascii=False,
     )
     full_title = f"旅の持ち物・グッズ | {SITE_NAME}"
     full_desc = f"{GOODS_TAGLINE}。バックパック、スーツケース、圧縮袋、モバイルバッテリーなど、楽天市場のレビューをもとに厳選して紹介します。"
@@ -464,11 +489,12 @@ def main() -> None:
 </body>
 </html>
 """
-    (ROOT / "docs" / "goods.html").write_text(page, encoding="utf-8")
-    (ROOT / "docs" / "index.html").write_text(build_home(), encoding="utf-8")
+    # 2ページとも作り終えてから書き込む（途中で失敗したとき goods と index が新旧混在にならないように）
+    home = build_home()
+    write_all({docs_dir(ROOT) / "goods.html": page, docs_dir(ROOT) / "index.html": home})
 
     sitemap.build()
-    favicon = ROOT / "docs" / "favicon.svg"
+    favicon = docs_dir(ROOT) / "favicon.svg"
     if not favicon.exists():
         favicon.write_text(
             '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
@@ -478,6 +504,9 @@ def main() -> None:
             "</svg>",
             encoding="utf-8",
         )
+    orphans = orphan_blog_pages(docs_dir(ROOT), {q["slug"] for q in load_blog_posts()})
+    if orphans:
+        warn("公開対象に無いのに docs/ に残っているページ（削除はしていません。公開を止めるなら手動で確認）: " + ", ".join(orphans))
     print("生成しました: docs/index.html, docs/goods.html, robots.txt, sitemap.xml, favicon.svg")
 
 

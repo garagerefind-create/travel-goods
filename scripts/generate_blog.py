@@ -4,6 +4,9 @@
 - 各記事の本文は content/blog/<slug>.html に書く（<article> の中身のみ）
 - 記事が1件もなくても、一覧ページ(docs/blog.html)は生成する（近日公開のプレースホルダー）
 - 書き方の詳しいルールは content/blog/README.md を参照
+- status: "draft" の記事と、公開日（published）が未来の記事は生成しない
+- 公開対象から外れた記事の docs/blog-*.html は削除せず、警告で知らせる
+- 宿の紹介ボックスを作るときに RAKUTEN_AFFILIATE_ID が無ければ中止する
 """
 import html
 import json
@@ -18,6 +21,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sitemap  # noqa: E402
 from generate import PERSONAS, SITE_NAME, image_of, page_shell, stay_card  # noqa: E402
 from build import load_dotenv  # noqa: E402
+from safety import (blog_meta_path, check_items_have_affiliate, docs_dir, esc, orphan_blog_pages,  # noqa: E402
+                    hold_site_lock, publishable_posts, today,
+                    require_affiliate_id, require_https_url, warn, write_all)
 
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_PATH = ROOT / "research" / "blog_posts.json"
@@ -112,12 +118,10 @@ def fill_product_markers(slug: str, frag: str, product_refs: dict) -> str:
 # アフィリエイトリンク付きボックスに置き換わる（アフィリエイトIDは .env から読む）。
 def hotel_cta_html(hotel_no: str, name: str, tiktok: str = "") -> str:
     page = f"https://travel.rakuten.co.jp/HOTEL/{hotel_no}/{hotel_no}.html"
-    aid = os.environ.get("RAKUTEN_AFFILIATE_ID")
-    if aid:
-        q = urllib.parse.quote(page, safe="")
-        url = f"https://hb.afl.rakuten.co.jp/hgc/{aid}/?pc={q}&m={q}"
-    else:
-        url = page
+    # アフィリエイトIDが無いまま通常リンクで出すと、気づかないうちに収益が消えるため止める
+    aid = require_affiliate_id("宿の紹介ボックスの生成")
+    q = urllib.parse.quote(page, safe="")
+    url = f"https://hb.afl.rakuten.co.jp/hgc/{aid}/?pc={q}&m={q}"
     tt = (f"""
         <a class="hc-btn hc-tiktok" href="{html.escape(tiktok)}" target="_blank" rel="noopener">TikTokで動画を見る →</a>
         <p class="hc-tiktok-note">スマホのTikTokアプリで開くと、動画からそのまま予約できます</p>""" if tiktok else "")
@@ -136,9 +140,14 @@ def load_posts() -> list[dict]:
     for p in posts:
         if not (p.get("slug") or "").replace("-", "").isalnum():
             sys.exit(f"不正な slug です: {p.get('slug')!r}（半角英数とハイフンのみ）")
+    # 下書き（status: draft）と公開日が未来の記事は、本文があっても生成しない
+    posts = publishable_posts(posts)
+    for p in posts:
         frag = CONTENT_DIR / f"{p['slug']}.html"
         if not frag.exists():
             sys.exit(f"本文ファイルが見つかりません: {frag}")
+        if p.get("tiktok"):
+            require_https_url(p["tiktok"], f"{p['slug']} の tiktok")
     return sorted(posts, key=lambda p: p["published"], reverse=True)
 
 
@@ -146,11 +155,12 @@ def build_post(post: dict) -> str:
     frag = (CONTENT_DIR / f"{post['slug']}.html").read_text(encoding="utf-8")
     frag = fill_product_markers(post["slug"], frag, post.get("product_refs", {}))
     frag = fill_hotel_markers(frag, post.get("tiktok", ""))
+    # 本文（content/blog/*.html）は筆者が書くHTMLなので、意図どおりそのまま埋め込む
     label = TYPE_LABEL.get(post.get("type"), "")
     pub = date.fromisoformat(post["published"])
     body = f"""    <article class="article">
-      <p class="post-meta"><span class="tag">{html.escape(label)}</span> {pub:%Y年%m月%d日}</p>
-      <h1>{html.escape(post['title'])}</h1>
+      <p class="post-meta"><span class="tag">{esc(label)}</span> {pub:%Y年%m月%d日}</p>
+      <h1>{esc(post['title'])}</h1>
 {frag}
       <p><a href="blog.html">← 旅行記の一覧へ戻る</a></p>
     </article>"""
@@ -206,14 +216,26 @@ def build_index(posts: list[dict]) -> str:
 
 
 def main() -> None:
+    _lock = hold_site_lock(ROOT)  # noqa: F841  同時に書き換えないためのロック（プロセス終了まで保持）
     load_dotenv(ROOT / ".env")
     posts = load_posts()
-    for p in posts:
-        (ROOT / "docs" / f"blog-{p['slug']}.html").write_text(build_post(p), encoding="utf-8")
-    (ROOT / "docs" / "blog.html").write_text(build_index(posts), encoding="utf-8")
-    if posts:
-        META_PATH.write_text(json.dumps({"updated": posts[0]["published"]}), encoding="utf-8")
+    # 記事で使う商品が affiliateUrl を失っていたら、通常リンクで出さずに止める
+    items = json.loads((ROOT / "research" / "items.json").read_text(encoding="utf-8"))
+    codes = [c for p in posts for cs in (p.get("product_refs") or {}).values() for c in cs]
+    missing = [c for c in codes if c not in items]
+    if missing:
+        sys.exit(f"items.json に無い商品コードを記事が参照しています（何も書き込まずに中止）: {', '.join(missing)}")
+    check_items_have_affiliate(items, codes, "旅行記の商品リンク")
+    # すべての記事を作り終えてから書き込む（途中で失敗したとき新旧混在にしない）
+    files = {docs_dir(ROOT) / f"blog-{p['slug']}.html": build_post(p) for p in posts}
+    files[docs_dir(ROOT) / "blog.html"] = build_index(posts)
+    # 一覧の更新日：最新の公開記事の公開日。公開記事が0件になったときは、一覧が変わった日として今日の日付
+    files[blog_meta_path(ROOT)] = json.dumps({"updated": posts[0]["published"] if posts else today().isoformat()})
+    write_all(files)
     sitemap.build()
+    orphans = orphan_blog_pages(docs_dir(ROOT), {p["slug"] for p in posts})
+    if orphans:
+        warn("公開対象に無いのに docs/ に残っているページ（削除はしていません。公開を止めるなら手動で確認）: " + ", ".join(orphans))
     print(f"生成しました: docs/blog.html ＋ 記事{len(posts)}件")
 
 
