@@ -963,6 +963,43 @@
      "recommend_for": "",
      "photos": []
     }
+   },
+   {
+    "itemCode": "wishsun:10000101",
+    "name": "ペットウォーターボトル（WISH SUN）",
+    "desc": "散歩や休憩中に水をあげられる携帯用の給水ボトル。",
+    "for_whom": "SAや観光地での休憩中に、愛犬にさっと水をあげたい人向け",
+    "scenes": [
+     "dog",
+     "car"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "goodlifestyle:10000167",
+    "name": "充電式湯たんぽ（グッドライフスタイル）",
+    "desc": "お湯を使わず、充電して温める蓄熱式の湯たんぽ。",
+    "for_whom": "冷え込む季節の宿や車内で、寒さ対策をしたい人向け",
+    "scenes": [
+     "dog",
+     "hotel",
+     "car"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
    }
   ]
  },
@@ -997,6 +1034,86 @@
     "for_whom": "歩きながらの撮影が多く、手ブレの少ない映像を撮りたい人向け",
     "scenes": [
      "photo"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "stay-goods",
+  "title": "宿のタイプ別 旅行グッズ",
+  "lead": "宿のタイプ別に、記事で紹介している旅行グッズです。",
+  "hidden_from_index": true,
+  "tips": [],
+  "items": [
+   {
+    "itemCode": "bestselectmart:10000142",
+    "name": "吊り下げトラベルポーチ（ベストセレクトマート）",
+    "desc": "フックに吊るして使えるトラベルポーチ。",
+    "for_whom": "洗面台が狭い宿でも、置き場所に困らずに使いたい人向け",
+    "scenes": [
+     "hotel",
+     "onsen"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "yukinosizuku:10010488",
+    "name": "サウナハット（YuLago）",
+    "desc": "サウナや大浴場で使えるタオル地のハット。",
+    "for_whom": "サウナ付きの宿や温泉でサウナを楽しみたい人向け",
+    "scenes": [
+     "onsen",
+     "hotel"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "yuyanotemiyage:10000526",
+    "name": "入浴剤 バラエティ20個セット（湯屋の手土産）",
+    "desc": "個包装の入浴剤20個セット。",
+    "for_whom": "旅の前後に、家のお風呂で温泉気分を楽しみたい人向け",
+    "scenes": [
+     "onsen"
+    ],
+    "used": {
+     "is_used": false,
+     "trip": "",
+     "pros": "",
+     "cons": "",
+     "recommend_for": "",
+     "photos": []
+    }
+   },
+   {
+    "itemCode": "griptone:10005349",
+    "name": "GPT スーツケースベルト TSAロック（グリプトン）",
+    "desc": "TSAロック付きのスーツケースベルト。",
+    "for_whom": "空港のターンテーブルで、自分のスーツケースの目印がほしい人向け",
+    "scenes": [
+     "flight",
+     "overseas"
     ],
     "used": {
      "is_used": false,

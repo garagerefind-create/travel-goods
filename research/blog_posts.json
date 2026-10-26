@@ -59,5 +59,23 @@
     "excerpt": "千葉県富津市・金谷の「BAYSIDE KANAYA」に犬と泊まってきました。大型犬と小型犬で分かれたドッグラン、海の目の前の部屋、伊勢海老やアワビの本格BBQを写真つきで紹介します。",
     "persona": "犬連れ",
     "cover": "img/bayside-kanaya-dog/dogrun.jpg"
+  },
+  {
+    "slug": "rakuten-travel-goods-by-stay-type",
+    "title": "宿のタイプ別に選ぶ、楽天でレビューが多い旅行グッズ8選【秋冬の旅】",
+    "type": "guide",
+    "published": "2026-10-26",
+    "updated": "2026-10-26",
+    "excerpt": "温泉宿・一人旅・家族旅行・犬連れ旅など宿のタイプ別に、楽天市場のレビュー数と評価で選んだ旅行グッズ8つを、気になる点とあわせてまとめました。",
+    "product_refs": {
+      "pouch": ["bestselectmart:10000142"],
+      "saunahat": ["yukinosizuku:10010488"],
+      "bath": ["yuyanotemiyage:10000526"],
+      "pillow": ["inamical:10000000"],
+      "compress": ["value-create:10000010"],
+      "belt": ["griptone:10005349"],
+      "water": ["wishsun:10000101"],
+      "yutanpo": ["goodlifestyle:10000167"]
+    }
   }
 ]
