@@ -19,6 +19,30 @@ PY = sys.executable
 GIT_ENV = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.invalid",
            "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.invalid"}
 
+# ---------- テストで使う日付 ----------
+# 日付を決め打ちにすると、新しい記事を足すたびに「その記事はまだ公開日前」と扱われてテストが落ちる。
+# そこで、実データ（research/）の公開済み記事のいちばん新しい公開日から、テスト用の日付を毎回求める。
+#   TODAY  … 公開判定に使う「今日」。本当の今日（日本時間）か「最新の公開日の翌日」の遅い方
+#   NEWER  … テストで足す「いちばん新しい記事」の公開日（= TODAY。既存のどの記事よりも新しい）
+#   FUTURE … まだ公開してはいけない未来日（TODAY の7日後）
+def _test_dates():
+    from datetime import date, datetime, timedelta, timezone
+    real_today = datetime.now(timezone(timedelta(hours=9))).date()
+    entries = (json.loads((REPO / "research/blog_posts.json").read_text(encoding="utf-8"))
+               + json.loads((REPO / "research/articles.json").read_text(encoding="utf-8")))
+    dates = [date.fromisoformat(e["published"]) for e in entries
+             if e.get("status") != "draft" and e.get("published")]
+    published = [d for d in dates if d <= real_today]
+    scheduled = [d for d in dates if d > real_today]  # 予約投稿（公開日がまだ先の記事）
+    today = max([real_today] + [d + timedelta(days=1) for d in published])
+    if scheduled and today >= min(scheduled):
+        today = real_today  # 予約投稿をテストの中で先に公開してしまわないようにする
+    return today.isoformat(), today.isoformat(), (today + timedelta(days=7)).isoformat()
+
+
+TODAY, NEWER, FUTURE = _test_dates()
+INITIAL_BLOG_META = json.loads((REPO / "research/blog_meta.json").read_text(encoding="utf-8"))["updated"]
+
 FAKE_REFRESH = r'''
 import sys
 sys.path.insert(0, sys.argv[1] + "/scripts")
@@ -42,7 +66,7 @@ class SiteCase(unittest.TestCase):
         self.root = self.tmp / "site"
         shutil.copytree(REPO, self.root, ignore=shutil.ignore_patterns(".git", ".env", ".claude", "__pycache__", "tests"))
         self.env = {k: v for k, v in os.environ.items() if not k.startswith(("RAKUTEN_", "TG_"))}
-        self.env.update({"RAKUTEN_AFFILIATE_ID": "DUMMYAFF", "TG_TODAY": "2026-10-24"})
+        self.env.update({"RAKUTEN_AFFILIATE_ID": "DUMMYAFF", "TG_TODAY": TODAY})
 
     def tearDown(self):
         shutil.rmtree(self.tmp, ignore_errors=True)
@@ -149,10 +173,10 @@ class T3DraftAndFuture(SiteCase):
         self.assert_not_published("zz-draft")
 
     def test_future_post_is_not_published_until_its_date(self):
-        self.add_post(slug="zz-future", published="2026-11-01", updated="2026-11-01")
+        self.add_post(slug="zz-future", published=FUTURE, updated=FUTURE)
         self.gen_all()
         self.assert_not_published("zz-future")
-        self.gen_all(env=dict(self.env, TG_TODAY="2026-11-01"))
+        self.gen_all(env=dict(self.env, TG_TODAY=FUTURE))
         self.assertTrue((self.root / "docs/blog-zz-future.html").exists())
         self.assertIn("zz-future", self.read("docs/sitemap.xml"))
 
@@ -561,7 +585,7 @@ class T10SecondCodexFindings(SiteCase):
                 for p in (self.root / "docs").rglob("*") if p.is_file()}
 
     def add_newer_post(self):
-        return self.add_post(slug="zz-newer", published="2026-10-20", updated="2026-10-20")
+        return self.add_post(slug="zz-newer", published=NEWER, updated=NEWER)
 
     # --- N1：切り替えの途中で止まっても docs/ を自動で戻す ---
     def test_switch_rename_failure_restores_docs(self):
@@ -613,8 +637,8 @@ class T10SecondCodexFindings(SiteCase):
         self.assertEqual(self.snapshot_docs(), before_docs)
         self.assertEqual({p.name: p.read_bytes() for p in (self.root / "research").glob("*.json")}, before_research)
         self.run_script("scripts/build_site.py")
-        self.assertEqual(self.json("research/blog_meta.json")["updated"], "2026-10-20", "本番実行では更新される")
-        self.assertIn("<lastmod>2026-10-20</lastmod>", self.read("docs/sitemap.xml"))
+        self.assertEqual(self.json("research/blog_meta.json")["updated"], NEWER, "本番実行では更新される")
+        self.assertIn(f"<lastmod>{NEWER}</lastmod>", self.read("docs/sitemap.xml"))
 
     def test_check_failure_does_not_change_research(self):
         self.add_newer_post()
@@ -681,7 +705,7 @@ class T11FinalFindings(SiteCase):
                 for p in (self.root / "docs").rglob("*") if p.is_file()}
 
     def add_newer_post(self):
-        return self.add_post(slug="zz-newer", published="2026-10-20", updated="2026-10-20")
+        return self.add_post(slug="zz-newer", published=NEWER, updated=NEWER)
 
     # --- 指摘1：docs/ と blog_meta の確定処理 ---
     def test_crash_after_switch_completes_blog_meta_on_next_run(self):
@@ -689,17 +713,17 @@ class T11FinalFindings(SiteCase):
         r = self.run_script("-c", CRASH_WRAPPER.replace("MODE", "'crash_meta'"), check=False)
         self.assertEqual(r.returncode, 8)
         self.assertTrue((self.root / "docs/blog-zz-newer.html").exists(), "（前提）新しい docs/ は置かれている")
-        self.assertEqual(self.json("research/blog_meta.json")["updated"], "2026-10-16", "（前提）更新日は未反映")
+        self.assertEqual(self.json("research/blog_meta.json")["updated"], INITIAL_BLOG_META, "（前提）更新日は未反映")
         r = self.run_script("scripts/build_site.py", "--dry-run")
         self.assertIn("後処理", r.stdout)
-        self.assertEqual(self.json("research/blog_meta.json")["updated"], "2026-10-20", "次回の実行で反映が完了する")
+        self.assertEqual(self.json("research/blog_meta.json")["updated"], NEWER, "次回の実行で反映が完了する")
         self.assertFalse((self.root / ".build_site.pending.json").exists())
 
     def test_normal_run_does_not_report_recovery(self):
         self.add_newer_post()
         r = self.run_script("scripts/build_site.py")
         self.assertNotIn("前回の切り替え", r.stdout, "通常の実行で復旧メッセージを出さない")
-        self.assertEqual(self.json("research/blog_meta.json")["updated"], "2026-10-20")
+        self.assertEqual(self.json("research/blog_meta.json")["updated"], NEWER)
 
     def test_switch_failure_keeps_blog_meta_and_clears_record(self):
         self.add_newer_post()
@@ -754,7 +778,7 @@ class T11FinalFindings(SiteCase):
             p["status"] = "draft"
         self.write_json("research/blog_posts.json", posts)
         self.run_script("scripts/build_site.py")
-        self.assertEqual(self.json("research/blog_meta.json")["updated"], "2026-10-24")
+        self.assertEqual(self.json("research/blog_meta.json")["updated"], TODAY)
         self.assertEqual(list((self.root / "docs").glob("blog-*.html")), [])
 
 
